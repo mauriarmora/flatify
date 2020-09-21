@@ -1,0 +1,11 @@
+class User < ApplicationRecord
+  belongs_to :flat, optional: true
+  has_many :comments, dependent: :destroy
+  has_many :user_expenses
+  has_many :expenses, through: :user_expenses
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+end
