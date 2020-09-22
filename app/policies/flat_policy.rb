@@ -5,7 +5,19 @@ class FlatPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    record.users.include?(user)
+  end
+
   def create?
     !user.nil?
+  end
+
+  def update?
+    record.user_id == user.id
+  end
+
+  def destroy?
+    record.user_id == user.id
   end
 end
