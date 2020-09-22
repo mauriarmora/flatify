@@ -4,4 +4,8 @@ class FlatPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def create?
+    !user.nil?
+  end
 end
