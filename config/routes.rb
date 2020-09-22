@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  get '/users', to: 'users#index'
 
   resources :flats, except: [:index] do
     resources :expenses, except: [:index]
