@@ -1,10 +1,11 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, only: [:show, :edit]
+  before_action :set_flat, only: [:show, :edit, :update, :destroy]
 
   def show; end
 
   def new
     @flat = Flat.new
+    authorize @flat
   end
 
   def create
@@ -21,6 +22,18 @@ class FlatsController < ApplicationController
 
   def edit; end
 
+  def update
+    if @flat.update(flat_params)
+      redirect_to flat_path(@flat)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @flat.destroy
+  end
+
   private
 
   def flat_params
@@ -29,5 +42,6 @@ class FlatsController < ApplicationController
 
   def set_flat
     @flat = Flat.find(params[:id])
+    authorize @flat
   end
 end
