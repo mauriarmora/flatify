@@ -1,0 +1,28 @@
+@import 'pages/index';
+@import 'config/fonts';
+
+
+// Setting default font-families
+
+h1 {
+  font-family: $headers;
+  font-size: 31.25px;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: $headers;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+h3 {
+  font-family: $headers;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+p {
+  font-family: $body;
+  font-size: 16px;
+}
