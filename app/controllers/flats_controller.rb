@@ -1,4 +1,8 @@
 class FlatsController < ApplicationController
+  before_action :set_flat, only: [:show, :edit]
+
+  def show; end
+
   def new
     @flat = Flat.new
   end
@@ -15,9 +19,15 @@ class FlatsController < ApplicationController
     end
   end
 
+  def edit; end
+
   private
 
   def flat_params
     params.require(:flat).permit(:name)
+  end
+
+  def set_flat
+    @flat = Flat.find(params[:id])
   end
 end
