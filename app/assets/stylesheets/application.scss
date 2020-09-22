@@ -1,5 +1,6 @@
 @import 'pages/index';
 @import 'config/fonts';
+@import 'config/colors';
 
 
 // Setting default font-families
@@ -22,7 +23,7 @@ h3 {
   font-weight: 400;
 }
 
-p {
+p, label, a {
   font-family: $body;
   font-size: 16px;
 }
