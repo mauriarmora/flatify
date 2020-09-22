@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :flats, except: [:index] do
+    resources :expenses, except: [:index]
+  end
+
+  resources :expenses, only: [] do
+    resources :comments
+  end
+
+  root to: 'profile#show'
+  get '/user_expenses', to: 'profile#expenses'
+  get '/monthly_summary', to: 'profile#summary'
 end
