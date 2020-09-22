@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  root to: 'profile#show'
+  get '/:id/profile', to: 'profiles#show'
   get '/user_expenses', to: 'profile#expenses'
   get '/monthly_summary', to: 'profile#summary'
 end
