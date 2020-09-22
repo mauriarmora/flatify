@@ -13,7 +13,7 @@ class ExpensesController < ApplicationController
     @flat = Flat.find(params[:flat_id])
     @expense.flat = @flat
     @expense.save
-    raise
+
   end
 
   private
