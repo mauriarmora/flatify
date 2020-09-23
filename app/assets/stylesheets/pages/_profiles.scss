@@ -1,0 +1,94 @@
+.expense-card {
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.expense-content {
+  display: flex;
+}
+
+.expense-info {
+  margin: 4px 0px 4px 0px;
+  .description {
+    font-weight: bold;
+  }
+}
+
+.expense-category-utilities {
+  display: flex;
+  flex-direction: column;
+  border-left: 6px solid #ECC22D;
+  border-radius: 4px;
+  margin: 4px;
+}
+
+.expense-category-other {
+  display: flex;
+  flex-direction: column;
+  border-left: 6px solid #EC5B2D;
+  border-radius: 4px;
+  margin: 4px;
+}
+
+.expense-category-shopping {
+  display: flex;
+  flex-direction: column;
+  border-left: 6px solid #223FD2;
+  border-radius: 4px;
+  margin: 4px;
+}
+
+.expense-category-rent {
+  display: flex;
+  flex-direction: column;
+  border-left: 6px solid #710000;
+  border-radius: 4px;
+  margin: 4px;
+}
+
+.expense-category-pets {
+  display: flex;
+  flex-direction: column;
+  border-left: 6px solid #BA22D2;
+  border-radius: 4px;
+  margin: 4px;
+}
+
+.categories {
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.circle-shopping {
+  color: #223FD2;
+}
+
+.circle-pets {
+  color: #BA22D2;
+}
+
+.circle-rent {
+  color: #710000;
+}
+
+.circle-utilities{
+  color: #ECC22D;
+}
+
+.circle-others {
+  color: #EC5B2D;
+}
+
+.form-submit-summary {
+  input {
+    height: 39px;
+    background: #04AF88;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    padding: 0px 20px 0px 20px;
+    font-family:'Hind', sans-serif;
+  }
+}
