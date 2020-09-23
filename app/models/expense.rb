@@ -5,8 +5,7 @@ class Expense < ApplicationRecord
   has_many :users, through: :user_expenses
   has_many :comments, dependent: :destroy
 
-  CATEGORIES = %w(Shopping Pets General Others)
-
+  CATEGORIES = %w(Shopping Pets Utilities Others)
 
   validates :description, length: { maximum: 400 }
   validates :category, inclusion: { in: CATEGORIES }
