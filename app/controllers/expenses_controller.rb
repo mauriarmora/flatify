@@ -14,6 +14,18 @@ class ExpensesController < ApplicationController
     @expense.flat = @flat
     @expense.save
 
+    users = params[:user_expense][:user][1..-1]
+    users.each do |u|
+      user = User.find_by(first_name: u)
+      user_expense = UserExpense.new(expense: @expense, user: user)
+      user_expense.save
+    end
+
+    if @expense.save
+      redirect_to flat_expense_path(@flat, @expense)
+    else
+      render :new
+    end
   end
 
   private
