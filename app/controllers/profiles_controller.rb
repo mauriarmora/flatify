@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
 
       # @expenses = Expense.where('extract(month from payment_month) = ?', month).where(creator: @user)
     else
-      @user_expenses = UserExpense.where(creator: @user)
+      @user_expenses = UserExpense.where(user: @user)
     end
   end
 
