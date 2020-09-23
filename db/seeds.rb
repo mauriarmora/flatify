@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Destroying all the data..."
-User.destroy_all
 Flat.destroy_all
+User.destroy_all
 Expense.destroy_all
 UserExpense.destroy_all
 
