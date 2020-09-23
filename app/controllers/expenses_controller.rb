@@ -7,6 +7,7 @@ class ExpensesController < ApplicationController
   end
 
   def create
+    raise
     @expense = Expense.new(expense_params)
     authorize @expense
     @expense.creator = current_user
