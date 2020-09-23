@@ -4,11 +4,11 @@ class User < ApplicationRecord
   has_many :user_expenses, dependent: :destroy
   has_many :expenses, through: :user_expenses
   has_one_attached :photo
-
+  has_one :property, foreign_key: "user_id", class_name: "Flat", dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :first_name, :last_name, :email, :password, presence: true
+  validates :first_name, :last_name, presence: true
 end
