@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Destroying all the data..."
-Expense.destroy_all
-Flat.destroy_all
 User.destroy_all
+Flat.destroy_all
+Expense.destroy_all
 UserExpense.destroy_all
 
 puts "Creating the admin of the flat..."
@@ -27,6 +27,9 @@ perfect_flat = Flat.create!(
   name: 'Beautiful flat',
   admin: user_1
 )
+
+user_1.flat = perfect_flat
+user_1.save
 
 puts "Creating the flatmates users..."
 
