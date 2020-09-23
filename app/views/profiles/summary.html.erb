@@ -1,11 +1,32 @@
-<div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <%= Expense::MONTHS[Time.now.month - 1]  %>
-  </a>
 
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <% Expense::MONTHS.each do |month| %>
-      <%= link_to month, monthly_summary_path(payment_month: month) %>
+<div class="container">
+<h2>Your expenses this month</h2>
+  <%= simple_form_for(:date, url: monthly_summary_path, method: :get) do |f| %>
+  <%= f.input :date, as: :date, discard_day: true, discard_year: true, label: false %>
+  <%= f.submit 'Search'%>
+  <% end %>
+
+  <div class="categories d-flex my-5">
+    <% @categories.each do |category| %>
+      <div class="category d-flex align-items-center mr-4 py-4">
+        <i class="fas fa-circle circle-<%= category.downcase %> mr-1"></i>
+        <%= category %>
+      </div>
     <% end %>
+  </div>
+
+  <div class="expenses">
+      <% @user_expenses.each do |user_expense| %>
+    <div class="expense-card mt-2">
+      <div class="expense-content">
+        <div class="expense-category-<%= user_expense.expense.category.downcase %>">
+        </div>
+        <div class="expense-info">
+          <strong><p><%= user_expense.expense.description %></p></strong>
+          <p class="mb-0">€ <%= user_expense.expense.amount %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

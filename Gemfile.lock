@@ -249,7 +249,7 @@ DEPENDENCIES
   cloudinary
   devise
   dotenv-rails
-  font-awesome-sass
+  font-awesome-sass (~> 5.13.0)
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
