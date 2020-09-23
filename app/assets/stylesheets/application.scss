@@ -2,12 +2,15 @@
 @import 'components/index';
 @import 'config/fonts';
 @import 'config/colors';
+@import 'components/index';
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
 @import "bootstrap/scss/bootstrap";
 
 // Setting default font-families
+
+* { text-decoration: none; }
 
 h1 {
   font-family: $headers;
