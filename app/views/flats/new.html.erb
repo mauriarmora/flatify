@@ -1,23 +1,26 @@
 <div class="container">
+<h1 class="name-header"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
 
-  <h2>Create a new flat</h2>
-  <%= simple_form_for(@flat) do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="new-flat-form">
+    <h2>Create a new flat</h2>
+    <%= simple_form_for(@flat) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <%= f.input :name %>
+      <%= f.input :name, placeholder: 'Introduce a flat name', label: false %>
 
-    <%= simple_fields_for :users do |u| %>
-      <h2>Add flatmates</h2>
-      <%= u.input :email %>
-      <%= u.input :rent %>
-      <%= link_to 'Add', '#', class: 'btn' %>
-    <% end %>
+      <%#= simple_fields_for :users do |u| %>
+        <h2>Add flatmates</h2>
+        <div data-controller="flat" class="addflatmates">
+          <input id="email-input" data-target="flat.email" type="text" name="email", placeholder="Flatmate email">
+          <input id="rent-input" data-target="flat.rent" type="text" name="flatmate_rent", placeholder="Rent">
+          <div data-action="click->flat#fetchMate" class="add-flat-mate">Add</div>
+        </div>
+      <%# end %>
+      <div id="user-container">
 
-
-
-    <%= f.submit 'Create flat' %>
+      </div>
+      <%= f.submit 'Create flat', class: '' %>
   <% end %>
-
+  </div>
 </div>
-
