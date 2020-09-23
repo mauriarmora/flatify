@@ -1,1 +1,11 @@
 <h1> <%= @user.last_name %> </h1>
+<div class="avatar">
+  <% if user_signed_in? %>
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag(current_user.photo.key) %>
+    <% else %>
+      <%= image_tag('default_avatar.png'), style: 'width:100px;' %>
+    <% end %>
+  <% end %>
+
+</div>
