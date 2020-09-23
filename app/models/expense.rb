@@ -8,7 +8,7 @@ class Expense < ApplicationRecord
   CATEGORIES = %w(Shopping Pets General Others)
 
 
-  validates :description, length: { minimum: 5, maximum: 400 }
+  validates :description, length: { maximum: 400 }
   validates :category, inclusion: { in: CATEGORIES }
   validates :amount, numericality: { only_integer: true }, presence: true
 end
