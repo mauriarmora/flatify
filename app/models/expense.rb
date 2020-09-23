@@ -10,4 +10,8 @@ class Expense < ApplicationRecord
   validates :description, length: { maximum: 400 }
   validates :category, inclusion: { in: CATEGORIES }
   validates :amount, numericality: { only_integer: true }, presence: true
+
+  def self.map_cat_to_color(cat)
+    ["#223FD2", "#BA22D2", "#F8B91A", "#EC5B2D"][CATEGORIES.index(cat)]
+  end
 end

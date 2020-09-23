@@ -7,6 +7,7 @@ class ExpensesController < ApplicationController
   end
 
   def create
+    raise
     @expense = Expense.new(expense_params)
     authorize @expense
     @expense.creator = current_user
@@ -16,7 +17,7 @@ class ExpensesController < ApplicationController
 
     users = params[:user_expense][:user][1..-1]
     users.each do |u|
-      user = User.find_by(first_name: u)
+      user = @flat.users.find_by(first_name: u)
       user_expense = UserExpense.new(expense: @expense, user: user)
       user_expense.save
     end
