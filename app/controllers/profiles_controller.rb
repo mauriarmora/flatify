@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :find_user, only: [:show, :expenses]
+  before_action :find_user, only: [:show, :expenses, :summary]
 
   def show; end
 
@@ -8,7 +8,12 @@ class ProfilesController < ApplicationController
   end
 
   def summary
-    @expenses = Expense.where(payment_month: params[:payment_month])
+    if params[:date]
+      month = params[:date]["date(2i)"]
+      @expenses = Expense.where('extract(month from payment_month) = ?', month).where(creator: @user)
+    else
+      @expenses = Expense.where(creator: @user)
+    end
   end
 
   private
