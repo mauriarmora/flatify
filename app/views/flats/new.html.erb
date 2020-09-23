@@ -1,5 +1,16 @@
 <div class="container">
-<h1 class="name-header"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
+
+  <div class="avatar">
+    <% if user_signed_in? %>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag(current_user.photo.key) %>
+      <% else %>
+        <%= image_tag('default_avatar.png'), style: 'width:100px;' %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <h1 class="name-header"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
 
   <div class="new-flat-form">
     <h2>Create a new flat</h2>
