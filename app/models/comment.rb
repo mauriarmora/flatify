@@ -3,5 +3,5 @@ class Comment < ApplicationRecord
   belongs_to :user
 
   validates :content, presence: true
-  validates :content, length: { minimum: 25, maximum: 10 }
+  validates :content, length: { maximum: 140 }
 end

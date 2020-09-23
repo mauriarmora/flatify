@@ -6,8 +6,10 @@ class ExpensePolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    true # this needs to change
+  end
+
+  def create?
+    true # this needs to change
   end
 end
-
-

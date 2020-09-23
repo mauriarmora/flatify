@@ -5,11 +5,10 @@ class Expense < ApplicationRecord
   has_many :users, through: :user_expenses
   has_many :comments, dependent: :destroy
 
-  CATEGORIES = %w(shopping pets general others)
-  MONTHS = %W(January February March April May June July August September October November December)
+  CATEGORIES = %w(Shopping Pets General Others)
 
-  validates :description, length: { minimum: 25, maximum: 400 }
+
+  validates :description, length: { maximum: 400 }
   validates :category, inclusion: { in: CATEGORIES }
-  validates :payment_month, inclusion: { in: MONTHS }
   validates :amount, numericality: { only_integer: true }, presence: true
 end
