@@ -1,0 +1,12 @@
+<%= simple_form_for([@flat, @expense]) do |f| %>
+    <%= f.input :category, collection: Expense::CATEGORIES, include_blank: false %>
+    <%= f.input :amount %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :payment_month, as: :date, discard_day: true, start_year: Date.today.year - 1, end_year: Date.today.year + 1 %>
+    <%= simple_fields_for :user_expense do |u|  %>
+      <%= u.input :user, collection: User.where(flat: @flat).pluck(:first_name), input_html: { multiple: true } %>
+    <% end %>
+
+    <%= f.submit %>
+<% end %>
+
