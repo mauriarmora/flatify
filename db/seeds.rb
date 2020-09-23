@@ -58,7 +58,7 @@ puts "4 users created!"
 
 expense_1 = Expense.create!(
   amount: 25,
-  category: "shopping",
+  category: "Shopping",
   user_id: user_1.id,
   flat_id: perfect_flat.id,
   payment_month: Date.today,
@@ -67,7 +67,7 @@ expense_1 = Expense.create!(
 
 expense_2 = Expense.create!(
   amount: 10,
-  category: "pets",
+  category: "Pets",
   user_id: user_2.id,
   flat_id: perfect_flat.id,
   payment_month: Date.today,
@@ -78,7 +78,7 @@ puts "2 expenses were created!"
 
 expense_3 = Expense.create!(
   amount: 50,
-  category: "utilities",
+  category: "Utilities",
   user_id: user_3.id,
   flat_id: perfect_flat.id,
   payment_month: Date.new(2020, 8, 28),
@@ -87,7 +87,7 @@ expense_3 = Expense.create!(
 
 expense_4 = Expense.create!(
   amount: 100,
-  category: "shopping",
+  category: "Shopping",
   user_id: user_4.id,
   flat_id: perfect_flat.id,
   payment_month: Date.today,
