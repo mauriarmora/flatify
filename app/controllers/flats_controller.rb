@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, only: [:show, :edit, :update, :destroy]
+  before_action :set_flat, only: [:edit, :update, :destroy]
 
   def show; end
 
@@ -12,9 +12,14 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.admin = current_user
     authorize @flat
-    raise
 
     if @flat.save
+      params[:flatmate_ids].each_with_index do |id, i|
+        user = User.find(id)
+        user.flat = @flat
+        user.rent = params[:rent][i]
+        user.save
+      end
       redirect_to flat_path(@flat)
     else
       render :new
@@ -33,6 +38,12 @@ class FlatsController < ApplicationController
 
   def destroy
     @flat.destroy
+  end
+
+  def fetch_mate
+    user = User.find_by(email: params[:email])
+    skip_authorization
+    render json: user
   end
 
   private

@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get '/profile', to: 'profiles#show'
   get '/user_expenses', to: 'profiles#expenses'
   get '/monthly_summary', to: 'profiles#summary'
+
+  get '/fetch_mate', to: 'flats#fetch_mate'
 end
