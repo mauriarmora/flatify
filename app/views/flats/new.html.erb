@@ -1,1 +1,23 @@
-new.html.erb
+<div class="container">
+
+  <h2>Create a new flat</h2>
+  <%= simple_form_for(@flat) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <%= f.input :name %>
+
+    <%= simple_fields_for :users do |u| %>
+      <h2>Add flatmates</h2>
+      <%= u.input :email %>
+      <%= u.input :rent %>
+      <%= link_to 'Add', '#', class: 'btn' %>
+    <% end %>
+
+
+
+    <%= f.submit 'Create flat' %>
+  <% end %>
+
+</div>
+
