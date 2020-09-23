@@ -9,7 +9,7 @@
       <input type="radio" class="hidden" value="<%= category %>" name="expense[category]" id="post_category_<%= category %>">
       <label data-color="<%= Expense.map_cat_to_color(category) %>" class="category-choice" for="post_category_<%= category %>" style="border-color: <%= Expense.map_cat_to_color(category) %>">
         <%= category %>
-        <i class="fa fa-check"></i>
+
       </label>
     <% end %>
    </div>
