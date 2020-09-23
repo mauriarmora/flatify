@@ -7,13 +7,13 @@
     <div class="category-choices">
     <% Expense::CATEGORIES.each do |category| %>
       <input type="radio" class="hidden" value="<%= category %>" name="expense[category]" id="post_category_<%= category %>">
-      <label class="category-choice" for="post_category_<%= category %>">
+      <label data-color="<%= Expense.map_cat_to_color(category) %>" class="category-choice" for="post_category_<%= category %>" style="border-color: <%= Expense.map_cat_to_color(category) %>">
         <%= category %>
         <i class="fa fa-check"></i>
       </label>
     <% end %>
    </div>
-    <%= f.input :amount, placeholder: "E.g. €19.50" %>
+    <%= f.input :amount, placeholder: "€0.00" %>
     <%= f.input :description, as: :text, placeholder: "E.g. Bought more beers for the fridge." %>
     <%= f.input :payment_month, as: :date, discard_day: true, start_year: Date.today.year - 1, end_year: Date.today.year + 1 %>
     <%= simple_fields_for :user_expense do |u|  %>
