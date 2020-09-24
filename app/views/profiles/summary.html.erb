@@ -1,4 +1,5 @@
 
+<%= render "shared/navbar" %>
 <div class="container">
 
   <div class="avatar my-4 text-center">
@@ -17,39 +18,45 @@
     <% end %>
     <%= pie_chart data, colors: colors %>
   </div>
-
-  <div class="form d-flex justify-content-center">
-    <div class="form-body flex-grow">
-      <%= simple_form_for(:date, url: monthly_summary_path, method: :get) do |f| %>
-      <%= f.input :date, as: :date, discard_day: true, discard_year: true, label: false %>
-    </div>
-      <div class="form-submit-summary">
-        <%= f.submit 'Search'%>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="categories d-flex mb-5 mt-2 justify-content-around">
-    <% @categories.each do |category| %>
-      <div class="category d-flex align-items-center py-4">
-        <i class="fas fa-circle circle-<%= category.downcase %> mr-1"></i>
-        <p class="mb-0"><%= category %></p>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="expenses">
-    <% @user_expenses.each do |user_expense| %>
-    <div class="expense-card mt-2">
-      <div class="expense-content">
-        <div class="expense-category-<%= user_expense.expense.category.downcase %>">
-        </div>
-        <div class="expense-info">
-          <p class="description"><%= user_expense.expense.description %></p>
-          <p class="mb-0">€ <%= user_expense.expense.amount %></p>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+
+  <div class="wrapper-profile">
+    <div class="container pt-5">
+      <div class="form d-flex justify-content-center">
+        <div class="form-body flex-grow">
+          <%= simple_form_for(:date, url: monthly_summary_path, method: :get) do |f| %>
+          <%= f.input :date, as: :date, discard_day: true, discard_year: true, label: false %>
+        </div>
+          <div class="form-submit-summary">
+            <%= f.submit 'Search'%>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="categories d-flex mb-5 mt-2 justify-content-around">
+        <% @categories.each do |category| %>
+          <div class="category d-flex align-items-center py-4">
+            <i class="fas fa-circle circle-<%= category.downcase %> mr-1"></i>
+            <p class="mb-0"><%= category %></p>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="expenses">
+        <% @user_expenses.each do |user_expense| %>
+        <div class="expense-card mt-2">
+          <div class="expense-content">
+            <div class="expense-category-<%= user_expense.expense.category.downcase %>">
+            </div>
+            <div class="expense-info">
+              <p class="description"><%= user_expense.expense.description %></p>
+              <p class="mb-0">€ <%= user_expense.expense.amount %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
