@@ -3,20 +3,24 @@
 <div class="container">
 
   <h1 id="homepage-title"><%= @flat.name %></h1>
-  <div class="main-avatar-container">
-    <img class="mediu-avatar" src="<%= current_user.photo_url  %>">
-  </div>
 
-  <div class="avatars-container">
-    <% @flat.users.each do |user| %>
-      <%= image_tag user.photo_url, class:'small-avatar' %>
-    <% end %>
-  </div>
+  <div class="balance-card">
+    <div class="user-balance">
+      <div class="user-image">
+        <img class="medium-avatar" src="<%= current_user.photo_url  %>">
+      </div>
+      <h1>€200</h1>
+    </div>
 
-  <div class="current-balance">
-    <h3>Current balance</h3>
-    <h1>€200</h1>
-    <p>of €1.200</p>
+    <div class="others-balance">
+      <div class="flatmates-container">
+        <% @flat.users.each do |user| %>
+          <%= image_tag user.photo_url, class:'small-avatar' %>
+          <%= image_tag user.photo_url, class:'small-avatar' %>
+        <% end %>
+      </div>
+       <h3><span>Total: </span>€1.200</h3>
+    </div>
   </div>
 
   <%= link_to 'Create an expense', 'new_flat_expense_path', class:'primarybtn' %>

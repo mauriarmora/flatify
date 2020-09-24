@@ -16,7 +16,7 @@ class User < ApplicationRecord
     if photo.attached?
       photo.service_url
     else
-      'https://res.cloudinary.com/dinkluxtp/image/upload/v1600939520/default_avatar_mk0gcl.png'
+      'https://res.cloudinary.com/dinkluxtp/image/upload/v1600952449/default_avatar_lx6rcs.png'
     end
   end
 
