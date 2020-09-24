@@ -27,8 +27,10 @@ class FlatsController < ApplicationController
         user.flat = @flat
         user.rent = params[:rent][i]
         user.save
+        current_user.flat = @flat
+        current_user.save
       end
-      redirect_to flat_path(@flat)
+      redirect_to root_path
     else
       render :new
     end
