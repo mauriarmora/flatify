@@ -5,6 +5,7 @@ class FlatsController < ApplicationController
     if current_user.flat
       @flat = current_user.flat
       authorize @flat
+      @expenses = @flat.expenses
     else
       skip_authorization
       redirect_to new_flat_path
