@@ -2,9 +2,14 @@ class FlatsController < ApplicationController
   before_action :set_flat, only: [:edit, :update, :destroy]
 
   def show
-    @flat = current_user.flat
-    # authorize @flat
-    skip_authorization
+    if current_user.flat
+      @flat = current_user.flat
+      authorize @flat
+    else
+      skip_authorization
+      redirect_to new_flat_path
+    end
+
   end
 
   def new
@@ -46,8 +51,15 @@ class FlatsController < ApplicationController
 
   def fetch_mate
     user = User.find_by(email: params[:email])
+    user_hash = user.attributes
+    if user.photo.attached?
+      user_hash["image_url"] = "https://res.cloudinary.com/dinkluxtp/image/upload/#{user.photo.key}.png"
+    else
+      user_hash["image_url"] = "http://localhost:3000/assets/default_avatar.png"
+    end
+
     skip_authorization
-    render json: user
+    render json: user_hash
   end
 
   private

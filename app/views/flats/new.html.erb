@@ -5,7 +5,7 @@
       <% if current_user.photo.attached? %>
         <%= cl_image_tag(current_user.photo.key) %>
       <% else %>
-        <%= image_tag('default_avatar.png'), style: 'width:100px;' %>
+        <%= image_tag 'default_avatar.png', style: 'width:100px;' %>
       <% end %>
     <% end %>
   </div>
@@ -20,14 +20,12 @@
 
       <%= f.input :name, placeholder: 'Introduce a flat name', label: false %>
 
-      <%#= simple_fields_for :users do |u| %>
         <h2>Add flatmates</h2>
         <div data-controller="flat" class="addflatmates">
           <input id="email-input" data-target="flat.email" type="text" name="email", placeholder="Flatmate email">
           <input id="rent-input" data-target="flat.rent" type="text" name="flatmate_rent", placeholder="Rent">
           <div data-action="click->flat#fetchMate" class="add-flat-mate">Add</div>
         </div>
-      <%# end %>
       <div id="user-container">
 
       </div>
