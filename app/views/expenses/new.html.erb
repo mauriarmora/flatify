@@ -1,4 +1,6 @@
 
+ <i class="fas fa-arrow-left"></i>
+
 
   <h1 id="expense-header"><strong>New expense</strong></h1>
   <h2 id="categories-header"><strong>Categories</strong></h2>
@@ -32,7 +34,7 @@
             <%= user.first_name %>
           </label>
         <% end %>
-      <%= f.input :photo, as: :file, input_html: { class: 'd-none'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+      <%= f.input :photo, as: :file, input_html: { class: 'd-none'}, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera-retro"></i> Upload a photo'.html_safe %>
       </div>
       <div class="expense-button">
         <%= f.submit class: "primarybtn expense-button-centered" %>
