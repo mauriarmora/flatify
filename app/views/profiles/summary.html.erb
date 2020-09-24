@@ -1,14 +1,8 @@
 
 <div class="container">
 
-  <div class="avatar mb-4">
-    <% if user_signed_in? %>
-      <% if current_user.photo.attached? %>
-        <%= cl_image_tag(current_user.photo.key) %>
-      <% else %>
-        <%= image_tag 'default_avatar.png', style: 'width:100px;' %>
-      <% end %>
-    <% end %>
+  <div class="avatar my-4 text-center">
+    <%= image_tag @user.photo_url, class: 'big-avatar' %>
   </div>
 
 <h2>This are your expenses for <%= @months[@month.to_i - 1]%> </h2>
