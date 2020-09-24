@@ -22,14 +22,16 @@
 
         <h2>Add flatmates</h2>
         <div data-controller="flat" class="addflatmates">
-          <input id="email-input" data-target="flat.email" type="text" name="email", placeholder="Flatmate email">
-          <input id="rent-input" data-target="flat.rent" type="text" name="flatmate_rent", placeholder="Rent">
+          <input id="email-input" class="email-input" data-target="flat.email" type="text" name="email", placeholder="Flatmate email">
+          <input id="rent-input" class="rent-input" data-target="flat.rent" type="text" name="flatmate_rent", placeholder="Rent">
           <div data-action="click->flat#fetchMate" class="add-flat-mate">Add</div>
         </div>
       <div id="user-container">
 
       </div>
-      <%= f.submit 'Create flat', class: '' %>
+      <div class="form-submit-new">
+       <%= f.submit 'Create flat' %>
+      </div>
   <% end %>
   </div>
 </div>
