@@ -6,8 +6,6 @@
   letter-spacing: 1px;
   font-weight: 500 !important;
   display: inline-block !important;
-  position: absolute;
-  bottom: 20px;
 }
 
 .secondarybtn {
@@ -18,4 +16,11 @@
   letter-spacing: 1px !important;
   font-weight: 500 !important;
   display: inline-block !important;
+}
+
+.fixed-btn {
+  text-align: center;
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
 }
