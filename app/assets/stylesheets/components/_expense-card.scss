@@ -1,0 +1,38 @@
+.card-expense {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  .small-avatar { margin: 0; }
+}
+
+.color-separator {
+  background-color: black;
+  border-radius: 5px;
+  height: 50px;
+  border: 4px solid black;
+}
+
+.expense-info {
+ width: 50%;
+ p, h3 { margin: 0; }
+}
+
+#expense-card-category {
+  font-weight: 700;
+  width: 25%;
+}
+
+.card-price {
+  width: 25%;
+  text-align: right;
+  h3 {
+    font-weight: 500;
+    margin: 0;
+  }
+  p { margin: 0; }
+}
