@@ -30,6 +30,8 @@ class ExpensesController < ApplicationController
 
   def show
     @expense = Expense.find(params[:id])
+    @creator = User.find(@expense.user_id)
+    @user_amount = @expense.amount / @expense.users.count
 
     skip_authorization
 

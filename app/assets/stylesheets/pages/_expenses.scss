@@ -1,1 +1,21 @@
+.creator-card {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  border-radius: 40px;
+  box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 5%;
+}
 
+.sharing-card-expense {
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 5%;
+  margin-bottom: 12px;
+  font-weight: bolder;
+  p {
+    width: 45%;
+    margin-left: 10px;
+  }
+}
