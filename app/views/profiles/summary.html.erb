@@ -1,6 +1,20 @@
 
 <div class="container">
+
 <h2>Your expenses this month</h2>
+
+  <div class="avatar"></div>
+
+  <div class="chart mb-4">
+    <% data = UserExpense.joins(:expense).where("user_expenses.user_id = ? and extract(month from expenses.payment_month) = ?", @user.id, @month).group("expenses.category").count %>
+    <% score_colors = {"Utilities" => "#F8B91A", "Shopping" => "#223FD2", "Others" => "#EC5B2D", "Pets" => "#BA22D2", } %>
+    <% colors = [] %>
+    <% data.each do |score, _| %>
+      <% colors << score_colors[score] %>
+    <% end %>
+    <%= pie_chart data, colors: colors %>
+  </div>
+
   <div class="form d-flex justify-content-center">
     <div class="form-body flex-grow">
       <%= simple_form_for(:date, url: monthly_summary_path, method: :get) do |f| %>
