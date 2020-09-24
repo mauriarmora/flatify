@@ -1,3 +1,5 @@
+// MONTHLY SUMMARY
+
 .expense-card {
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
   border-radius: 10px;
@@ -92,4 +94,22 @@
     padding: 0px 20px 0px 20px;
     font-family:'Ubuntu', sans-serif;
   }
+}
+
+// PROFILE
+
+.flat-dhasboard-card {
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.flat-card-content {
+  flex-grow: 1;
+}
+
+.dashboard-btn {
+  background: #04AF88
 }

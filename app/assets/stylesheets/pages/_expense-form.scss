@@ -4,7 +4,7 @@
 
 .form-post {
   background: white;
-  margin-top: 50px;
+  margin-top: 6px;
   padding: 20px;
   border-radius: 5px;
   h1 {
@@ -40,7 +40,7 @@
   flex: 0 0 30%;
   text-align: center;
   &.active {
-    color: white;
+    color: white !important;
     opacity: 1;
   }
 }
@@ -48,3 +48,48 @@
 .hidden {
   display: none;
 }
+
+#expense-header {
+margin-top: 49px;
+margin-left: 19px
+}
+
+#categories-header {
+
+margin-top: 49px;
+margin-left: 19px
+}
+
+.wide-input-dates {
+  width: 160px !important;
+}
+
+.expense-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label-fonts {
+  font-style: headers;
+  font-weight: bolder;
+}
+
+.details-box {
+  color: red;
+}
+
+#expense_amount {
+  font-weight: bolder;
+  font-family: 'Hind', sans-serif;
+  opacity: 0.4;
+  font-size: 50px;
+  border: 1px solid white;
+  text-align: center;
+}
+
+#expense_description {
+  height: 150px;
+  border-radius: 15px;
+}
+
