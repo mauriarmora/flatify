@@ -1,7 +1,19 @@
-.avatar {
-  width: 70px;
-  height: 70px;
+.big-avatar {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
+  margin: 0 auto;
+}
+.mediu-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0 auto;
 }
 
-.profile-avatar {}
+.small-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
