@@ -16,6 +16,7 @@
      </div>
       <%= f.input :amount, label: "Details", label_html: { class: "label-fonts" }, input_html: { class: "details-box" }, placeholder: "€0.00" %>
       <%= f.input :description, label: false, as: :text, placeholder: "E.g. Bought more beers for the fridge." %>
+
       <div class="d-flex justify-content-between">
         <%= f.input :payment_month, as: :date, discard_day: true, discard_year: true, label: false, input_html: { class: "wide-input-dates" } %>
         <!---- start_year: Date.today.year - 1, end_year: Date.today.year + 1 --->
@@ -31,7 +32,7 @@
             <%= user.first_name %>
           </label>
         <% end %>
-
+      <%= f.input :photo, as: :file, input_html: { class: 'd-none'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
       </div>
       <div class="expense-button">
         <%= f.submit class: "primarybtn expense-button-centered" %>
