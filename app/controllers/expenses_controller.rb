@@ -29,6 +29,8 @@ class ExpensesController < ApplicationController
   end
 
   def show
+    @expense = Expense.find(params[:id])
+
     skip_authorization
 
   end
