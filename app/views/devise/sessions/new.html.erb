@@ -1,3 +1,5 @@
+<%= render '/shared/navbar' %>
+
 <div class="container">
   <h2>Log in</h2>
 
@@ -6,7 +8,7 @@
       <%= f.input :email,
                   required: false,
                   autofocus: true,
-                  input_html: { autocomplete: "email" } %>
+                  input_html: { autocomplete: "email", class: 'input' }, label_html: { class: 'label' } %>
       <%= f.input :password,
                   required: false,
                   input_html: { autocomplete: "current-password" } %>

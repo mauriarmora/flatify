@@ -9,6 +9,7 @@ class FlatsController < ApplicationController
       skip_authorization
       redirect_to new_flat_path
     end
+
   end
 
   def new
