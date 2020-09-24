@@ -4,6 +4,7 @@ class Expense < ApplicationRecord
   has_many :user_expenses, dependent: :destroy
   has_many :users, through: :user_expenses
   has_many :comments, dependent: :destroy
+  has_one_attached :photo
 
   CATEGORIES = %w(Shopping Pets Utilities Others)
 
