@@ -7,7 +7,6 @@ class ExpensesController < ApplicationController
   end
 
   def create
-    raise
     @expense = Expense.new(expense_params)
     authorize @expense
     @expense.creator = current_user
@@ -27,6 +26,11 @@ class ExpensesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    skip_authorization
+
   end
 
   private
