@@ -1,12 +1,6 @@
 <div class="container">
   <div class="avatar mb-4 text-center">
-    <% if user_signed_in? %>
-      <% if current_user.photo.attached? %>
-        <%= cl_image_tag(current_user.photo.key) %>
-      <% else %>
-        <%= image_tag 'default_avatar.png', style: 'width:100px;'%>
-      <% end %>
-    <% end %>
+    <%= image_tag @user.photo_url, class: 'big-avatar' %>
   </div>
 
   <h3 class="text-center"><%= @user.first_name %> <%= @user.last_name %></h3>
