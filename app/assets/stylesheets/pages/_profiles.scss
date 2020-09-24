@@ -153,3 +153,25 @@
 .summary {
   background-image: linear-gradient(90deg, rgba(0,0,0,0.4) 100%, rgba(2,0,22,0.2) 0%), url("finance.png");
 }
+
+.profile-container, .navbar-profile {
+  background: #ECECEC;
+}
+
+.profile-avatar {
+  margin-top: 25px !important;
+}
+
+body#profiles{
+  background: #ECECEC;
+}
+
+.wrapper-profile{
+  background: white;
+  border-radius: 20px 20px 0px 0px;
+  min-height: 70vh;
+}
+
+.avatar-container{
+  height: calc(30vh - 50px);
+}

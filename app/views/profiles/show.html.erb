@@ -1,36 +1,41 @@
-<div class="container">
-
-  <%= render: 'shared/navbar' %>
-  <div class="avatar mb-4 text-center">
-    <%= image_tag @user.photo_url, class: 'big-avatar' %>
-  </div>
-
-  <h3 class="text-center"><%= @user.first_name %> <%= @user.last_name %></h3>
-
-
-  <div class="flat-dhasboard-card">
-    <div class="flat-card-content">
-      <p class="mb-0"> <%= @user.flat.name %></p>
-      <% @user.flat.users.each do |user| %>
-        <%= image_tag user.photo_url, class:'small-avatar' %>
-      <% end %>
-    </div>
-    <!---TO DASHBOARD -->
-    <div class="add-flat-mate mr-2">
-      <%= link_to root_path do %>
-        <p class="mb-0">Dashboard</p>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="cards-profile-show">
-    <!---ALL EXPENSES USER CREATED --->
-    <div class="profile-show-card">
-      <p class="mb-0">All my expenses</p>
-    </div>
-    <!--- MONTHLY BALANCE --->
-    <a href="<%= monthly_summary_path %>"class="profile-show-card summary">
-      <p class="mb-0">Monthly balance</p>
-    </a>
-  </div>
+<div class="navbar-profile">
+  <%= render 'shared/navbar' %>
 </div>
+
+
+  <div class="text-center avatar-container">
+    <%= image_tag @user.photo_url, class: 'big-avatar profile-avatar' %>
+  </div>
+
+
+
+    <div class="wrapper-profile">
+      <div class="container pt-5">
+        <h3 class="text-center"><%= @user.first_name %> <%= @user.last_name %></h3>
+        <div class="flat-dhasboard-card">
+          <div class="flat-card-content">
+            <p class="mb-0"> <%= @user.flat.name %></p>
+            <% @user.flat.users.each do |user| %>
+              <%= image_tag user.photo_url, class:'small-avatar' %>
+            <% end %>
+          </div>
+          <!---TO DASHBOARD -->
+          <div class="add-flat-mate mr-2">
+            <%= link_to root_path do %>
+              <p class="mb-0">Dashboard</p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="cards-profile-show">
+          <!---ALL EXPENSES USER CREATED --->
+          <div class="profile-show-card">
+            <p class="mb-0">All my expenses</p>
+          </div>
+          <!--- MONTHLY BALANCE --->
+          <a href="<%= monthly_summary_path %>"class="profile-show-card summary">
+            <p class="mb-0">Monthly balance</p>
+          </a>
+        </div>
+      </div>
+    </div>
