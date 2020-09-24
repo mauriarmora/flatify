@@ -9,6 +9,9 @@
   height: 80px;
   border-radius: 50%;
   margin: 0 auto;
+  &.active {
+    border: 5px solid #04AF88;
+  }
 }
 
 .small-avatar {
