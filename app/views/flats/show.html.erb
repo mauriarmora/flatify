@@ -1,12 +1,24 @@
-<div class="menu-navbar">
-  <p class="container">Flatify</p>
-  <p><i class="fas fa-bars container"></i></p>
-</div>
+<%= render 'shared/navbar' %>
 
 <div class="container">
 
-  <div class="avatar">
-    <img class="avatar" src="<%= current_user.photo_url  %>">
+  <h1 id="homepage-title"><%= @flat.name %></h1>
+  <div class="main-avatar-container">
+    <img class="mediu-avatar" src="<%= current_user.photo_url  %>">
   </div>
+
+  <div class="avatars-container">
+    <% @flat.users.each do |user| %>
+      <%= image_tag user.photo_url, class:'small-avatar' %>
+    <% end %>
+  </div>
+
+  <div class="current-balance">
+    <h3>Current balance</h3>
+    <h1>€200</h1>
+    <p>of €1.200</p>
+  </div>
+
+  <%= link_to 'Create an expense', 'new_flat_expense_path', class:'primarybtn' %>
 
 </div>
