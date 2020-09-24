@@ -4,15 +4,5 @@
 </div>
 
 <div class="container">
-  <div class="avatar">
-    <% if user_signed_in? %>
-      <% if current_user.photo.attached? %>
-        <%= cl_image_tag(current_user.photo.key) %>
-      <% else %>
-        <%= image_tag('default_avatar.png', class: 'avatar') %>
-      <% end %>
-    <% end %>
-
-  </div>
 
 </div>

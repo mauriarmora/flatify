@@ -3,7 +3,8 @@ class FlatsController < ApplicationController
 
   def show
     @flat = current_user.flat
-    authorize @flat
+    # authorize @flat
+    skip_authorization
   end
 
   def new
