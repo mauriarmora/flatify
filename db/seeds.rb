@@ -64,7 +64,8 @@ expense_1 = Expense.create!(
   category: "Shopping",
   user_id: user_1.id,
   flat_id: perfect_flat.id,
-  payment_month: Date.today,
+  payment_month: 'September',
+  payment_year: '2020',
   description: "Toilet paper, coffee, eggs and milk"
   )
 
@@ -73,7 +74,8 @@ expense_2 = Expense.create!(
   category: "Pets",
   user_id: user_2.id,
   flat_id: perfect_flat.id,
-  payment_month: Date.today,
+  payment_month: 'September',
+  payment_year: '2020',
   description: "Food for the cat"
   )
 
@@ -84,7 +86,8 @@ expense_3 = Expense.create!(
   category: "Utilities",
   user_id: user_3.id,
   flat_id: perfect_flat.id,
-  payment_month: Date.new(2020, 8, 28),
+  payment_month: 'September',
+  payment_year: '2020',
   description: "Electricity bill"
   )
 
@@ -93,7 +96,8 @@ expense_4 = Expense.create!(
   category: "Shopping",
   user_id: user_4.id,
   flat_id: perfect_flat.id,
-  payment_month: Date.today,
+  payment_month: 'September',
+  payment_year: '2020',
   description: "I bought everything we need for this Friday's party after the first demo of our project!!"
   )
 
