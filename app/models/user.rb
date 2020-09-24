@@ -11,4 +11,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :first_name, :last_name, presence: true
+
+  def photo_url
+    if photo.attached?
+      photo.service_url
+    else
+      'https://res.cloudinary.com/dinkluxtp/image/upload/v1600939520/default_avatar_mk0gcl.png'
+    end
+  end
+
 end
