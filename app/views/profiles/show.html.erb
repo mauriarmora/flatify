@@ -1,11 +1,22 @@
-<h1> <%= @user.last_name %> </h1>
-<div class="avatar">
-  <% if user_signed_in? %>
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag(current_user.photo.key) %>
-    <% else %>
-      <%= image_tag('default_avatar.png'), style: 'width:100px;' %>
-    <% end %>
-  <% end %>
+<div class="container">
+  <h1> <%= @user.first_name %> <%= @user.last_name %></h1>
 
+  <div class="avatar mb-4">
+    <% if user_signed_in? %>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag(current_user.photo.key) %>
+      <% else %>
+        <%= image_tag 'default_avatar.png', style: 'width:100px;' %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="flat-dhasboard-card">
+    <div class="flat-card-content">
+      <p class="mb-0">Flat's name</p>
+    </div>
+    <div class="add-flat-mate mr-2">
+      <p class="mb-0">Dashboard</p>
+    </div>
+  </div>
 </div>
