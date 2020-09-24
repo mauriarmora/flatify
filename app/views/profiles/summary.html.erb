@@ -1,6 +1,16 @@
 
 <div class="container">
 
+  <div class="avatar mb-4">
+    <% if user_signed_in? %>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag(current_user.photo.key) %>
+      <% else %>
+        <%= image_tag 'default_avatar.png', style: 'width:100px;' %>
+      <% end %>
+    <% end %>
+  </div>
+
 <h2>Your expenses this month</h2>
 
   <div class="avatar"></div>
