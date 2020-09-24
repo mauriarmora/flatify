@@ -9,20 +9,22 @@ export default class extends Controller {
     fetch(`/fetch_mate?email=${emailInput.value}`)
     .then(response => response.json())
     .then((data) => {
-      emailInput.innerText = "";
+      emailInput.value = "";
       console.log(data)
       const htmlEl = `<div class="new-mate-card">
-        <div class="add-mate-card">
-          <img src="${data.image_url}" width="50">
-          <h5>${data.first_name}</h5>
+        <div class="mate-card-complete">
+          <div class="add-mate-card">
+            <img src="${data.image_url}" width="50">
+            <h5>${data.first_name}</h5>
+          </div>
+          <p>€${rentInput.value}</p>
         </div>
-        <p>€${rentInput.value}</p>
 
          <input type="hidden" name="flatmate_ids[]" value="${data.id}" />
          <input type="hidden" name="rent[]" value="${rentInput.value}" />
       </div>`
       userContainer.insertAdjacentHTML("beforeend", htmlEl)
-      rentInput.innerHTML = "";
+      rentInput.value = "";
 
       // ad the card to the front end
     })
