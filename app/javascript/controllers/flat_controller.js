@@ -11,6 +11,7 @@ export default class extends Controller {
       console.log(data)
       const htmlEl = `<div class="new-mate-card">
         <div class="add-mate-card">
+          <img src="${data.image_url}" width="50">
           <h5>${data.first_name}</h5>
         </div>
         <p>€${rentInput.value}</p>
