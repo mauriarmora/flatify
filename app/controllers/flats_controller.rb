@@ -2,8 +2,13 @@ class FlatsController < ApplicationController
   before_action :set_flat, only: [:edit, :update, :destroy]
 
   def show
-    @flat = current_user.flat
-    authorize @flat
+    if current_user.flat
+      @flat = current_user.flat
+      authorize @flat
+    else
+      skip_authorization
+      redirect_to new_flat_path
+    end
   end
 
   def new
