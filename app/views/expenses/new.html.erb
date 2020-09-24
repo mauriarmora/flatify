@@ -11,7 +11,6 @@
         <input type="radio" class="hidden" value="<%= category %>" name="expense[category]" id="post_category_<%= category %>">
         <label data-color="<%= Expense.map_cat_to_color(category) %>" class="category-choice" for="post_category_<%= category %>" style="color: <%= Expense.map_cat_to_color(category) %>" style="border-color: <%= Expense.map_cat_to_color(category) %>">
           <%= category %>
-
         </label>
       <% end %>
      </div>
@@ -23,9 +22,16 @@
         <%= f.input :payment_year, as: :date, discard_day: true, discard_month: true, label: false, start_year: Date.today.year - 1, end_year: Date.today.year + 1, input_html: {class: "wide-input-dates" }  %>
       </div>
       <div class="flatmates-choices">
-        <%= simple_fields_for :user_expense do |u|  %>
-          <%= u.input :user, collection: User.where(flat: @flat).pluck(:first_name), label_html: { class: "label-fonts" }, input_html: { multiple: true } %>
+
+        <% @flat.users.each do |user| %>
+          <input type="checkbox" class="hidden" value="<%= user.id %>" name="user_expense[user][]" id="user_<%= user.id %>">
+          <label for="user_<%= user.id %>">
+
+            <img  class="mediu-avatar" src="<%= user.photo_url %>" alt="">
+            <%= user.first_name %>
+          </label>
         <% end %>
+
       </div>
       <div class="expense-button">
         <%= f.submit class: "primarybtn expense-button-centered" %>

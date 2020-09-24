@@ -15,9 +15,9 @@ class ExpensesController < ApplicationController
     @expense.flat = @flat
     @expense.save
 
-    users = params[:user_expense][:user][1..-1]
-    users.each do |u|
-      user = @flat.users.find_by(first_name: u)
+    user_ids = params[:user_expense][:user]
+    user_ids.each do |id|
+      user = @flat.users.find(id)
       user_expense = UserExpense.new(expense: @expense, user: user)
       user_expense.save
     end

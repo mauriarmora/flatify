@@ -29,6 +29,7 @@
   grid-template-columns: 1fr 1fr;
   justify-content: space-evenly;
   grid-gap: 16px;
+  font-weight: bolder;
 }
 
 .category-choice {
@@ -51,7 +52,8 @@
 
 #expense-header {
 margin-top: 49px;
-margin-left: 19px
+margin-left: 19px;
+
 }
 
 #categories-header {
@@ -75,9 +77,6 @@ margin-left: 19px
   font-weight: bolder;
 }
 
-.details-box {
-  color: red;
-}
 
 #expense_amount {
   font-weight: bolder;
@@ -91,5 +90,9 @@ margin-left: 19px
 #expense_description {
   height: 150px;
   border-radius: 15px;
+}
+
+#user_expense_user {
+  border: 1px solid white;
 }
 
