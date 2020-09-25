@@ -5,6 +5,37 @@
   border-radius: 40px;
   box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.1);
   padding: 10px 5%;
+  position: absolute;
+  top: -80px;
+  left: 90px;
+  background: white;
+  vertical-align: middle;
+}
+
+.information-exp-body {
+  position: relative;
+  margin-top: 50px;
+}
+
+.exp-date {
+  text-align: center;
+}
+
+.backbutn {
+  padding: 8px;
+  background-color: #E9E9E9;
+  color: #A0A0A0;
+  text-decoration: none;
+  width: 30%;
+  border-radius: 20px;
+  position: absolute;
+  top: 22px;
+  size: 70%;
+}
+
+.information-exp-body {
+  border-top-left-radius: 20px;
+  background-color: white;
 }
 
 .sharing-card-expense {
@@ -14,8 +45,102 @@
   padding: 10px 5%;
   margin-bottom: 12px;
   font-weight: bolder;
+  position: relative;
   p {
-    width: 45%;
     margin-left: 10px;
+    margin-top: 9px;
   }
+  .small-avatar {
+    margin: 0px;
+  }
+  .us-nam {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+
+.category-exp-rent {
+  background-color: #710000;
+  padding-bottom: 40px;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.category-exp-shopping {
+  background-color: #223FD2;
+  padding-bottom: 40px;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.category-exp-pets {
+  background-color: #BA22D2;
+  padding-bottom: 40px;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.category-exp-utilities {
+  background-color: #ECC22D;
+  padding-bottom: 40px;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.category-exp-other {
+  background-color: #EC5B2D;
+  padding-bottom: 40px;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.user-amount-rent {
+  background: rgba(113,  0,  0,  0.75);
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-amount-shopping {
+  background: rgba(34,  63,  210,  0.75);
+  border-radius: 10px;
+  margin-top: 46px;
+  margin-bottom: 10px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-amount-pets {
+  background: rgba(186,  34,  210,  0.75);
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-amount-utilities {
+  background: rgba(236,  194,  45,  0.75);
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-amount-other {
+  background: rgba(236,  91,  45,  0.75);
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
 }
