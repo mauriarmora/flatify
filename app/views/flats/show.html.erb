@@ -7,9 +7,7 @@
   <div class="balance-card">
     <div class="user-balance">
       <div class="user-image">
-        <div class="medium-avatar div-avatar" style="background-image: url(<%= current_user.photo_url %>)">
-
-        </div>
+        <div class="medium-avatar" style="background-image: url(<%= current_user.photo_url %>)"></div>
       </div>
       <h1>€200</h1>
     </div>
@@ -17,9 +15,7 @@
     <div class="others-balance">
       <div class="flatmates-container">
         <% @flat.users.each do |user| %>
-        <div class="small-avatar div-avatar" style="background-image: url(<%= user.photo_url %>)">
-
-        </div>
+        <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
         <% end %>
       </div>
        <h3><span>Total: </span>€1.200</h3>
@@ -31,15 +27,15 @@
   <div class="expenses">
     <% @expenses.each do |expense| %>
       <div class="card-expense">
-        <%= image_tag expense.creator.photo_url, class: 'small-avatar' %>
+        <div class="small-avatar" style="background-image: url(<%= expense.creator.photo_url %>)"></div>
         <div class="color-separator"></div>
         <div class="expense-info">
           <h3> <%= expense.category %> </h3>
           <p> <%= expense.created_at %> </p>
         </div>
         <div class="card-price">
-          <h3 id="expense-card-bold"> <%= expense.amount %> </h3>
-          <p> <%= expense.amount / expense.users.count %> </p>
+          <h3 id="expense-card-bold"> <%= (expense.amount == expense.amount.floor ) ? expense.amount.to_int : expense.amount %> </h3>
+          <p> <%= ( (expense.amount / expense.users.count) == (expense.amount / expense.users.count).floor ) ? expense.amount.to_int : expense.amount %> </p>
         </div>
       </div>
     <% end %>
