@@ -12,16 +12,18 @@ class ExpensesController < ApplicationController
     @expense.creator = current_user
     @flat = Flat.find(params[:flat_id])
     @expense.flat = @flat
-    @expense.save
 
-    user_ids = params[:user_expense][:user]
-    user_ids.each do |id|
-      user = @flat.users.find(id)
-      user_expense = UserExpense.new(expense: @expense, user: user)
-      user_expense.save
-    end
+    # unless params[:user_expense]
+    #   @expense.errors.add(:base, "you need to add users")
+    # end
 
-    if @expense.save
+    if @expense.save && params[:user_expense]
+      user_ids = params[:user_expense][:user]
+      user_ids.each do |id|
+        user = @flat.users.find(id)
+        user_expense = UserExpense.new(expense: @expense, user: user)
+        user_expense.save
+      end
       redirect_to flat_expense_path(@flat, @expense)
     else
       render :new
@@ -40,6 +42,6 @@ class ExpensesController < ApplicationController
   private
 
   def expense_params
-    params.require(:expense).permit(:category, :amount, :description, :payment_month, :payment_year)
+    params.require(:expense).permit(:category, :amount, :description, :payment_month, :payment_year, :photo)
   end
 end
