@@ -29,9 +29,9 @@
       <%= f.input :description, label: false, as: :text, placeholder: "E.g. Bought more beers for the fridge." %>
 
       <div class="d-flex justify-content-between">
-        <%= f.input :payment_month, as: :date, discard_day: true, discard_year: true, label: false, input_html: { class: "wide-input-dates" } %>
+        <%= f.input :payment_month,  collection: Expense::MONTHS, selected: Date.today.strftime("%B"),label: false, input_html: { class: "wide-input-dates" }, include_blank: false %>
         <!---- start_year: Date.today.year - 1, end_year: Date.today.year + 1 --->
-        <%= f.input :payment_year, as: :date, discard_day: true, discard_month: true, label: false, start_year: Date.today.year - 1, end_year: Date.today.year + 1, input_html: {class: "wide-input-dates" }  %>
+        <%= f.input :payment_year, label: false, collection: (Date.today.year - 1..Date.today.year + 1), selected: Date.today.year, include_blank: false, input_html: {class: "wide-input-dates" }  %>
       </div>
       <div class="flatmates-choices">
           <h3>Share with</h3>

@@ -9,8 +9,7 @@ class ProfilesController < ApplicationController
 
   def summary
     @categories = Expense::CATEGORIES
-    @months = ["January", "February", "March", "April", "May", "June", "July", "August",
-      "September", "October", "November", "December"]
+    @months = Expense::MONTHS
 
     if params[:date]
       @month = params[:date][:date]
