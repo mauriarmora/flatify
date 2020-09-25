@@ -3,10 +3,14 @@
     <h2><strong>Amount</strong></h2>
     <h1><strong>€ <%= @expense.amount %></strong></h1>
   </div>
+  <div class="backbutn">
+    <%= link_to '< Back to all', root_path %>
+  </div>
 </div>
 
 <div class="wrapper-profile">
-  <div class="container">
+
+  <div class="container pt-5">
     <div class="information-exp-body">
 
       <div class="creator-card">
@@ -16,10 +20,6 @@
 
       <div class="exp-date">
         <p><strong>From:</strong> <%= @expense.created_at.strftime("%d %B %Y") %></p>
-      </div>
-
-      <div class="backbutn">
-        <%= link_to '< Back to all', root_path %>
       </div>
 
       <div class="user-amount-<%= @expense.category.downcase %>">

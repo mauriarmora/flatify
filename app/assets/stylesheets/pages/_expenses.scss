@@ -6,7 +6,7 @@
   box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.1);
   padding: 10px 5%;
   position: absolute;
-  top: -80px;
+  top: -75px;
   left: 90px;
   background: white;
   vertical-align: middle;
@@ -14,7 +14,6 @@
 
 .information-exp-body {
   position: relative;
-  margin-top: 50px;
 }
 
 .exp-date {
@@ -25,12 +24,11 @@
   padding: 8px;
   background-color: #E9E9E9;
   color: #A0A0A0;
-  text-decoration: none;
   width: 30%;
   border-radius: 20px;
   position: absolute;
-  top: 22px;
-  size: 70%;
+  top: 8px;
+  left: 8px;
 }
 
 .information-exp-body {
@@ -61,72 +59,79 @@
 
 
 .category-exp-rent {
-  background-color: #710000;
+  background-color: #118ab2;
   padding-bottom: 40px;
   text-align: center;
   padding-top: 12px;
+  color: white;
 }
 
 .category-exp-shopping {
-  background-color: #223FD2;
+  background-color: #073b4c;
   padding-bottom: 40px;
   text-align: center;
   padding-top: 12px;
+  color: white;
 }
 
 .category-exp-pets {
-  background-color: #BA22D2;
+  background-color: #ef476f;
   padding-bottom: 40px;
   text-align: center;
   padding-top: 12px;
+  color: white;
 }
 
 .category-exp-utilities {
-  background-color: #ECC22D;
+  background-color: #ffd166;
   padding-bottom: 40px;
   text-align: center;
   padding-top: 12px;
 }
 
 .category-exp-other {
-  background-color: #EC5B2D;
+  background-color: #1b4332;
   padding-bottom: 40px;
   text-align: center;
   padding-top: 12px;
+  color: white;
 }
 
 .user-amount-rent {
-  background: rgba(113,  0,  0,  0.75);
+  background: #118ab2;
   border-radius: 10px;
   margin-top: 30px;
   margin-bottom: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
+  color: white;
 }
 
 .user-amount-shopping {
-  background: rgba(34,  63,  210,  0.75);
+  background: #073b4c;
   border-radius: 10px;
   margin-top: 46px;
   margin-bottom: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
+  color: white;
 }
 
 .user-amount-pets {
-  background: rgba(186,  34,  210,  0.75);
+  background: #ef476f;
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
+  color: white;
 }
 
 .user-amount-utilities {
-  background: rgba(236,  194,  45,  0.75);
+  background: #ffd166;
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -136,11 +141,18 @@
 }
 
 .user-amount-other {
-  background: rgba(236,  91,  45,  0.75);
+  background: #1b4332;
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
+  color: white;
+}
+
+.wrapper-profile{
+  background: white;
+  border-radius: 20px 20px 0px 0px;
+  min-height: 70vh;
 }
