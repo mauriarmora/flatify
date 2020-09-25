@@ -12,6 +12,11 @@
   vertical-align: middle;
 }
 
+.total-amount-exp h1 {
+  font-size: 50px;
+  margin-top: 8px;
+}
+
 .information-exp-body {
   position: relative;
 }
@@ -26,7 +31,7 @@
   width: 11%;
   border-radius: 20px;
   position: absolute;
-  top: 65px;
+  top: -15px;
   left: 8px;
 }
 
@@ -56,6 +61,11 @@
   }
 }
 
+.exp-imag {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
 
 .category-exp-rent {
   background-color: #118ab2;
