@@ -24,6 +24,7 @@
 
   <h2 class="mt-3">Expenses</h2>
 
+
   <div class="expenses">
     <% @expenses.each do |expense| %>
       <%= link_to flat_expense_path(current_user.flat, expense) do  %>
