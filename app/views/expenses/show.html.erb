@@ -2,16 +2,11 @@
 
 <div class="category-exp-<%= @expense.category.downcase %>">
   <div class="total-amount-exp">
-    <h2><strong>Amount</strong></h2>
     <h1><strong>€ <%= format_cost(@expense.amount.round(2)) %></strong></h1>
-  </div>
-  <div class="backbutn">
-    <%= link_to '<i class="fas fa-arrow-left back-arrow"></i>'.html_safe, root_path %>
   </div>
 </div>
 
 <div class="wrapper-profile">
-
   <div class="container pt-5">
     <div class="information-exp-body">
 
@@ -21,6 +16,9 @@
       </div>
 
       <div class="exp-date">
+        <div class="backbutn">
+          <%= link_to '<i class="fas fa-arrow-left back-arrow"></i>'.html_safe, root_path %>
+        </div>
         <p><strong>From:</strong> <%= @expense.created_at.strftime("%d %B %Y") %></p>
       </div>
 
@@ -33,6 +31,12 @@
         <h3 class="exp-cat mt-4 mb-3"><strong> <%= @expense.category %> </strong></h3>
         <h3>Description</h3>
         <p> <%= @expense.description.capitalize %> </p>
+
+        <% if @expense.photo.attached? %>
+        <%= image_tag @expense.photo.service_url, class:'exp-imag' %>
+        <% else %>
+        <%= "" %>
+        <% end %>
 
         <h3 class="shared-with mb-3">Shared with</h3>
 
