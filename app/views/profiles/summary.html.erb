@@ -53,7 +53,7 @@
           </div>
           <div class="expense-info">
             <p class="description"><%= user_expense.expense.description %></p>
-            <p class="mb-0">€ <%= user_expense.expense.amount %></p>
+            <p class="mb-0">€ <%= format_cost(user_expense.expense.amount) %></p>
             <% end %>
           </div>
         </div>
