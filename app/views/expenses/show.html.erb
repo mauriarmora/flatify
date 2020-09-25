@@ -6,7 +6,7 @@
     <h1><strong>€ <%= @expense.amount %></strong></h1>
   </div>
   <div class="backbutn">
-    <%= link_to '< Back to all', root_path %>
+    <%= link_to '<i class="fas fa-arrow-left back-arrow"></i>'.html_safe, root_path %>
   </div>
 </div>
 
@@ -36,12 +36,14 @@
 
         <h3 class="shared-with mb-3">Shared with</h3>
           <% @expense.users.each do |user| %>
-            <div class="sharing-card-expense">
+            <div class="card-expense">
               <%= image_tag user.photo_url, class:'small-avatar' %>
               <p><%= user.first_name %></p>
               <p class="us-nam"><strong>€ <%= @user_amount %></strong></p>
             </div>
           <% end %>
+
+
       </div>
 
     </div>
