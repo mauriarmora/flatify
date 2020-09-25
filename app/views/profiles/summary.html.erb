@@ -45,6 +45,7 @@
 
     <div class="expenses">
       <% @user_expenses.each do |user_expense| %>
+
         <div class="expense-card mt-2">
           <div class="expense-content">
             <div class="expense-category-<%= user_expense.expense.category.downcase %>"></div>
@@ -52,6 +53,7 @@
               <p class="description"><%= user_expense.expense.description %></p>
               <p class="mb-0">€ <%= format_cost(user_expense.expense.amount) %></p>
             </div>
+
           </div>
         </div>
       <% end %>
