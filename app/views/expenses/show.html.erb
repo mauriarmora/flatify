@@ -35,16 +35,23 @@
         <p> <%= @expense.description.capitalize %> </p>
 
         <h3 class="shared-with mb-3">Shared with</h3>
-          <% @expense.users.each do |user| %>
-            <div class="card-expense">
-              <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
-              <p><%= user.first_name %></p>
-              <p class="us-nam"><strong>€ <%= @user_amount %></strong></p>
-            </div>
-          <% end %>
-
+          <div class="expenses">
+            <% @expense.users.each do |user| %>
+              <div class="card-expense">
+                <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
+                <div class="color-separator expense-category-<%= @expense.category.downcase %>"></div>
+                <div class="expense-info">
+                  <h3> <%= user.first_name %> </h3>
+                </div>
+                <div class="card-price">
+                  <h2 id="expense-card-bold">€ <%= format_cost(@user_amount) %> </h2>
+                </div>
+              </div>
+             <% end %>
+          </div>
 
       </div>
+
 
     </div>
 
