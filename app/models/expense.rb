@@ -18,7 +18,7 @@ class Expense < ApplicationRecord
     ["#223FD2", "#BA22D2", "#F8B91A", "#EC5B2D"][CATEGORIES.index(cat)]
   end
 
-  def total_flat_expenses
-    @flat.expenses.each { |expense| @total_expenses += expense.amount }
+  def individual_expense
+    amount / users.count
   end
 end

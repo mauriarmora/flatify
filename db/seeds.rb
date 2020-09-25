@@ -28,9 +28,6 @@ perfect_flat = Flat.create!(
   admin: user_1
 )
 
-user_1.flat = perfect_flat
-user_1.save
-
 puts "Creating the flatmates users..."
 
 user_2 = User.create!(
@@ -38,7 +35,7 @@ user_2 = User.create!(
   last_name: 'Pochettino',
   email: 'mauricet@gmail.com',
   password: '123456',
-  flat_id: perfect_flat
+  flat: perfect_flat
   )
 
 user_3 = User.create!(
@@ -46,7 +43,7 @@ user_3 = User.create!(
   last_name: 'Del Toro',
   email: 'williamofthebull@pelis.com',
   password: '123456',
-  flat_id: perfect_flat
+  flat: perfect_flat
   )
 
 user_4 = User.create!(
@@ -54,7 +51,7 @@ user_4 = User.create!(
   last_name: 'Batistuta',
   email: 'gabbyb@fiorentina.com',
   password: '123456',
-  flat_id: perfect_flat
+  flat: perfect_flat
   )
 
 puts "4 users created!"
@@ -63,7 +60,7 @@ expense_1 = Expense.create!(
   amount: 25,
   category: "Shopping",
   user_id: user_1.id,
-  flat_id: perfect_flat.id,
+  flat: perfect_flat,
   payment_month: 'September',
   payment_year: '2020',
   description: "Toilet paper, coffee, eggs and milk"
@@ -73,7 +70,7 @@ expense_2 = Expense.create!(
   amount: 10,
   category: "Pets",
   user_id: user_2.id,
-  flat_id: perfect_flat.id,
+  flat: perfect_flat,
   payment_month: 'September',
   payment_year: '2020',
   description: "Food for the cat"
@@ -85,7 +82,7 @@ expense_3 = Expense.create!(
   amount: 50,
   category: "Utilities",
   user_id: user_3.id,
-  flat_id: perfect_flat.id,
+  flat: perfect_flat,
   payment_month: 'September',
   payment_year: '2020',
   description: "Electricity bill"
@@ -95,7 +92,7 @@ expense_4 = Expense.create!(
   amount: 100,
   category: "Shopping",
   user_id: user_4.id,
-  flat_id: perfect_flat.id,
+  flat: perfect_flat,
   payment_month: 'September',
   payment_year: '2020',
   description: "I bought everything we need for this Friday's party after the first demo of our project!!"

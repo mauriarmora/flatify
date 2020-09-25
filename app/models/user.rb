@@ -23,6 +23,12 @@ class User < ApplicationRecord
     expenses.where("expenses.payment_month = ?", month.capitalize)
   end
 
+  def current_month_total_expenses
+    monthly_expenses = filter_by_expense_month(Date.today.strftime("%B"))
+
+    monthly_expenses.reduce(0) { |acc, expense| acc += expense.individual_expense}
+  end
+
   def user_expenses_total
     current_user.flat.expenses.each do |expense|
       (@current_user_expenses += expense / expense.users.count) if current_user.is_in?(expense.users)
