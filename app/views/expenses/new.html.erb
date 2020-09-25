@@ -34,7 +34,7 @@
           <input type="checkbox" class="hidden" value="<%= user.id %>" name="user_expense[user][]" id="user_<%= user.id %>">
           <label for="user_<%= user.id %>">
 
-            <img  class="expense-avatar" src="<%= user.photo_url %>" alt="">
+            <div  class="expense-avatar" style="background-image: url(<%= user.photo_url %>)" alt=""></div>
             <div class="flatmate-name">
               <%= user.first_name %>
             </div>

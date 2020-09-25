@@ -1,10 +1,8 @@
-
 <%= render "shared/navbar" %>
+
 <div class="container">
 
-  <div class="avatar my-4 text-center">
-    <%= image_tag @user.photo_url, class: 'big-avatar' %>
-  </div>
+  <div class="big-avatar" style="background-image: url(<%= @user.photo_url %>)"></div>
 
   <% if params[:date].nil? %>
     <h2>This are all your expenses</h2>
@@ -28,12 +26,12 @@
     <div class="form d-flex justify-content-center">
       <div class="form-body flex-grow">
         <%= simple_form_for(:date, url: monthly_summary_path, method: :get) do |f| %>
-        <%= f.input :date, collection: Expense::MONTHS, label: false %>
-      </div>
-        <div class="form-submit-summary ml-2">
-          <%= f.submit 'Search'%>
-        </div>
+          <%= f.input :date, collection: Expense::MONTHS, label: false %>
+          <div class="form-submit-summary ml-2">
+            <%= f.submit 'Search'%>
+          </div>
       <% end %>
+    </div>
     </div>
 
     <div class="categories d-flex mb-5 mt-2 justify-content-around">
@@ -47,17 +45,16 @@
 
     <div class="expenses">
       <% @user_expenses.each do |user_expense| %>
-      <div class="expense-card mt-2">
-        <div class="expense-content">
-          <div class="expense-category-<%= user_expense.expense.category.downcase %>">
-          </div>
-          <div class="expense-info">
-            <p class="description"><%= user_expense.expense.description %></p>
-            <p class="mb-0">€ <%= format_cost(user_expense.expense.amount) %></p>
-            <% end %>
+        <div class="expense-card mt-2">
+          <div class="expense-content">
+            <div class="expense-category-<%= user_expense.expense.category.downcase %>"></div>
+            <div class="expense-info">
+              <p class="description"><%= user_expense.expense.description %></p>
+              <p class="mb-0">€ <%= format_cost(user_expense.expense.amount) %></p>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

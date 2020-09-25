@@ -1,8 +1,8 @@
+<%= render '/shared/navbar' %>
+
 <div class="container">
 
-  <div class="avatar text-center">
-    <%= image_tag current_user.photo_url, class:'big-avatar' %>
-  </div>
+  <div class="big-avatar" style="background-image: url(<%= current_user.photo_url %>)"></div>
 
   <h1 class="name-header"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
 

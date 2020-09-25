@@ -17,7 +17,7 @@
 
       <div class="creator-card">
         <p>Created by</p>
-        <%= image_tag @creator.photo_url, class:'small-avatar' %>
+        <div class="small-avatar" style="background-image: url(<%= @creator.photo_url %>)"></div>
       </div>
 
       <div class="exp-date">
