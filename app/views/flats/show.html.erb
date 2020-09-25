@@ -9,7 +9,7 @@
       <div class="user-image">
         <div class="medium-avatar" style="background-image: url(<%= current_user.photo_url %>)"></div>
       </div>
-      <h1> € <%= format_cost(current_user.current_month_total_expenses) %></h1>
+      <h1> € <%= format_cost(current_user.current_month_total_expenses.round(2)) %></h1>
     </div>
 
     <div class="others-balance">
@@ -18,7 +18,7 @@
         <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
         <% end %>
       </div>
-       <h2><span>Total: </span>€ <%= format_cost(@flat.total_expenses) %> </h2>
+       <h2><span>Total: </span>€ <%= format_cost(@flat.total_expenses.round(2)) %> </h2>
     </div>
   </div>
 
@@ -35,7 +35,7 @@
             <p> <%= expense.created_at.strftime("%m/%d/%Y") %> </p>
           </div>
           <div class="card-price">
-            <h2 id="expense-card-bold">€ <%= format_cost(expense.amount) %> </h2>
+            <h2 id="expense-card-bold">€ <%= format_cost(expense.amount.round(2)) %> </h2>
           </div>
         </div>
       <% end %>
