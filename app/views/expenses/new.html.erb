@@ -1,18 +1,13 @@
-<div class="menu-navbar">
-  <p class="container">Flatify</p>
-  <p><i class="fas fa-bars container ml-3"></i></p>
-</div>
+<%= render '/shared/navbar' %>
 
  <div class="container">
+  <div class="header-flex">
+    <%= link_to '<i class="fas fa-arrow-left back-arrow"></i>'.html_safe, '/'  %>
+    <h1 id="expense-header"><strong>New expense</strong></h1>
+  </div>
 
-  <%= link_to '<i class="fas fa-arrow-left"></i>'.html_safe, '/'  %>
-
-
- </div>
-
-
-  <h1 id="expense-header"><strong>New expense</strong></h1>
   <h2 id="categories-header"><strong>Categories</strong></h2>
+ </div>
   <div class="form-post">
     <%= simple_form_for([@flat, @expense]) do |f| %>
       <%#= f.input :category, collection: Expense::CATEGORIES, include_blank: false, prompt: "Select category" %>
@@ -34,7 +29,7 @@
         <%= f.input :payment_year, label: false, collection: (Date.today.year - 1..Date.today.year + 1), selected: Date.today.year, include_blank: false, input_html: {class: "wide-input-dates" }  %>
       </div>
       <div class="flatmates-choices">
-          <h3>Share with</h3>
+        <h3>Share with</h3>
         <% @flat.users.each do |user| %>
           <input type="checkbox" class="hidden" value="<%= user.id %>" name="user_expense[user][]" id="user_<%= user.id %>">
           <label for="user_<%= user.id %>">
