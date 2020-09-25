@@ -17,7 +17,7 @@
 
       <div class="creator-card">
         <p>Created by</p>
-        <%= image_tag @creator.photo_url, class:'small-avatar' %>
+        <div class="small-avatar" style="background-image: url(<%= @creator.photo_url %>)"></div>
       </div>
 
       <div class="exp-date">
@@ -37,7 +37,7 @@
         <h3 class="shared-with mb-3">Shared with</h3>
           <% @expense.users.each do |user| %>
             <div class="card-expense">
-              <%= image_tag user.photo_url, class:'small-avatar' %>
+              <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
               <p><%= user.first_name %></p>
               <p class="us-nam"><strong>€ <%= @user_amount %></strong></p>
             </div>

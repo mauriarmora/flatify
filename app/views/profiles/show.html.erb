@@ -1,10 +1,6 @@
   <%= render 'shared/navbar' %>
 
-  <div class="text-center avatar-container">
-    <%= image_tag @user.photo_url, class: 'big-avatar profile-avatar' %>
-  </div>
-
-
+  <div class="big-avatar" style="background-image: url(<%= @user.photo_url %>)"></div>
 
     <div class="wrapper-profile">
       <div class="container pt-5">
@@ -12,9 +8,11 @@
         <div class="flat-dhasboard-card">
           <div class="flat-card-content">
             <p class="mb-0"> <%= @user.flat.name %></p>
-            <% @user.flat.users.each do |user| %>
-              <%= image_tag user.photo_url, class:'small-avatar' %>
-            <% end %>
+            <div class="avatar-flex d-flex justify-content-left">
+              <% @user.flat.users.each do |user| %>
+               <div class="small-avatar m-0" style="background-image: url(<%= user.photo_url %>)"></div>
+              <% end %>
+            </div>
           </div>
           <!---TO DASHBOARD -->
           <div class="add-flat-mate mr-2">
