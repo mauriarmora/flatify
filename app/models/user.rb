@@ -19,5 +19,4 @@ class User < ApplicationRecord
       'https://res.cloudinary.com/dinkluxtp/image/upload/v1600952449/default_avatar_lx6rcs.png'
     end
   end
-
 end
