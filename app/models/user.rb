@@ -9,7 +9,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
   validates :first_name, :last_name, presence: true
 
   def photo_url
@@ -18,5 +17,9 @@ class User < ApplicationRecord
     else
       'https://res.cloudinary.com/dinkluxtp/image/upload/v1600952449/default_avatar_lx6rcs.png'
     end
+  end
+
+  def filter_by_expense_month(month)
+    expenses.where("expenses.payment_month = ?", month.capitalize)
   end
 end
