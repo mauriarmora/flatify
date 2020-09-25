@@ -51,7 +51,7 @@
             <div class="expense-category-<%= user_expense.expense.category.downcase %>"></div>
             <div class="expense-info">
               <p class="description"><%= user_expense.expense.description %></p>
-              <p class="mb-0">€ <%= format_cost(user_expense.expense.amount) %></p>
+              <p class="mb-0">€ <%= format_cost(user_expense.expense.amount.round(2)) %></p>
             </div>
 
           </div>
