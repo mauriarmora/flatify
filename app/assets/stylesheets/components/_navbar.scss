@@ -4,10 +4,53 @@
   // border: 1px solid lightgray;
   justify-content: space-between;
   align-items: center;
+  background: #04AF88 !important;
   i { font-size: 18px; }
   p {
     margin: 0;
     font-weight: 600;
-    color: #04AF88;
+    color: white;
   }
 }
+
+//Sidenav
+
+.sidenav {
+  background: white;
+  height: 100vh;
+
+  img {
+    margin-top: 20px;
+  }
+}
+
+.sidenav-content {
+  text-align: center;
+  margin-top: 20px;
+}
+.dashboard-link {
+  color: white !important;
+}
+
+// @media (max-width: 992px) {
+//     .navbar-collapse {
+//         position: absolute;
+//         top: 54px;
+//         right: 100%;
+//         padding-left: 15px;
+//         padding-right: 15px;
+//         padding-bottom: 15px;
+//         width: 100%;
+//         transition: all 0.3s ease;
+//         display: block;
+//     }
+//     .navbar-collapse.collapsing {
+//         height: auto !important;
+//         margin-right: 50%;
+//         transition: all 0.3s ease;
+//         display: block;
+//     }
+//     .navbar-collapse.show {
+//         right: 0;
+//     }
+// }
