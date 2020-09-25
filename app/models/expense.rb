@@ -17,4 +17,8 @@ class Expense < ApplicationRecord
   def self.map_cat_to_color(cat)
     ["#223FD2", "#BA22D2", "#F8B91A", "#EC5B2D"][CATEGORIES.index(cat)]
   end
+
+  def total_flat_expenses
+    @flat.expenses.each { |expense| @total_expenses += expense.amount }
+  end
 end
