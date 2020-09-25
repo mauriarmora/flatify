@@ -1,35 +1,48 @@
-<div class="container">
+<div class="category-exp-<%= @expense.category.downcase %>">
   <div class="total-amount-exp">
-    <h3>Amount</h3>
-    <h1>€ <%= @expense.amount %></h1>
+    <h2><strong>Amount</strong></h2>
+    <h1><strong>€ <%= @expense.amount %></strong></h1>
   </div>
+</div>
 
-  <div class="creator-card">
-    <p>Created by</p>
-    <%= image_tag @creator.photo_url, class:'small-avatar' %>
+<div class="wrapper-profile">
+  <div class="container">
+    <div class="information-exp-body">
+
+      <div class="creator-card">
+        <p>Created by</p>
+        <%= image_tag @creator.photo_url, class:'small-avatar' %>
+      </div>
+
+      <div class="exp-date">
+        <p><strong>From:</strong> <%= @expense.created_at.strftime("%d %B %Y") %></p>
+      </div>
+
+      <div class="backbutn">
+        <%= link_to '< Back to all', root_path %>
+      </div>
+
+      <div class="user-amount-<%= @expense.category.downcase %>">
+        <h2>You have to pay</h2>
+        <h2>€ <%= @user_amount %></h2>
+      </div>
+
+      <div class="expense-information">
+        <h3 class="exp-cat mt-4 mb-3"><strong> <%= @expense.category %> </strong></h3>
+        <h3>Description</h3>
+        <p> <%= @expense.description.capitalize %> </p>
+
+        <h3 class="shared-with mb-3">Shared with</h3>
+          <% @expense.users.each do |user| %>
+            <div class="sharing-card-expense">
+              <%= image_tag user.photo_url, class:'small-avatar' %>
+              <p><%= user.first_name %></p>
+              <p class="us-nam"><strong>€ <%= @user_amount %></strong></p>
+            </div>
+          <% end %>
+      </div>
+
+    </div>
+
   </div>
-
-  <div class="user-amount">
-    <h2>You have to pay € <%= @user_amount %></h2>
-  </div>
-
-  <div class="expense-information">
-    <h3> <%= @expense.category %> </h3>
-    <h3>Description</h3>
-    <p> <%= @expense.description.capitalize %> </p>
-
-    <h3>Shared with</h3>
-      <% @expense.users.each do |user| %>
-        <div class="sharing-card-expense">
-          <%= image_tag user.photo_url, class:'small-avatar' %>
-          <p><%= user.first_name %></p>
-          <p>€ <%= @user_amount %></p>
-        </div>
-      <% end %>
-
-
-  </div>
-
-
-
 </div>
