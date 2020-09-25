@@ -24,23 +24,7 @@
 
   <h2 class="mt-3">Expenses</h2>
 
-  <div class="expenses">
-    <% @expenses.each do |expense| %>
-      <%= link_to flat_expense_path(current_user.flat, expense) do  %>
-        <div class="card-expense">
-          <div class="small-avatar" style="background-image: url(<%= expense.creator.photo_url %>)"></div>
-          <div class="color-separator expense-category-<%= expense.category.downcase %>"></div>
-          <div class="expense-info">
-            <h3> <%= expense.category %> </h3>
-            <p> <%= expense.created_at.strftime("%m/%d/%Y") %> </p>
-          </div>
-          <div class="card-price">
-            <h2 id="expense-card-bold">€ <%= format_cost(expense.amount) %> </h2>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+
 
 
 </div>
