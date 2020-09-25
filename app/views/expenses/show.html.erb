@@ -3,7 +3,7 @@
 <div class="category-exp-<%= @expense.category.downcase %>">
   <div class="total-amount-exp">
     <h2><strong>Amount</strong></h2>
-    <h1><strong>€ <%= @expense.amount %></strong></h1>
+    <h1><strong>€ <%= format_cost(@expense.amount.round(2)) %></strong></h1>
   </div>
   <div class="backbutn">
     <%= link_to '<i class="fas fa-arrow-left back-arrow"></i>'.html_safe, root_path %>
@@ -26,7 +26,7 @@
 
       <div class="user-amount-<%= @expense.category.downcase %>">
         <h2>You have to pay</h2>
-        <h2>€ <%= @user_amount %></h2>
+        <h2>€ <%= format_cost(@user_amount.round(2)) %></h2>
       </div>
 
       <div class="expense-information">
@@ -35,6 +35,7 @@
         <p> <%= @expense.description.capitalize %> </p>
 
         <h3 class="shared-with mb-3">Shared with</h3>
+
           <div class="expenses">
             <% @expense.users.each do |user| %>
               <div class="card-expense">
@@ -44,7 +45,7 @@
                   <h3> <%= user.first_name %> </h3>
                 </div>
                 <div class="card-price">
-                  <h2 id="expense-card-bold">€ <%= format_cost(@user_amount) %> </h2>
+                  <h2 id="expense-card-bold">€ <%= format_cost(@user_amount.round(2)) %> </h2>
                 </div>
               </div>
              <% end %>
