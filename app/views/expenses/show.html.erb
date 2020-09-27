@@ -1,12 +1,11 @@
 <%= render '/shared/navbar' %>
-
 <div class="category-exp-<%= @expense.category.downcase %>">
   <div class="total-amount-exp">
     <h1><strong>€ <%= format_cost(@expense.amount.round(2)) %></strong></h1>
   </div>
 </div>
 
-<div class="wrapper-profile">
+<div class="wrapper-exp">
   <div class="container pt-5">
     <div class="information-exp-body">
 
@@ -59,6 +58,10 @@
 
 
     </div>
+
+  </div>
+</div>
+
 
   </div>
 </div>
