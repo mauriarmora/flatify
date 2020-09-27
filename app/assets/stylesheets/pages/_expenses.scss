@@ -13,7 +13,9 @@
   top: -75px;
   left: 90px;
   background: white;
-  vertical-align: middle;
+  p {
+    margin-top: 8px;
+  }
 }
 
 .total-amount-exp h1 {
