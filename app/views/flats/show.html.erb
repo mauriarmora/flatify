@@ -8,7 +8,7 @@
       <div class="user-image">
         <div class="medium-avatar" style="background-image: url(<%= current_user.photo_url %>)"></div>
       </div>
-      <h1> € <%= format_cost(current_user.month_total_expenses(@month)) %></h1>
+      <h1> € <%= format_cost(current_user.month_total_expenses(@month) + current_user.rent) %></h1>
     </div>
 
     <div class="others-balance">
@@ -17,7 +17,7 @@
         <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
         <% end %>
       </div>
-       <h2><span>Total: </span>€ <%= format_cost(@flat.total_expenses + current_user.rent) %> </h2>
+       <h2><span>Total: </span>€ <%= format_cost(@flat.total_expenses + @flat.rent) %> </h2>
     </div>
   </div>
 
