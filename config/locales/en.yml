@@ -31,3 +31,12 @@
 
 en:
   hello: "Hello world"
+
+  en:
+  activerecord:
+    errors:
+      models:
+        expense:
+          attributes:
+            amount:
+              invalid: "CUSTOM MESSAGE!"
