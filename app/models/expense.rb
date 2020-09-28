@@ -15,7 +15,7 @@ class Expense < ApplicationRecord
   validates :amount, numericality: { only_integer: true }, presence: true
 
   def self.map_cat_to_color(cat)
-    ["#223FD2", "#BA22D2", "#F8B91A", "#EC5B2D"][CATEGORIES.index(cat)]
+    ["#118ab2", "#073b4c", "#ffd166", "#ef476f"][CATEGORIES.index(cat)]
   end
 
   def individual_expense

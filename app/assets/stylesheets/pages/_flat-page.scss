@@ -49,3 +49,12 @@
 }
 
 .expenses { margin-bottom: 90px;}
+
+.expenses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  margin-top: 1.5rem;
+  h2, p { margin: 0; }
+  select { border-radius: 10px !important;}
+}
