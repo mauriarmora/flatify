@@ -22,7 +22,10 @@
   margin: 0;
   color: grey;
  }
- h3 { margin: 0 }
+ .expense-category {
+  font-weight: bold;
+  color: black;
+ }
 }
 
 #expense-card-category {
