@@ -21,7 +21,7 @@
         <p><strong>From:</strong> <%= @expense.created_at.strftime("%d %B %Y") %></p>
       </div>
 
-      <div class="user-amount-<%= @expense.category.downcase %>">
+      <div class="user-amount-<%= @expense.category.downcase %> p-3">
         <h2>You have to pay</h2>
         <h2>€ <%= format_cost(@user_amount.round(2)) %></h2>
       </div>
