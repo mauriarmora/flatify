@@ -8,7 +8,6 @@ class ProfilesController < ApplicationController
     if params[:date]
       @month = params[:date][:date]
       @user_expenses = UserExpense.joins(:expense).where("user_expenses.user_id = ? and expenses.payment_month = ?", @user.id, @month)
-
       # @expenses = Expense.where('extract(month from payment_month) = ?', month).where(creator: @user)
     else
       @user_expenses = UserExpense.where(user: @user)

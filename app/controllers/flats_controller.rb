@@ -3,16 +3,10 @@ class FlatsController < ApplicationController
 
   def show
     if current_user.flat
-      if params[:date]
-        raise
-        @month = params[:date][:date]
-        @user_expenses = UserExpense.joins(:expense).where("user_expenses.user_id = ? and expenses.payment_month = ?", @user.id, @month)
-      else
-        @flat = current_user.flat
-        @month = Date.today.strftime('%B')
-        authorize @flat
-        @monthly_expenses = Expense.where(payment_month: @month)
-      end
+      @flat = current_user.flat
+      @month = params[:date] ? params[:date][:date] : Date.today.strftime('%B')
+      authorize @flat
+      @monthly_expenses = Expense.where(payment_month: @month)
     else
       skip_authorization
       redirect_to new_flat_path
