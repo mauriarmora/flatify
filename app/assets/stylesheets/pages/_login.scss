@@ -1,8 +1,74 @@
+// body {
+//   overflow-x: hidden;
+// }
+
 .value-proposition {
   font-size: 70px;
   font-weight: bold;
 }
 
-.illustration {
-  width: 100%;
+.pizza-img {
+  display: flex;
+  justify-content: center;
+  content-align: center;
+  position: relative;
+  width: 100vw;
+  img {
+    width: 160%;
+    // overflow-right: hidden !important;
+  }
+}
+
+.description-value {
+  position: absolute;
+  color: white;
+  bottom: 10px;
+  left: 60px;
+}
+
+// CARDS
+.share-card, .conciliate-card, .track-card {
+  margin-bottom: 40px;
+  .title {
+    font-weight: bold;
+  }
+}
+
+.conciliate-card, .share-card {
+  img {
+    width: 35%;
+  }
+}
+
+.track-card {
+  img {
+    width: 25%;
+    margin-left: -18px;
+  }
+}
+
+// LOGIN FORM
+
+.wrapper {
+  background: #3F3D56;
+  padding-bottom: 40px;
+}
+
+.login-form {
+  padding-top: 40px;
+}
+
+// LOGIN FORM LINKS
+
+.password-link {
+  color: white;
+}
+
+.sign-up {
+  color: #04AF88;
+  margin-bottom: 10px;
+}
+
+.remember {
+  color: white;
 }
