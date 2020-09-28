@@ -1,34 +1,35 @@
 <%= render '/shared/navbar' %>
-<div class="wrapper-profile">
+<div class="wrapper-flats">
   <div class="container">
 
     <div class="big-avatar" style="background-image: url(<%= current_user.photo_url %>)"></div>
+    <div class="new-flat-page">
+      <h1 class="name-header mb-5"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
 
-    <h1 class="name-header"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
-
-    <div class="new-flat-form">
-      <h2>Create a new flat</h2>
-      <%= simple_form_for(@flat) do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-        <div class="flat-properties">
-          <%= f.input :name, placeholder: 'Introduce a flat name', label: false %>
-          <%= f.input :rent, placeholder: 'Monthly rent', label: false %>
-        </div>
-
-          <h2>Add flatmates</h2>
-          <div data-controller="flat" class="addflatmates">
-            <input id="email-input" class="email-input" data-target="flat.email" type="text" placeholder="Flatmate email">
-            <input id="rent-input" class="rent-input" data-target="flat.rent" type="text" placeholder="Rent">
-            <div data-action="click->flat#fetchMate" class="add-flat-mate">Add</div>
+      <div class="new-flat-form">
+        <h3>Create a new flat</h3>
+        <%= simple_form_for(@flat) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <div class="flat-properties">
+            <%= f.input :name, placeholder: 'Introduce a flat name', label: false, input_html: { class: "flat-name-input"} %>
+            <%= f.input :rent, placeholder: 'Monthly rent', label: false, input_html: { class: "flat-rent-input"} %>
           </div>
-        <div id="user-container" class="user-container">
 
-        </div>
+            <h3>Add flatmates</h3>
+            <div data-controller="flat" class="addflatmates">
+              <input id="email-input" class="email-input" data-target="flat.email" type="text" placeholder="Flatmate email">
+              <input id="rent-input" class="rent-input" data-target="flat.rent" type="text" placeholder="Rent">
+              <div data-action="click->flat#fetchMate" class="add-flat-mate">Add</div>
+            </div>
+          <div id="user-container" class="user-container">
+
+          </div>
+      </div>
     </div>
-  </div>
-        <div class="fixed-btn">
-         <%= f.submit 'Create flat', class:'primarybtn' %>
-        </div>
-    <% end %>
+          <div class="fixed-btn">
+           <%= f.submit 'Create flat', class:'primarybtn' %>
+          </div>
+      <% end %>
+    </div>
 </div>
