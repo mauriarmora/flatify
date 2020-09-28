@@ -20,13 +20,19 @@ class User < ApplicationRecord
   end
 
   def filter_by_expense_month(month)
-    expenses.where("expenses.payment_month = ?", month.capitalize)
+    expenses.where('expenses.payment_month = ?', month.capitalize)
   end
 
-  def current_month_total_expenses
-    monthly_expenses = filter_by_expense_month(Date.today.strftime("%B"))
+  # def current_month_total_expenses
+  #   monthly_expenses = filter_by_expense_month(Date.today.strftime('%B'))
 
-    monthly_expenses.reduce(0) { |acc, expense| acc += expense.individual_expense}
+  #   monthly_expenses.reduce(0) { |acc, expense| acc += expense.individual_expense }
+  # end
+
+  def month_total_expenses(month)
+    monthly_expenses = filter_by_expense_month(month)
+
+    monthly_expenses.reduce(0) { |acc, expense| acc += expense.individual_expense }
   end
 
   def user_expenses_total
