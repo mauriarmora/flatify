@@ -13,9 +13,6 @@ class ExpensesController < ApplicationController
     @flat = Flat.find(params[:flat_id])
     @expense.flat = @flat
 
-    # unless params[:user_expense]
-    #   @expense.errors.add(:base, "you need to add users")
-    # end
 
     if @expense.save && params[:user_expense]
       user_ids = params[:user_expense][:user]
@@ -26,6 +23,9 @@ class ExpensesController < ApplicationController
       end
       redirect_to flat_expense_path(@flat, @expense)
     else
+      unless params[:user_expense]
+        @expense.errors.add(:flatmates, "have to be selected to share expense with")
+      end
       render :new
     end
   end
