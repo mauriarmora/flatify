@@ -67,6 +67,9 @@
   width: 50%;
   height: 100%;
   padding: 8px;
+  border: 0px;
+  border-radius: 10px;
+  background-color: #E6F6F2;
 }
 
 .rent-input {
@@ -74,7 +77,9 @@
   height: 100%;
   padding: 8px;
   margin-left: 5px;
-
+  border: 0px;
+  border-radius: 10px;
+  background-color: #E6F6F2;
 }
 
 .flat-properties {
@@ -98,18 +103,23 @@ body#flats{
 }
 
 .new-flat-page {
-  padding-top: 50px;
+  padding-top: 55px;
   height: 73vh;
-  // height: 490px;
 }
 
 .flat-name-input {
   width: 125% !important;
+  border: 0px !important;
+  border-radius: 10px !important;
+  background-color: #E6F6F2 !important;
   margin-right: 8px;
 }
 
 .flat-rent-input {
   width: 70% !important;
+  border: 0px !important;
+  border-radius: 10px !important;
+  background-color: #E6F6F2 !important;
   float: right;
 }
 
