@@ -22,6 +22,9 @@
   text-align: center;
 }
 
+.fixed-btn {
+  left: 0px;
+}
 
 .add-mate-card {
   background-color: #E5E5E5;
@@ -30,7 +33,7 @@
   padding-top: 8px;
   padding-bottom: 8px;
   img {
-    border-radius: 50%;
+    border-radius: 20px;
     display: block;
     margin: 0 auto;
   }
@@ -74,13 +77,39 @@
 
 }
 
-.conatiner-flat-new {
-  background-image: url("flat.png");
-  background-size: cover;
-  background-position: center;
-}
-
 .flat-properties {
   display: flex;
-  flex-grow: 1;
 }
+
+body#flats{
+  background: #ECECEC;
+}
+
+.wrapper-flats {
+  background: white;
+  border-radius: 20px 20px 0px 0px;
+  margin-top: 20vh;
+  position: relative;
+  .big-avatar {
+    position: absolute;
+    top: -120px;
+    left: 105px;
+  }
+}
+
+.new-flat-page {
+  padding-top: 50px;
+  height: 73vh;
+  // height: 490px;
+}
+
+.flat-name-input {
+  width: 125% !important;
+  margin-right: 8px;
+}
+
+.flat-rent-input {
+  width: 70% !important;
+  float: right;
+}
+
