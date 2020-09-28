@@ -29,6 +29,8 @@ class FlatsController < ApplicationController
         user.rent = params[:rent][i]
         user.save
       end
+      @flat.admin.rent = @flat.rent - params[:rent].map(&:to_i).sum
+      @flat.admin.save
       redirect_to root_path
     else
       render :new
@@ -65,7 +67,7 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:name)
+    params.require(:flat).permit(:name, :rent)
   end
 
   def set_flat
