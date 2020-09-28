@@ -1,13 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :find_user, only: [:show, :expenses, :summary]
 
-  def show; end
-
-  def expenses
-    @expenses = @user.expenses
-  end
-
-  def summary
+  def show
     @categories = Expense::CATEGORIES
     @months = Expense::MONTHS
 
@@ -19,6 +13,10 @@ class ProfilesController < ApplicationController
     else
       @user_expenses = UserExpense.where(user: @user)
     end
+  end
+
+  def expenses
+    @expenses = @user.expenses
   end
 
   private

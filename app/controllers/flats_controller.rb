@@ -4,8 +4,9 @@ class FlatsController < ApplicationController
   def show
     if current_user.flat
       @flat = current_user.flat
+      @month = Date.today.strftime('%B')
       authorize @flat
-      @expenses = @flat.expenses
+      @monthly_expenses = Expense.where(payment_month: @month)
     else
       skip_authorization
       redirect_to new_flat_path
