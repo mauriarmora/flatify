@@ -24,8 +24,7 @@
   <div class="expenses-header">
     <h2>Expenses</h2>
     <%= simple_form_for(:date, url: root_path, method: :get) do |f| %>
-      <%= f.input :date, collection: Expense::MONTHS, label: false %>
-      <%= f.submit 'Search'%>
+      <%= f.input :date, selected: @month ,collection: Expense::MONTHS, label: false, input_html: { class: 'month-filter', onchange: "this.form.submit()" } %>
     <% end %>
   </div>
 
