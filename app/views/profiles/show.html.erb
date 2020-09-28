@@ -1,10 +1,10 @@
 <%= render 'shared/navbar' %>
 
+<div class="big-avatar" style="background-image: url(<%= @user.photo_url %>)"></div>
+<div class="wrapper-profile">
 
-<div class="container">
+  <div class="container">
 
-  <div class="big-avatar" style="background-image: url(<%= @user.photo_url %>)"></div>
-  <div class="wrapper-profile">
     <h3 class="text-center"><%= @user.first_name %> <%= @user.last_name %></h3>
     <% if params[:date].nil? %>
       <h2>This are all your expenses</h2>
@@ -14,19 +14,23 @@
     <div class="avatar"></div>
 
     <div class="chart mb-4">
-      <% data = UserExpense.joins(:expense).where("user_expenses.user_id = ? and expenses.payment_month = ?", @user.id, @month).group("expenses.category").count %>
-      <% colors = [] %>
-      <% data.each do |score, _| %>
-        <% colors << Expense.map_cat_to_color(score) %>
-      <% end %>
-      <%= pie_chart data, colors: colors %>
+      <%= Expense::MONTHS[2..7] %>
+      <% data = UserExpense.joins(:expense).where("user_expenses.user_id = ?", @user.id).where("expenses.payment_month" => ["September", "August"]).group("expenses.payment_month").count %>
+      <%# raise %>
+      <%# colors = [] %>
+      <%# data.each do |score, _| %>
+        <%# colors << Expense.map_cat_to_color(score) %>
+      <%# end %>
+      <%#= pie_chart data, colors: colors %>
+      <%#= line_chart data %>
+      <%= column_chart data %>
     </div>
 
     <div class="container pt-5">
       <div class="form d-flex justify-content-center">
         <div class="form-body flex-grow">
           <%= simple_form_for(:date, url: profile_path, method: :get) do |f| %>
-            <%= f.input :date, collection: Expense::MONTHS, label: false %>
+            <%= f.input :date, collection: Expense::MONTHS, label: false, value: "Date.Date.today.strftime('%B')" %>
             <div class="form-submit-summary ml-2">
               <%= f.submit 'Search'%>
             </div>
