@@ -2,24 +2,70 @@
 
 <div class="container">
   <h2 class="value-proposition">Share <br> fair</h2>
-
-  <%= image_tag "pizza_sharing.png", alt: "alttext", class: 'illustration' %>
-
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "email", class: 'input' }, label_html: { class: 'label' } %>
-      <%= f.input :password,
-                  required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-    </div>
-
-    <div class="form-actions text-center">
-      <%= f.button :submit, "Log in", class:'primarybtn width-btns-devise' %>
-      <%= render "devise/shared/links" %>
-    </div>
-  <% end %>
 </div>
+
+<div class="pizza-img">
+  <%= image_tag "pizza_sharing.svg", alt: "alttext" %>
+  <h5 class="description-value">Manage and keep track of <br> your house expenses with <br> your flatmates</h5>
+</div>
+
+<div class="container">
+  <div class="cards mt-5">
+    <!--SHARE CARD -->
+    <div class="share-card d-flex">
+      <div class="card-content">
+      <strong><h3 class="title">1. Share your expenses</h3></strong>
+        <p>Upload your expenses and share them with your flatmates</p>
+      </div>
+      <%= image_tag "upload.svg", alt: "alttext" %>
+    </div>
+
+    <!--TRACK CARD -->
+    <div class="track-card d-flex">
+      <%= image_tag "choose.svg", alt: "alttext" %>
+      <div class="card-content ml-3">
+        <strong><h3 class="title">2.Keep track</h3></strong>
+        <p>Follow the expenses done by your flatmates in real time</p>
+      </div>
+    </div>
+
+    <!---CONCILIATE CARD -->
+    <div class="conciliate-card d-flex">
+      <div class="card-content">
+      <strong><h3 class="title">3. Conciliate payments</h3></strong>
+        <p>Automatically split the expenses and find peace at home</p>
+      </div>
+      <%= image_tag "friends.svg", alt: "alttext" %>
+    </div>
+  </div>
+</div> <!--- CONTAINER -->
+
+<div class="wrapper">
+  <div class="container">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs login-form">
+        <%= f.input :email,
+                    placeholder: 'email',
+                    required: false,
+                    autofocus: true,
+                    label: false,
+                    input_html: { autocomplete: "email", class: 'input' }, label_html: { class: 'label' } %>
+        <%= f.input :password,
+                    required: false,
+                    placeholder: 'password',
+                    label: false,
+                    input_html: { autocomplete: "current-password" } %>
+        <div class="remember text-white"> <!--- REMEMBER ME? --->
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+      </div>
+
+      <div class="form-actions text-center">
+        <%= f.button :submit, "Log in", class:'primarybtn width-btns-devise mb-4' %>
+        <!--- SIGN UP & FORGOT PASSWORD? -->
+        <p class="mb-0 text-white">You don't have an account yet?</p><strong><%= render "devise/shared/links"%></strong>
+      </div>
+    <% end %>
+  </div> <!---CONTAINER--->
+
+</div> <!--- WRAPPER -->
