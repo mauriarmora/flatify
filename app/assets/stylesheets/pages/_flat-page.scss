@@ -1,0 +1,60 @@
+#homepage-title {
+  font-weight: 500;
+}
+
+.balance-card {
+  box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 15px 5%;
+  margin-top: 20px;
+  // background-color: #47b3fb;
+  // color: white;
+}
+
+.user-balance {
+  display: flex;
+  align-items: center;
+  h1 {
+    text-align: right;
+    flex: 1;
+    font-size: 50px
+  }
+}
+
+.user-image{
+  display: flex;
+  width: 50%;
+}
+
+.flatmates-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  .small-avatar {
+    margin: 0;
+  }
+}
+
+.others-balance{
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  h2 {
+  flex: 1;
+  text-align: right;
+  font-weight: 300;
+  }
+  span { font-size: 16px; }
+}
+
+.expenses { margin-bottom: 90px;}
+
+.expenses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  margin-top: 1.5rem;
+  h2, p { margin: 0; }
+  select { border-radius: 10px !important;}
+}

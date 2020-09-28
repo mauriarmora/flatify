@@ -25,6 +25,7 @@
     <h2>Expenses</h2>
     <%= simple_form_for(:date, url: monthly_summary_path, method: :get) do |f| %>
       <%= f.input :date, collection: Expense::MONTHS, label: false %>
+      <%= f.submit 'Search'%>
     <% end %>
   </div>
 
