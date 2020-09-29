@@ -14,11 +14,7 @@ body#flats {
 }
 
 .user-balance {
-  display: flex;
-  align-items: center;
   h1 {
-    text-align: right;
-    flex: 1;
     font-size: 50px
   }
 }
@@ -32,7 +28,6 @@ body#flats {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
   .small-avatar {
     margin: 0;
   }
