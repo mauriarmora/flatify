@@ -15,7 +15,7 @@
     <div class="chart mb-4">
       <% Expense::MONTHS[2..7] %>
       <% data = UserExpense.joins(:expense).where("user_expenses.user_id = ?", @user.id).where("expenses.payment_month" => Expense::MONTHS[5..9]).group("expenses.payment_month").sum("expenses.amount") %>
-      <%= column_chart data, height: '200px', messages: {empty: "No expenses"} %>
+      <%= column_chart data, stacked: true, height: '200px', messages: {empty: "No expenses"} %>
     </div>
 
     <div class="categories d-flex mb-5 mt-2 justify-content-around">
