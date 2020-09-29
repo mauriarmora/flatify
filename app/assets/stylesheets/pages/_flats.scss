@@ -90,6 +90,30 @@ body#flats{
   background: #ECECEC;
 }
 
+body.flats_edit {
+  height: calc(100vh - 50px);
+
+  main {
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 100px;
+
+    .wrapper-flats {
+      margin-top: 60px;
+
+      padding: 15px 0;
+    }
+
+    form {
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}
+
 .wrapper-flats {
   background: white;
   border-radius: 20px 20px 0px 0px;
@@ -122,4 +146,22 @@ body#flats{
   background-color: #E6F6F2 !important;
   float: right;
 }
+
+.update-flat-form {
+  background-color: white;
+}
+
+
+.delete-avatar {
+  position: relative;
+}
+
+.delete-flatmate-link {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 16px;
+  color: $maincolor;
+}
+
 

@@ -11,7 +11,7 @@ export default class extends Controller {
     .then((data) => {
       emailInput.value = "";
       console.log(data)
-      const htmlEl = `<div class="new-mate-card">
+      const htmlEl = `<div class="new-mate-card position-relative">
         <div class="mate-card-complete">
           <div class="add-mate-card">
             <img src="${data.image_url}" width="50">
@@ -20,13 +20,18 @@ export default class extends Controller {
           <p>€${rentInput.value}</p>
         </div>
 
-         <input type="hidden" name="flatmate_emails[]" value="${data.email}" />
-         <input type="hidden" name="rent[]" value="${rentInput.value}" />
+        <i class="fas fa-trash-alt delete-flatmate-link" data-action="click->flat#removeMate"></i>
+        <input type="hidden" name="flatmate_emails[]" value="${data.email}" />
+        <input type="hidden" name="rent[]" value="${rentInput.value}" />
       </div>`
       userContainer.insertAdjacentHTML("beforeend", htmlEl)
       rentInput.value = "";
 
       // ad the card to the front end
     })
+  }
+
+  removeMate(e) {
+    e.target.parentElement.remove()
   }
 }
