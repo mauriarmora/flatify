@@ -1,6 +1,3 @@
-.htrial {
-  background: back;
-}
 
 .creator-card {
   display: flex;
@@ -25,6 +22,9 @@
 
 .information-exp-body {
   position: relative;
+  .expenses {
+    padding-bottom: 10px;
+  }
 }
 
 .exp-date {
@@ -73,7 +73,6 @@
   margin-bottom: 12px;
 }
 
-
 // .category-exp-rent {
 //   background-color: #118ab2;
 //   padding-bottom: 100px;
@@ -83,7 +82,6 @@
 //   margin-top: -9px;
 // }
 
-
 .category-exp-shopping {
   background-color: #00ABE7;
   padding-bottom: 100px;
@@ -91,7 +89,6 @@
   padding-top: 12px;
   color: white;
   margin-top: -9px;
-  position: relative;
 }
 
 .category-exp-pets {
@@ -101,27 +98,23 @@
   padding-top: 12px;
   color: white;
   margin-top: -9px;
-  position: relative;
 }
 
 .category-exp-utilities {
   background-color: #E9CD72;
+  padding-bottom: 100px;
   text-align: center;
   padding-top: 12px;
   margin-top: -9px;
-  position: relative;
 }
 
 .category-exp-other {
-  background-color: #1b4332;
-  padding-bottom: 40px;
   background-color: #D39CD3;
   padding-bottom: 100px;
   text-align: center;
   padding-top: 12px;
   color: white;
   margin-top: -9px;
-  position: relative;
 }
 
 // .user-amount-rent {
@@ -181,7 +174,33 @@
 .wrapper-exp {
   background: white;
   border-radius: 20px 20px 0px 0px;
-  position: absolute;
-  top: 170px;
+  top: -55px;
   width: 100%;
+  position: relative;
+}
+
+.comment-info {
+  display: flex;
+  .small-avatar {
+    margin-left: 0px;
+    margin-right: 12px;
+  }
+}
+
+.comment-user-data {
+  margin-top: 2px;
+  p {
+  margin-bottom: -8px;
+}
+}
+
+.comment-cont {
+  margin-top: 4px;
+  p {
+    font-size: 20px;
+  }
+}
+
+.comment-cont-input {
+  border-radius: 10px;
 }

@@ -7,9 +7,8 @@ class User < ApplicationRecord
   has_one :property, foreign_key: "user_id", class_name: "Flat", dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :first_name, :last_name, presence: true
 
   def photo_url
     if photo.attached?
@@ -20,9 +19,12 @@ class User < ApplicationRecord
   end
 
   def filter_by_expense_month(month)
-    expenses.where('expenses.payment_month = ?', month.capitalize)
+    flat_expenses.where('expenses.payment_month = ?', month.capitalize)
   end
 
+  def flat_expenses
+    expenses.where(flat: flat)
+  end
   # def current_month_total_expenses
   #   monthly_expenses = filter_by_expense_month(Date.today.strftime('%B'))
 
@@ -33,11 +35,5 @@ class User < ApplicationRecord
     monthly_expenses = filter_by_expense_month(month)
 
     monthly_expenses.reduce(0) { |acc, expense| acc += expense.individual_expense }
-  end
-
-  def user_expenses_total
-    current_user.flat.expenses.each do |expense|
-      (@current_user_expenses += expense / expense.users.count) if current_user.is_in?(expense.users)
-    end
   end
 end

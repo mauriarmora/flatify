@@ -35,11 +35,11 @@
           <div class="small-avatar" style="background-image: url(<%= expense.creator.photo_url %>)"></div>
           <div class="color-separator expense-category-<%= expense.category.downcase %>"></div>
           <div class="expense-info">
-            <h3> <%= expense.category %> </h3>
+            <p class="expense-category"> <%= expense.category %> </p>
             <p> <%= expense.created_at.strftime("%m/%d/%Y") %> </p>
           </div>
           <div class="card-price">
-            <h2 id="expense-card-bold">€ <%= format_cost(expense.amount) %> </h2>
+            <h3 id="expense-card-bold mb-0">€ <%= format_cost(expense.amount) %> </h3>
           </div>
         </div>
       <% end %>

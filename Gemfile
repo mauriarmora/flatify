@@ -33,6 +33,7 @@ gem 'pundit'
 gem 'simple_form'
 gem 'font-awesome-sass', '~> 5.13.0'
 gem "chartkick"
+gem 'devise_invitable', '~> 2.0.0'
 gem "faker"
 
 group :development, :test do
