@@ -5,13 +5,15 @@ class ProfilesController < ApplicationController
     @categories = Expense::CATEGORIES
     @months = Expense::MONTHS
 
+    @month = params[:date] ? params[:date][:date] : Date.today.strftime('%B')
+    @user_expenses = UserExpense.joins(:expense)
+
     if params[:date]
-      @month = params[:date] ? params[:date][:date] : Date.today.strftime('%B')
-      @user_expenses = UserExpense.joins(:expense).where("user_expenses.user_id = ? and expenses.payment_month = ?", @user.id, @month)
+      @user_expenses = @user_expenses.where("user_expenses.user_id = ? and expenses.payment_month = ?", @user.id, @month)
       # @expenses = Expense.where('extract(month from payment_month) = ?', month).where(creator: @user)
-    else
-      @user_expenses = UserExpense.where(user: @user)
     end
+
+    @monthly_expenses = Expense.where(payment_month: @month)
   end
 
   def expenses

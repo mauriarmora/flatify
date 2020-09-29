@@ -86,6 +86,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise_invitable (2.0.2)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
@@ -93,6 +96,8 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.9.0)
+    faker (2.14.0)
+      i18n (>= 1.6, < 2)
     ffi (1.13.1)
     font-awesome-sass (5.13.0)
       sassc (>= 1.11)
@@ -250,7 +255,9 @@ DEPENDENCIES
   chartkick
   cloudinary
   devise
+  devise_invitable (~> 2.0.0)
   dotenv-rails
+  faker
   font-awesome-sass (~> 5.13.0)
   jbuilder (~> 2.7)
   listen (~> 3.2)

@@ -7,11 +7,10 @@ Rails.application.routes.draw do
   end
 
   resources :expenses, only: [] do
-    resources :comments
+    resources :comments, only: [:new, :create]
   end
 
   get '/profile', to: 'profiles#show'
-  get '/monthly_summary', to: 'profiles#summary'
 
   get '/fetch_mate', to: 'flats#fetch_mate'
 end
