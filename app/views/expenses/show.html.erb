@@ -7,12 +7,11 @@
 
 <div class="wrapper-exp">
   <div class="container pt-5">
+    <div class="creator-card">
+      <p>Created by</p>
+      <div class="small-avatar" style="background-image: url(<%= @creator.photo_url %>)"></div>
+    </div>
     <div class="information-exp-body">
-
-      <div class="creator-card">
-        <p>Created by</p>
-        <div class="small-avatar" style="background-image: url(<%= @creator.photo_url %>)"></div>
-      </div>
 
       <div class="exp-date">
         <div class="backbutn">
@@ -23,7 +22,11 @@
 
       <div class="user-amount-<%= @expense.category.downcase %> p-3">
         <h2>You have to pay</h2>
-        <h2>€ <%= format_cost(@user_amount.round(2)) %></h2>
+        <% if @expense.users.include?(current_user) %>
+            <h2>€ <%= format_cost(@user_amount.round(2)) %></h2>
+          <% else %>
+            <h2>€ 0</h2>
+          <% end %>
       </div>
 
       <div class="expense-information">
@@ -81,7 +84,10 @@
 
             <%= simple_form_for([ @expense, @comment ]) do |f| %>
               <%= f.input :content, as: :text, placeholder: 'Type a comment', label: false, input_html: { class: "comment-cont-input"} %>
-              <%= f.button :submit %>
+              <div class="secondarybtn-<%= @expense.category.downcase %>">
+                <%= f.button :submit, class: "category-color-button" %>
+              </div>
+
             <% end %>
 
         </div>

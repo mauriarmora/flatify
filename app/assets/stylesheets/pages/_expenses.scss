@@ -5,13 +5,13 @@
   align-items: center;
   border-radius: 40px;
   box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
   padding: 10px 5%;
-  position: absolute;
-  top: -75px;
-  left: 90px;
+  margin-top: -75px;
+  margin-bottom: 30px;
   background: white;
   p {
-    margin-top: 8px;
+    margin-top: 13px;
   }
 }
 
@@ -177,6 +177,10 @@
   top: -55px;
   width: 100%;
   position: relative;
+  h3 {
+    font-weight: bolder;
+    color: #575757;
+  }
 }
 
 .comment-info {
@@ -203,4 +207,14 @@
 
 .comment-cont-input {
   border-radius: 10px;
+}
+
+.date-string {
+  color: #AFAFAF;
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+.comment-card {
+  margin-bottom: 20px;
 }
