@@ -1,0 +1,50 @@
+<%= render '/shared/navbar' %>
+
+<main>
+  <h1 class="name-header mb-4"><%= @flat.name %> </h1>
+
+
+  <div class="wrapper-flats">
+    <%= simple_form_for(@flat) do |f| %>
+      <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-images"></i>'.html_safe %>
+      <div class="container">
+        <div class="update-flat-form">
+          <h3>Update flat name </h3>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <div class="flat-properties">
+            <%= f.input :name, placeholder: 'Introduce a flat name', label: false, input_html: { class: "flat-name-input"} %>
+          </div>
+          <% @flat.users.each do |user| %>
+            <input type="hidden" name="flatmate_ids[]" value="${data.id}" />
+            <input type="hidden" name="rent[]" value="${rentInput.value}" />
+            <label for="user_<%= user.id %>">
+
+
+
+              <div  class="medium-avatar delete-avatar" style="background-image: url(<%= user.photo_url %>)" alt="">
+                <%= link_to "", class: "delete-flatmate-link" do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+               </div>
+              <div class="flatmate-name">
+                <%= user.first_name %>
+              </div>
+            </label>
+          <% end %>
+          <h3>Add new flatmate</h3>
+          <div data-controller="flat" class="addflatmates">
+            <input id="email-input" class="email-input" data-target="flat.email" type="text" placeholder="Flatmate email">
+            <input id="rent-input" class="rent-input" data-target="flat.rent" type="text" placeholder="Rent">
+            <div data-action="click->flat#fetchMate" class="add-flat-mate">Add</div>
+          </div>
+          <div id="user-container" class="user-container"></div>
+        </div>
+      </div>
+      <div class="fixed-btn">
+        <%= f.submit 'Update flat', class:'primarybtn' %>
+      </div>
+    <% end %>
+  </div>
+
+</main>
