@@ -50,7 +50,11 @@ body#flats {
   span { font-size: 16px; }
 }
 
-.expenses { padding-bottom: 90px;}
+.expenses {
+  padding-bottom: 90px;
+  background-color: white;
+  margin: 0;
+}
 
 .expenses-header {
   display: flex;
