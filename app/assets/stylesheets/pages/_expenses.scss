@@ -40,10 +40,19 @@
   text-align: center;
 }
 
+.name-user-exp {
+  color: black !important;
+}
+
 .exp-cat {
   background: #AFAFAF;
   border: 2px solid #AFAFAF;
   color: white !important;
+  padding: 4px;
+}
+
+.desc-exp {
+  font-size: 20px;
 }
 
 .backbutn {
@@ -197,7 +206,6 @@
     font-weight: bolder;
     color: #575757;
     border-radius: 20px;
-    padding: 5px;
     width: fit-content;
   }
 }
