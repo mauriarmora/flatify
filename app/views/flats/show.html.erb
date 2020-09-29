@@ -17,7 +17,7 @@
         <div class="medium-avatar" style="background-image: url(<%= current_user.photo_url %>)"></div>
       </div> -->
       <p class="text-center mb-0">Your balance in <strong><%= @month %></strong></p>
-      <h1 class="text-center mb-0"> € <%= format_cost(current_user.month_total_expenses(@month) + current_user.rent) %></h1>
+      <h1 class="text-center mb-0">- € <%= format_cost(current_user.month_total_expenses(@month) + current_user.rent) %></h1>
     </div>
 
   </div>
