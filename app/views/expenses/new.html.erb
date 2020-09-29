@@ -1,30 +1,27 @@
 <%= render '/shared/navbar' %>
 
- <div class="container">
+<div class="container">
   <div class="header-flex">
     <%= link_to '<i class="fas fa-arrow-left back-arrow"></i>'.html_safe, '/'  %>
-    <h1 id="expense-header"><strong>New expense</strong></h1>
+    <h1 id="homepage-title">New expense</h1>
   </div>
 
-  <h2 id="categories-header"><strong>Categories</strong></h2>
- </div>
+  <h2 id="categories-header">Categories</h2>
   <div class="form-post">
     <%= simple_form_for([@flat, @expense]) do |f| %>
-      <%#= f.input :category, collection: Expense::CATEGORIES, include_blank: false, prompt: "Select category" %>
 
       <div class="category-choices">
-      <% Expense::CATEGORIES.each do |category| %>
-        <input type="radio" class="hidden" value="<%= category %>" name="expense[category]" id="post_category_<%= category %>">
-        <label data-color="<%= Expense.map_cat_to_color(category) %>" class="category-choice" for="post_category_<%= category %>" style="color: <%= Expense.map_cat_to_color(category) %>" style="border-color: <%= Expense.map_cat_to_color(category) %>">
-          <%= category %>
+        <% Expense::CATEGORIES.each do |category| %>
+          <input type="radio" class="hidden" value="<%= category %>" name="expense[category]" id="post_category_<%= category %>">
+          <label data-color="<%= Expense.map_cat_to_color(category) %>" class="category-choice" for="post_category_<%= category %>" style="color: <%= Expense.map_cat_to_color(category) %>" style="border-color: <%= Expense.map_cat_to_color(category) %>">
+            <%= category %>
+          </label>
+        <% end %>
+      </div>
 
-        </label>
-
-      <% end %>
-     </div>
-          <div class="error">
-            <%= f.full_error(:category) %>
-          </div>
+      <div class="error">
+        <%= f.full_error(:category) %>
+      </div>
       <%= f.input :amount, label: false, label_html: { class: "label-fonts" }, input_html: { class: "details-box" }, placeholder: "€0.00" %>
       <%= f.input :description, label: false, as: :text, placeholder: "E.g. Bought more beers for the fridge." %>
 
@@ -33,13 +30,13 @@
         <!---- start_year: Date.today.year - 1, end_year: Date.today.year + 1 --->
         <%= f.input :payment_year, label: false, collection: (Date.today.year - 1..Date.today.year + 1), selected: Date.today.year, include_blank: false, input_html: {class: "wide-input-dates" }  %>
       </div>
+
       <div class="flatmates-choices">
         <h3>Share with</h3>
 
         <% @flat.users.each do |user| %>
           <input type="checkbox" class="hidden" value="<%= user.id %>" name="user_expense[user][]" id="user_<%= user.id %>">
           <label for="user_<%= user.id %>">
-
             <div  class="expense-avatar" style="background-image: url(<%= user.photo_url %>)" alt=""></div>
             <div class="flatmate-name">
               <%= user.first_name %>
@@ -47,16 +44,15 @@
           </label>
         <% end %>
       </div>
-        <div class="error">
-          <%= f.full_error(:flatmates) %>
-        </div>
+      <div class="error">
+        <%= f.full_error(:flatmates) %>
+      </div>
 
       <div class="add-photo">
         <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-cloud-upload-alt fa-7x"></i>'.html_safe %>
       </div>
       <h3 class="flatmate-name">Upload photo (optional)</h3>
       <div class="display-photo-middle">
-
         <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
       </div>
 
@@ -64,9 +60,9 @@
         <%= f.submit class: "primarybtn expense-button-centered" %>
       </div>
 
-  <% end %>
+    <% end %>
 
   </div>
-
+</div>
 
 

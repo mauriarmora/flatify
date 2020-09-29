@@ -1,12 +1,10 @@
 .form-post {
   background: white;
   margin-top: 6px;
-  padding: 20px;
+  padding-top: 20px;
   border-radius: 5px;
   h1 {
     text-align: center;
-    font-weight: bold;
-    font-size: 25px;
     color: #666666;
     margin-bottom: 50px;
     margin-top: 0px;
@@ -51,6 +49,7 @@ margin-top: 10px;
 
 .wide-input-dates {
   width: 160px !important;
+  border-radius: 10px;
 }
 
 .expense-button {
@@ -73,10 +72,11 @@ margin-top: 10px;
   font-size: 50px;
   border: 1px solid white;
   text-align: center;
+  margin-top: 10px
 }
 
 #expense_description {
-  height: 150px;
+  height: 80px;
   border-radius: 10px;
 }
 
@@ -105,7 +105,6 @@ margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 16px;
   border-radius: 15px;
 }
 
@@ -143,7 +142,6 @@ margin-top: 10px;
 .error {
   color: #dd394c;
 }
-
 
 .invalid-feedback {
   font-style: headers !important;
