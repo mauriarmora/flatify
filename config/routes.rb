@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :expenses, only: [] do
-    resources :comments, only: [:new, :create]
+    resources :comments
   end
 
   get '/profile', to: 'profiles#show'

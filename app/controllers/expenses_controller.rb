@@ -37,6 +37,7 @@ class ExpensesController < ApplicationController
     @comment = Comment.new
     @comments = Comment.where(expense_id: @expense)
 
+
     skip_authorization
 
   end
