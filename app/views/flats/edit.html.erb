@@ -2,11 +2,16 @@
 
 <main>
   <%= simple_form_for(@flat) do |f| %>
-  <h1 class="name-header mb-4"><%= @flat.name %> </h1>
 
 
     <div class="wrapper-flats">
-      <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-images"></i>'.html_safe %>
+      <div class="text-center preview-banner">
+        <h1 class="name-header mb-4"><%= @flat.name %> </h1>
+        <%= image_tag "", width: 375, class: "hidden", id: "photo-preview" %>
+      </div>
+      <div class="upload-button-float">
+        <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-images"></i>'.html_safe %>
+      </div>
       <div class="container" data-controller="flat">
         <div class="update-flat-form">
           <h3>Update flat name </h3>

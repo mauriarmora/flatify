@@ -100,7 +100,7 @@ body.flats_edit {
     padding-bottom: 100px;
 
     .wrapper-flats {
-      margin-top: 45px;
+      margin-top: 0px;
 
       padding: 15px 0;
     }
@@ -165,4 +165,20 @@ body.flats_edit {
   color: $maincolor;
 }
 
+#photo-preview {
+  height: 150px;
+  border-radius: 0% !important;
+  object-fit: cover;
+}
+
+.preview-banner {
+  height: 150px;
+  position: relative;
+  text-align: center;
+  h1 {
+    position: absolute;
+    margin-top: 50px;
+    width: 100%;
+  }
+}
 
