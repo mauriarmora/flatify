@@ -7,6 +7,20 @@
   margin-bottom: 10px;
   .small-avatar { margin: 0; }
 }
+.card-price {
+  .expense-total-amount {
+    color: grey;
+    font-weight: bold;
+  }
+  .expense-total-amount-big {
+    font-weight: bold;
+    color: #3ca310;
+  }
+  .amount-to-pay {
+    color: #bf1a1a;
+    font-weight: bold;
+  }
+}
 
 .color-separator {
   border-radius: 5px;
