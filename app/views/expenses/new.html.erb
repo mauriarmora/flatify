@@ -34,24 +34,25 @@
       <div class="flatmates-choices">
         <h3>Share with</h3>
 
-        <% @flat.users.each do |user| %>
-          <input type="checkbox" class="hidden" value="<%= user.id %>" name="user_expense[user][]" id="user_<%= user.id %>">
-          <label for="user_<%= user.id %>">
-            <div  class="expense-avatar" style="background-image: url(<%= user.photo_url %>)" alt=""></div>
-            <div class="flatmate-name">
-              <%= user.first_name %>
-            </div>
-          </label>
-        <% end %>
+        <div class="d-flex justify-content-between">
+          <% @flat.users.each do |user| %>
+            <input type="checkbox" class="hidden" value="<%= user.id %>" name="user_expense[user][]" id="user_<%= user.id %>">
+            <label for="user_<%= user.id %>">
+                <div  class="expense-avatar" style="background-image: url(<%= user.photo_url %>)" alt=""></div>
+              <div class="flatmate-name">
+                <%= user.first_name %>
+              </div>
+            </label>
+          <% end %>
+        </div>
       </div>
       <div class="error">
         <%= f.full_error(:flatmates) %>
       </div>
 
-      <div class="add-photo">
-        <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-cloud-upload-alt fa-7x"></i>'.html_safe %>
+      <div class="add-photo mt-4 mb-3">
+        <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-cloud-upload-alt fa-2x"></i><h3 class="ml-2 mt-2 flatmate-name">Upload photo</h3>'.html_safe %>
       </div>
-      <h3 class="flatmate-name">Upload photo (optional)</h3>
       <div class="display-photo-middle">
         <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
       </div>
@@ -64,5 +65,3 @@
 
   </div>
 </div>
-
-
