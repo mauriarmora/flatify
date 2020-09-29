@@ -1,7 +1,7 @@
 <%= render '/shared/navbar' %>
 <div class="category-exp-<%= @expense.category.downcase %>">
   <div class="total-amount-exp">
-    <h1><strong>€ <%= format_cost(@expense.amount.round(2)) %></strong></h1>
+    <h1>€ <%= format_cost(@expense.amount.round(2)) %></h1>
   </div>
 </div>
 
@@ -85,7 +85,7 @@
             <%= simple_form_for([ @expense, @comment ]) do |f| %>
               <%= f.input :content, as: :text, placeholder: 'Type a comment', label: false, input_html: { class: "comment-cont-input"} %>
               <div class="secondarybtn-<%= @expense.category.downcase %>">
-                <%= f.button :submit, class: "category-color-button" %>
+                <%= f.button :submit, 'Post comment', class: "category-color-button" %>
               </div>
 
             <% end %>
