@@ -10,10 +10,10 @@ class ProfilesController < ApplicationController
 
     if params[:date]
       @user_expenses = @user_expenses.where("user_expenses.user_id = ? and expenses.payment_month = ?", @user.id, @month)
-      # @expenses = Expense.where('extract(month from payment_month) = ?', month).where(creator: @user)
     end
 
-    @monthly_expenses = Expense.where(payment_month: @month)
+    @monthly_expenses = current_user.filter_by_expense_month(@month)
+
   end
 
   def expenses
