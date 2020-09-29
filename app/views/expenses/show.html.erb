@@ -7,12 +7,11 @@
 
 <div class="wrapper-exp">
   <div class="container pt-5">
+    <div class="creator-card">
+      <p>Created by</p>
+      <div class="small-avatar" style="background-image: url(<%= @creator.photo_url %>)"></div>
+    </div>
     <div class="information-exp-body">
-
-      <div class="creator-card">
-        <p>Created by</p>
-        <div class="small-avatar" style="background-image: url(<%= @creator.photo_url %>)"></div>
-      </div>
 
       <div class="exp-date">
         <div class="backbutn">
@@ -23,7 +22,11 @@
 
       <div class="user-amount-<%= @expense.category.downcase %> p-3">
         <h2>You have to pay</h2>
-        <h2>€ <%= format_cost(@user_amount.round(2)) %></h2>
+        <% if @expense.users.include?(current_user) %>
+            <h2>€ <%= format_cost(@user_amount.round(2)) %></h2>
+          <% else %>
+            <h2>€ 0</h2>
+          <% end %>
       </div>
 
       <div class="expense-information">
@@ -53,6 +56,40 @@
               </div>
              <% end %>
           </div>
+          <h3>Comments 📝</h3>
+          <div class="comment-box mt-3">
+            <% if @expense.comments.blank? %>
+              <div class="comment-blank mb-3">Be the first to leave a comment!!</div>
+            <% else %>
+            <% @comments.each do |comment| %>
+                <div class="comment-card" id="<%=comment.id%>-review">
+
+                  <div class="comment-info">
+                    <div class="small-avatar" style="background-image: url(<%= comment.user.photo_url %>)"></div>
+                    <div class="comment-user-data">
+                      <p><strong><%= comment.user.first_name %></strong></p>
+                      <p class="date-string"><%= comment.created_at.strftime("%d %B %Y") %></p>
+                    </div>
+                  </div>
+
+                  <div class="comment-cont">
+                    <p><%= comment.content %></p>
+                  </div>
+
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <h3>Leave a comment 📝</h3>
+
+            <%= simple_form_for([ @expense, @comment ]) do |f| %>
+              <%= f.input :content, as: :text, placeholder: 'Type a comment', label: false, input_html: { class: "comment-cont-input"} %>
+              <div class="secondarybtn-<%= @expense.category.downcase %>">
+                <%= f.button :submit, class: "category-color-button" %>
+              </div>
+
+            <% end %>
+
         </div>
       </div>
     </div>

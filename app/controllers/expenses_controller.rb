@@ -34,6 +34,9 @@ class ExpensesController < ApplicationController
     @expense = Expense.find(params[:id])
     @creator = User.find(@expense.user_id)
     @user_amount = @expense.amount / @expense.users.count
+    @comment = Comment.new
+    @comments = Comment.where(expense_id: @expense)
+
 
     skip_authorization
 
