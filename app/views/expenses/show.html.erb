@@ -32,7 +32,7 @@
       <div class="expense-information">
         <h3 class="exp-cat mt-4 mb-3"> #<%= @expense.category %> </h3>
         <h3>Description</h3>
-        <p class="desc-exp"> <%= @expense.description.capitalize %> </p>
+        <p class="desc-exp mb-3"> <%= @expense.description.capitalize %> </p>
 
         <% if @expense.photo.attached? %>
         <%= image_tag @expense.photo.service_url, class:'exp-imag' %>
@@ -40,7 +40,7 @@
         <%= "" %>
         <% end %>
 
-        <h3 class="shared-with mb-3">Shared with</h3>
+        <h3 class="shared-with mt-3 mb-3">Shared with</h3>
 
           <div class="expenses">
             <% @expense.users.each do |user| %>
