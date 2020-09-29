@@ -15,12 +15,12 @@ export default class extends Controller {
         <div class="mate-card-complete">
           <div class="add-mate-card">
             <img src="${data.image_url}" width="50">
-            <h5>${data.first_name}</h5>
+            <h5>${data.first_name || "Flatifyer"}</h5>
           </div>
           <p>€${rentInput.value}</p>
         </div>
 
-         <input type="hidden" name="flatmate_ids[]" value="${data.id}" />
+         <input type="hidden" name="flatmate_emails[]" value="${data.email}" />
          <input type="hidden" name="rent[]" value="${rentInput.value}" />
       </div>`
       userContainer.insertAdjacentHTML("beforeend", htmlEl)

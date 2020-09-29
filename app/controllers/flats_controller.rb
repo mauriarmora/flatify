@@ -6,7 +6,7 @@ class FlatsController < ApplicationController
       @flat = current_user.flat
       @month = params[:date] ? params[:date][:date] : Date.today.strftime('%B')
       authorize @flat
-      @monthly_expenses = Expense.where(payment_month: @month)
+      @monthly_expenses = @flat.expenses.where(payment_month: @month)
     else
       skip_authorization
       redirect_to new_flat_path
@@ -24,9 +24,8 @@ class FlatsController < ApplicationController
     authorize @flat
 
     if @flat.save
-      params[:flatmate_ids].each_with_index do |id, i|
-        User.invite!(email: 'new_user@example.com', name: 'John Doe')
-        user = User.find(id)
+      params[:flatmate_emails].each_with_index do |email, i|
+        user = User.find_by(email: email) || User.invite!(email: email)
         user.flat = @flat
         user.rent = params[:rent][i]
         user.save
@@ -55,8 +54,8 @@ class FlatsController < ApplicationController
 
   def fetch_mate
     user = User.find_by(email: params[:email])
-    user_hash = user.attributes
-    if user.photo.attached?
+    user_hash = user ? user.attributes : { email: params[:email] }
+    if user && user.photo.attached?
       user_hash["image_url"] = "https://res.cloudinary.com/dinkluxtp/image/upload/#{user.photo.key}.png"
     else
       user_hash["image_url"] = "https://res.cloudinary.com/dinkluxtp/image/upload/v1600952449/default_avatar_lx6rcs.png"
