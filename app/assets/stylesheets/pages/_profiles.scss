@@ -16,15 +16,15 @@
 .expense-category-utilities {
   display: flex;
   flex-direction: column;
-  border-left: 6px solid #ffd166;
+  border-left: 6px solid #E9CD72;
   border-radius: 4px;
   margin: 4px;
 }
 
-.expense-category-other {
+.expense-category-others {
   display: flex;
   flex-direction: column;
-  border-left: 6px solid #1b4332;
+  border-left: 6px solid #D39CD3;
   border-radius: 4px;
   margin: 4px;
 }
@@ -32,23 +32,23 @@
 .expense-category-shopping {
   display: flex;
   flex-direction: column;
-  border-left: 6px solid #073b4c;
+  border-left: 6px solid #00ABE7;
   border-radius: 4px;
   margin: 4px;
 }
 
-.expense-category-rent {
-  display: flex;
-  flex-direction: column;
-  border-left: 6px solid #118ab2;
-  border-radius: 4px;
-  margin: 4px;
-}
+// .expense-category-rent {
+//   display: flex;
+//   flex-direction: column;
+//   border-left: 6px solid #118ab2;
+//   border-radius: 4px;
+//   margin: 4px;
+// }
 
 .expense-category-pets {
   display: flex;
   flex-direction: column;
-  border-left: 6px solid #ef476f;
+  border-left: 6px solid #FF707A;
   border-radius: 4px;
   margin: 4px;
 }
@@ -59,12 +59,12 @@
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 }
 
-.circle-shopping { color: #073b4c; }
+.circle-shopping { color: #00ABE7; }
 
-.circle-pets { color: #ef476f; }
+.circle-pets { color: #FF707A; }
 
-.circle-rent { color: #118ab2; }
+// .circle-rent { color: #118ab2; }
 
-.circle-utilities{ color: #ffd166; }
+.circle-utilities{ color: #E9CD72; }
 
-.circle-others { color: #1b4332; }
+.circle-others { color: #D39CD3; }
