@@ -40,6 +40,12 @@
   text-align: center;
 }
 
+.exp-cat {
+  background: #AFAFAF;
+  border: 2px solid #AFAFAF;
+  color: white !important;
+}
+
 .backbutn {
   padding: 8px;
   color: black;
@@ -138,29 +144,30 @@
 // }
 
 .user-amount-shopping {
-  background: #00ABE7;
+  color: #00ABE7;
+  border: 2px solid #00ABE7;
   border-radius: 10px;
   margin-top: 46px;
   margin-bottom: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  color: white;
 }
 
 .user-amount-pets {
-  background: #FF707A;
+  color: #FF707A;
+  border: 2px solid #FF707A;
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  color: white;
 }
 
 .user-amount-utilities {
-  background: #E9CD72;
+  color: #E9CD72;
+  border: 2px solid #E9CD72;
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -170,14 +177,14 @@
 }
 
 .user-amount-other {
-  background: #D39CD3;
+  border: 2px solid #D39CD3;
+  color: #D39CD3;
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  color: white;
 }
 
 .wrapper-exp {
@@ -189,6 +196,9 @@
   h3 {
     font-weight: bolder;
     color: #575757;
+    border-radius: 20px;
+    padding: 5px;
+    width: fit-content;
   }
 }
 
