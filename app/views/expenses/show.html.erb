@@ -21,11 +21,11 @@
       </div>
 
       <div class="user-amount-<%= @expense.category.downcase %> p-3">
-        <h2>You have to pay</h2>
+        <h2 class="mb-0">You have to pay</h2>
         <% if @expense.users.include?(current_user) %>
-            <h2>€ <%= format_cost(@user_amount.round(2)) %></h2>
+            <h2 class="mb-0">€ <%= format_cost(@user_amount.round(2)) %></h2>
           <% else %>
-            <h2>€ 0</h2>
+            <h2 class="mb-0">€ 0</h2>
           <% end %>
       </div>
 
