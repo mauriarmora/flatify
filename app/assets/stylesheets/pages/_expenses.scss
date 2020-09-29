@@ -22,6 +22,9 @@
 
 .information-exp-body {
   position: relative;
+  .expenses {
+    padding-bottom: 10px;
+  }
 }
 
 .exp-date {
@@ -174,4 +177,30 @@
   top: -55px;
   width: 100%;
   position: relative;
+}
+
+.comment-info {
+  display: flex;
+  .small-avatar {
+    margin-left: 0px;
+    margin-right: 12px;
+  }
+}
+
+.comment-user-data {
+  margin-top: 2px;
+  p {
+  margin-bottom: -8px;
+}
+}
+
+.comment-cont {
+  margin-top: 4px;
+  p {
+    font-size: 20px;
+  }
+}
+
+.comment-cont-input {
+  border-radius: 10px;
 }
