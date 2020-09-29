@@ -1,10 +1,10 @@
 <%= render '/shared/navbar' %>
-<div class="wrapper-flats">
+
   <div class="container">
 
-    <div class="big-avatar" style="background-image: url(<%= current_user.photo_url %>)"></div>
+    <div class="big-avatar mt-3" style="background-image: url(<%= current_user.photo_url %>)"></div>
     <div class="new-flat-page">
-      <h1 class="name-header mb-4 mt-4"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
+      <h1 class="name-header mb-4"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
 
       <div class="new-flat-form">
         <h3>Create a new flat</h3>
@@ -31,5 +31,5 @@
            <%= f.submit 'Create flat', class:'primarybtn' %>
           </div>
       <% end %>
-    </div>
+
 </div>

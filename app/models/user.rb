@@ -25,11 +25,6 @@ class User < ApplicationRecord
   def flat_expenses
     expenses.where(flat: flat)
   end
-  # def current_month_total_expenses
-  #   monthly_expenses = filter_by_expense_month(Date.today.strftime('%B'))
-
-  #   monthly_expenses.reduce(0) { |acc, expense| acc += expense.individual_expense }
-  # end
 
   def month_total_expenses(month)
     monthly_expenses = filter_by_expense_month(month)
