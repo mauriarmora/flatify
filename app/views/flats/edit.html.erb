@@ -1,0 +1,51 @@
+<%= render '/shared/navbar' %>
+
+<main>
+  <%= simple_form_for(@flat) do |f| %>
+  <h1 class="name-header mb-4"><%= @flat.name %> </h1>
+
+
+    <div class="wrapper-flats">
+      <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-images"></i>'.html_safe %>
+      <div class="container" data-controller="flat">
+        <div class="update-flat-form">
+          <h3>Update flat name </h3>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <div class="flat-properties">
+            <%= f.input :name, placeholder: 'Introduce a flat name', label: false, input_html: { class: "flat-name-input"} %>
+          </div>
+          <div id="user-container" class="user-container">
+            <% @flat.users.each do |user| %>
+              <div class="new-mate-card position-relative">
+                <div class="mate-card-complete">
+                  <div class="add-mate-card">
+                    <img src="<%= user.photo_url %>" width="50">
+
+                    <h5><%= user.first_name || "Flatifyer" %></h5>
+                  </div>
+                  <p>€ <%= user.rent %>  </p>
+                </div>
+                <% if user != @flat.admin %>
+                  <input type="hidden" name="flatmate_emails[]" value="<%= user.email %>" />
+                  <input type="hidden" name="rent[]" value="<%= user.rent %>" />
+                  <i class="fas fa-trash-alt delete-flatmate-link" data-action="click->flat#removeMate"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          <h3>Add new flatmate</h3>
+          <div class="addflatmates">
+            <input id="email-input" class="email-input" data-target="flat.email" type="text" placeholder="Flatmate email">
+            <input id="rent-input" class="rent-input" data-target="flat.rent" type="text" placeholder="Rent">
+            <div data-action="click->flat#fetchMate" class="add-flat-mate">Add</div>
+          </div>
+        </div>
+      </div>
+      <div class="fixed-btn">
+        <%= f.submit 'Update flat', class:'primarybtn' %>
+      </div>
+   </div>
+
+  <% end %>
+</main>

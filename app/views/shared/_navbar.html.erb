@@ -18,6 +18,13 @@
           <h3 class="nav-link mb-0 dashboard-link">Profile</h3>
         <% end %>
       </li>
+      <% if current_user && policy(current_user.flat).edit? %>
+        <li class="nav-item">
+          <%= link_to edit_flat_path(current_user.flat) do %>
+            <h3 class="nav-link mb-0 dashboard-link">Edit flat</h3>
+          <% end %>
+        </li>
+      <% end %>
       <li class="nav-item">
         <%= link_to destroy_user_session_path, method: :delete do %>
           <h3 class="nav-link" tabindex="-1" aria-disabled="true">Log out</h3>

@@ -16,7 +16,7 @@
     <%= favicon_link_tag asset_path('lewagon-logo-black.png') %>
   </head>
 
-  <body id="<%= controller_name %>">
+  <body class='<%= "#{controller_name}_#{action_name}" %>' id="<%= controller_name %>">
     <%= yield %>
   </body>
 

@@ -24,12 +24,7 @@ class FlatsController < ApplicationController
     authorize @flat
 
     if @flat.save
-      params[:flatmate_emails].each_with_index do |email, i|
-        user = User.find_by(email: email) || User.invite!(email: email)
-        user.flat = @flat
-        user.rent = params[:rent][i]
-        user.save
-      end
+      @flat.set_users_and_rent(params[:flatmate_emails], params[:rent])
       @flat.admin.rent = @flat.rent - params[:rent].map(&:to_i).sum
       @flat.admin.save
       redirect_to root_path
@@ -42,7 +37,10 @@ class FlatsController < ApplicationController
 
   def update
     if @flat.update(flat_params)
-      redirect_to flat_path(@flat)
+      @flat.set_users_and_rent(params[:flatmate_emails], params[:rent])
+      @flat.admin.rent = @flat.rent - params[:rent].map(&:to_i).sum
+      @flat.admin.save
+      redirect_to root_path
     else
       render :edit
     end

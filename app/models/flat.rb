@@ -18,4 +18,20 @@ class Flat < ApplicationRecord
     admin.flat = self
     admin.save
   end
+
+  def set_users_and_rent(user_emails, rents)
+    users.each do |flatmate|
+      next if flatmate == admin
+
+      flatmate.flat = nil
+      flatmate.rent = nil
+      flatmate.save
+    end
+    user_emails.each_with_index do |email, i|
+      user = User.find_by(email: email) || User.invite!(email: email)
+      user.flat = self
+      user.rent = rents[i]
+      user.save
+    end
+  end
 end
