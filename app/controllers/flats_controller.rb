@@ -25,6 +25,7 @@ class FlatsController < ApplicationController
 
     if @flat.save
       params[:flatmate_ids].each_with_index do |id, i|
+        User.invite!(email: 'new_user@example.com', name: 'John Doe')
         user = User.find(id)
         user.flat = @flat
         user.rent = params[:rent][i]
