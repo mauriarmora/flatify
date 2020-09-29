@@ -1,8 +1,8 @@
 <%= render 'shared/navbar' %>
 
-<div class="container">
+<div class="container mt-4">
 
-  <h1 id="homepage-title"><%= @flat.name %></h1>
+  <h1 id="homepage-title"><%= @flat.name.capitalize %></h1>
   <div class="balance-card">
     <div class="user-balance">
       <div class="user-image">
@@ -17,12 +17,12 @@
         <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
         <% end %>
       </div>
-       <h2><span>Total: </span>€ <%= format_cost(@flat.total_expenses + @flat.rent) %> </h2>
-    </div>
+<!--        <h2><span>Total: </span>€ <%= format_cost(@flat.total_expenses + @flat.rent) %> </h2>
+ -->    </div>
   </div>
 
   <div class="expenses-header">
-    <h2>Expenses</h2>
+    <h2>Expenses (€ <%=format_cost(@flat.total_expenses)%>)</h2>
     <%= simple_form_for(:date, url: root_path, method: :get) do |f| %>
       <%= f.input :date, selected: @month ,collection: Expense::MONTHS, label: false, input_html: { class: 'month-filter', onchange: "this.form.submit()" } %>
     <% end %>
@@ -32,14 +32,21 @@
     <% @monthly_expenses.reverse.each do |expense| %>
       <%= link_to flat_expense_path(current_user.flat, expense) do  %>
         <div class="card-expense">
-          <div class="small-avatar" style="background-image: url(<%= expense.creator.photo_url %>)"></div>
+          <div class="small-avatar avatar-expense-card" style="background-image: url(<%= expense.creator.photo_url %>)"></div>
           <div class="color-separator expense-category-<%= expense.category.downcase %>"></div>
           <div class="expense-info">
-            <p class="expense-category"> <%= expense.category %> </p>
+            <h5 class="expense-category mb-0"> <%= expense.category %> </h5>
             <p> <%= expense.created_at.strftime("%m/%d/%Y") %> </p>
           </div>
           <div class="card-price">
-            <h3 id="expense-card-bold mb-0">€ <%= format_cost(expense.amount) %> </h3>
+            <% if expense.users.include?(current_user) %>
+              <h5 class="amount-to-pay mb-0">- €<%= format_cost(expense.amount / expense.users.count).round(2) %></h5>
+              <p class="expense-total-amount mb-0">€ <%= format_cost(expense.amount) %> </p>
+            <% else %>
+              <h5 class="expense-total-amount-big mb-0">+ €<%= format_cost(expense.amount)%> </h5>
+              <p class="expense-total-amount mb-0">€ <%= format_cost(expense.amount) %> </p>
+
+            <% end %>
           </div>
         </div>
       <% end %>
