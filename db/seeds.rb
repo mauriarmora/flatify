@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
 
 puts "Destroying all the data..."
 Flat.destroy_all
@@ -19,13 +20,15 @@ user_1 = User.create!(
   last_name: 'Jordan',
   email: 'mj4eva@chicagobulls.com',
   password: '123456',
+  rent: 200
   )
 
 puts "Creating the perfect flat!"
 
 perfect_flat = Flat.create!(
   name: 'Beautiful flat',
-  admin: user_1
+  admin: user_1,
+  rent: 1000
 )
 
 puts "Creating the flatmates users..."
@@ -35,7 +38,8 @@ user_2 = User.create!(
   last_name: 'Pochettino',
   email: 'mauricet@gmail.com',
   password: '123456',
-  flat: perfect_flat
+  flat: perfect_flat,
+  rent: 300
   )
 
 user_3 = User.create!(
@@ -43,7 +47,8 @@ user_3 = User.create!(
   last_name: 'Del Toro',
   email: 'williamofthebull@pelis.com',
   password: '123456',
-  flat: perfect_flat
+  flat: perfect_flat,
+  rent: 300
   )
 
 user_4 = User.create!(
@@ -51,78 +56,29 @@ user_4 = User.create!(
   last_name: 'Batistuta',
   email: 'gabbyb@fiorentina.com',
   password: '123456',
-  flat: perfect_flat
+  flat: perfect_flat,
+  rent: 200
   )
 
 puts "4 users created!"
 
-expense_1 = Expense.create!(
-  amount: 25,
-  category: "Shopping",
-  user_id: user_1.id,
-  flat: perfect_flat,
-  payment_month: 'September',
-  payment_year: '2020',
-  description: "Toilet paper, coffee, eggs and milk"
+users = [user_1.id, user_2.id, user_3.id, user_4.id]
+
+50.times do
+  expense = Expense.create(
+    amount: rand(2..40),
+    category: Expense::CATEGORIES[rand(0..3)],
+    user_id: users[rand(0..3)],
+    flat: perfect_flat,
+    payment_month: Expense::MONTHS[rand(0..11)],
+    payment_year: 2020,
+    description: Faker::Lorem.words(number: 4)
   )
+  users.sample(rand(0..3)).each do |id|
+    UserExpense.create(user_id: id, expense: expense)
+  end
+end
 
-expense_2 = Expense.create!(
-  amount: 10,
-  category: "Pets",
-  user_id: user_2.id,
-  flat: perfect_flat,
-  payment_month: 'September',
-  payment_year: '2020',
-  description: "Food for the cat"
-  )
-
-puts "2 expenses were created!"
-
-expense_3 = Expense.create!(
-  amount: 50,
-  category: "Utilities",
-  user_id: user_3.id,
-  flat: perfect_flat,
-  payment_month: 'September',
-  payment_year: '2020',
-  description: "Electricity bill"
-  )
-
-expense_4 = Expense.create!(
-  amount: 100,
-  category: "Shopping",
-  user_id: user_4.id,
-  flat: perfect_flat,
-  payment_month: 'September',
-  payment_year: '2020',
-  description: "I bought everything we need for this Friday's party after the first demo of our project!!"
-  )
-
-puts "2 expenses more were created!"
-puts "Creating some user expenses"
-
-user_expense_1 = UserExpense.create!(
-  user_id: user_1.id,
-  expense_id: expense_1.id,
-  paid: false
-  )
-
-user_expense_1 = UserExpense.create!(
-  user_id: user_2.id,
-  expense_id: expense_2.id,
-  paid: false
-  )
-
-user_expense_3 = UserExpense.create!(
-  user_id: user_3.id,
-  expense_id: expense_3.id,
-  paid: true
-  )
-
-user_expense_4 = UserExpense.create!(
-  user_id: user_4.id,
-  expense_id: expense_4.id,
-  paid: false
-  )
+puts "30 were created!"
 
 puts "We are done!"
