@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one :property, foreign_key: "user_id", class_name: "Flat", dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   def photo_url
