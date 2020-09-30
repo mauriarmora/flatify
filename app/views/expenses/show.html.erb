@@ -65,10 +65,17 @@
              <% end %>
           </div>
           <% if @expense.photo.attached? %>
-            <%= image_tag @expense.photo.service_url, class:'exp-imag' %>
-            <% else %>
+            <img id="myImg" src="<%= @expense.photo.service_url %>" style="width:100%">
+
+            <div id="myModal" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img01">
+              <div id="caption"></div>
+            </div>
+          <% else %>
             <%= "" %>
           <% end %>
+
         </div>
 
         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
