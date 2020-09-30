@@ -1,6 +1,7 @@
 body#flats.flats_new {
   background-color: #04AF88 !important;
 }
+
 .container-flats {
   background-color: white;
   margin-top: 7rem !important;
@@ -106,10 +107,6 @@ body#flats.flats_new {
   display: flex;
 }
 
-// body#flats{
-//   background: #ECECEC;
-// }
-
 body.flats_edit {
   height: calc(100vh - 50px);
 
@@ -197,6 +194,7 @@ body.flats_edit {
 .wrapper-new-flat {
   position: relative;
   top: 0;
+}
 
 #photo-preview {
   height: 150px;
