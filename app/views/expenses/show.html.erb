@@ -2,14 +2,18 @@
 <div class="category-exp-<%= @expense.category.downcase %>">
   <div class="total-amount-exp">
     <h1><%= format_cost(@expense.amount.round(2)) %>€</h1>
+    <h3 class="exp-cat mb-3"> <%= @expense.category %> </h3>
   </div>
 </div>
 
 <div class="wrapper-exp">
-  <div class="container pt-5">
-    <div class="creator-card">
-      <p>Created by</p>
+  <div class="container-sh-ex">
+    <div class="creator-card d-flex align-items-center">
       <div class="creator-avatar" style="background-image: url(<%= @creator.photo_url %>)"></div>
+      <div class="creator-info">
+        <h3><span style="font-weight: 300;">Created by </span> <%= @expense.creator.first_name %></h3>
+        <p style="margin: 0;"><strong>From:</strong> <%= @expense.created_at.strftime("%d %B %Y") %></p>
+      </div>
     </div>
     <div class="information-exp-body">
 
@@ -17,11 +21,10 @@
         <div class="backbutn">
           <%= link_to '<i class="fas fa-arrow-left back-arrow"></i>'.html_safe, root_path %>
         </div>
-        <p><strong>From:</strong> <%= @expense.created_at.strftime("%d %B %Y") %></p>
       </div>
 
       <div class="user-amount-<%= @expense.category.downcase %> p-3">
-        <h2 class="mb-0">You have to pay</h2>
+        <h2 class="mb-0" style="font-weight: 300;">You have to pay</h2>
         <% if @expense.users.include?(current_user) %>
             <h2 class="mb-0"> <%= format_cost(@user_amount.round(2)) %>€</h2>
           <% else %>
@@ -29,20 +32,31 @@
           <% end %>
       </div>
 
-      <div class="expense-information">
-        <h3 class="exp-cat mt-4 mb-3"> #<%= @expense.category %> </h3>
-        <h3>Description</h3>
-        <p class="desc-exp mb-3"> <%= @expense.description.capitalize %> </p>
+    </div>
 
-        <% if @expense.photo.attached? %>
-        <%= image_tag @expense.photo.service_url, class:'exp-imag' %>
-        <% else %>
-        <%= "" %>
-        <% end %>
+      <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="Details" aria-selected="true">Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="Comments" aria-selected="false">Comments</a>
+        </li>
+      </ul>
 
-        <h3 class="shared-with mt-3 mb-3">Shared with</h3>
+      <div class="tab-content" id="myTabContent">
 
-          <div class="expenses">
+        <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
+          <div class="expense-information">
+            <p class="desc-exp mb-5 mt-5"> <%= @expense.description.capitalize %> </p>
+
+            <% if @expense.photo.attached? %>
+            <%= image_tag @expense.photo.service_url, class:'exp-imag' %>
+            <% else %>
+            <%= "" %>
+            <% end %>
+          </div>
+
+          <div class="expenses-show">
             <% @expense.users.each do |user| %>
               <div class="card-expense">
                 <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
@@ -56,10 +70,13 @@
               </div>
              <% end %>
           </div>
-          <h3>Comments 📝</h3>
+        </div>
+
+        <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
+
           <div class="comment-box mt-3">
-            <% if @expense.comments.blank? %>
-              <div class="comment-blank mb-3">Be the first to leave a comment!!</div>
+            <% if !@expense.comments.blank? %>
+              <h3 class="mt-4">Comments 📝</h3>
             <% else %>
             <% @comments.each do |comment| %>
                 <div class="comment-card" id="<%=comment.id%>-review">
@@ -84,15 +101,12 @@
 
             <%= simple_form_for([ @expense, @comment ]) do |f| %>
               <%= f.input :content, as: :text, placeholder: 'Type a comment', label: false, input_html: { class: "comment-cont-input"} %>
-              <div class="secondarybtn-<%= @expense.category.downcase %>">
+              <div class="secondarybtn-category-ex">
                 <%= f.button :submit, 'Post comment', class: "category-color-button" %>
               </div>
 
             <% end %>
-
         </div>
       </div>
-    </div>
-    </div>
   </div>
 </div>
