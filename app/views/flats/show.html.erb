@@ -45,11 +45,11 @@
 
             <div class="card-price">
               <% if expense.users.include?(current_user) %>
-                <h4 class="amount-to-pay mb-0">- <%= format_cost(expense.amount / expense.users.count).round(2) %>€ </h4>
-                <h5 class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </h5>
+                <h5 class="amount-to-pay mb-0">- <%= format_cost(expense.amount / expense.users.count).round(2) %>€ </h5>
+                <p class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </p>
               <% else %>
-                <h4 class="expense-total-amount-big mb-0">+ <%= format_cost(expense.amount)%>€ </h4>
-                <h5 class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </h5>
+                <h5 class="expense-total-amount-big mb-0">+ <%= format_cost(expense.amount)%>€ </h5>
+                <p class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </p>
               <% end %>
             </div>
 
