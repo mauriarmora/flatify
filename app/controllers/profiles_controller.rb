@@ -13,11 +13,15 @@ class ProfilesController < ApplicationController
     end
 
     @monthly_expenses = current_user.filter_by_expense_month(@month)
-
   end
 
   def expenses
     @expenses = @user.expenses
+  end
+
+  def summary
+    @month = params[:date] ? params[:date][:date] : Date.today.strftime('%B')
+    @monthly_expenses = current_user.filter_by_expense_month(@month)
   end
 
   private
