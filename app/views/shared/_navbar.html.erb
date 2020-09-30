@@ -7,6 +7,7 @@
     </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <% if user_signed_in? %>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <%= link_to dashboard_path do %>
@@ -31,5 +32,6 @@
         <% end %>
       </li>
     </ul>
+    <% end %>
   </div>
 </nav>
