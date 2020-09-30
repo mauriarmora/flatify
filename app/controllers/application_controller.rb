@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   def after_sign_in_path_for(resource)
-    resource.flat ? root_path : new_flat_path
+    resource.flat ? dashboard_path : new_flat_path
   end
 
   private
