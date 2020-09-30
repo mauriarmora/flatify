@@ -1,6 +1,7 @@
 <%= render 'shared/navbar' %>
 
-<div class="container mt-4">
+
+<div class="container pt-4" id="banner" style="<%= "background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(#{@flat.photo.service_url})" if @flat.photo.attached? %>">
   <div class="flat-info">
     <h1 id="homepage-title" class="text-center"><%= @flat.name.capitalize %></h1>
     <div class="flatmates-container ml-1">

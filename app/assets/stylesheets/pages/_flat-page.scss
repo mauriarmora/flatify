@@ -1,5 +1,8 @@
-body#flats {
+#banner {
   background: #04AF88;
+  height: 45vh;
+  background-size: cover;
+  background-position: center center;
 }
 
 h5 {
@@ -15,6 +18,7 @@ h5 {
   background: white;
   border-radius: 20px 20px 0px 0px;
   min-height: 100vh;
+  margin-top: -20px;
 }
 
 .balance-card {
