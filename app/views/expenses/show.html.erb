@@ -24,7 +24,7 @@
       </div>
 
       <div class="user-amount-<%= @expense.category.downcase %> p-3">
-        <h2 class="mb-0" style="font-weight: 300;">You have to pay</h2>
+        <h2 class="mb-0">You have to pay</h2>
         <% if @expense.users.include?(current_user) %>
             <h2 class="mb-0"> <%= format_cost(@user_amount.round(2)) %>€</h2>
           <% else %>
@@ -47,13 +47,7 @@
 
         <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
           <div class="expense-information">
-            <p class="desc-exp mb-5 mt-5"> <%= @expense.description.capitalize %> </p>
-
-            <% if @expense.photo.attached? %>
-            <%= image_tag @expense.photo.service_url, class:'exp-imag' %>
-            <% else %>
-            <%= "" %>
-            <% end %>
+            <p class="desc-exp mb-4 mt-4"> <%= @expense.description.capitalize %> </p>
           </div>
 
           <div class="expenses-show">
@@ -70,6 +64,11 @@
               </div>
              <% end %>
           </div>
+          <% if @expense.photo.attached? %>
+            <%= image_tag @expense.photo.service_url, class:'exp-imag' %>
+            <% else %>
+            <%= "" %>
+          <% end %>
         </div>
 
         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
@@ -81,16 +80,15 @@
               <% @comments.each do |comment| %>
                 <div class="comment-card" id="<%=comment.id%>-review">
 
+                  <div class="comment-cont">
+                    <p class="m-0"><%= comment.content %></p>
+                  </div>
                   <div class="comment-info">
                     <div class="small-avatar" style="background-image: url(<%= comment.user.photo_url %>)"></div>
                     <div class="comment-user-data">
                       <p><strong><%= comment.user.first_name %></strong></p>
                       <p class="date-string"><%= comment.created_at.strftime("%d %B %Y") %></p>
                     </div>
-                  </div>
-
-                  <div class="comment-cont">
-                    <p class="m-0"><%= comment.content %></p>
                   </div>
 
                 </div>

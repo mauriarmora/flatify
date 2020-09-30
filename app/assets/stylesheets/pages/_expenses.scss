@@ -142,6 +142,9 @@
   display: flex;
   justify-content: space-between;
   margin: 40px 0;
+  h2 {
+    font-size: 20px !important;
+  }
 }
 
 .user-amount-pets {
@@ -152,6 +155,9 @@
   display: flex;
   justify-content: space-between;
   margin: 40px 0;
+  h2 {
+    font-size: 20px !important;
+  }
 }
 
 .user-amount-utilities {
@@ -162,6 +168,9 @@
   display: flex;
   justify-content: space-between;
   margin: 40px 0;
+  h2 {
+    font-size: 20px !important;
+  }
 }
 
 .user-amount-others {
@@ -172,6 +181,9 @@
   display: flex;
   justify-content: space-between;
   margin: 40px 0;
+  h2 {
+    font-size: 20px !important;
+  }
 }
 
 .wrapper-exp {
@@ -228,4 +240,8 @@
   background: darken(#f8f9fa, 3%);
   padding: 10px 15px;
   border-radius: 10px;
+}
+
+.creator-info p {
+  color: #AFAFAF;
 }
