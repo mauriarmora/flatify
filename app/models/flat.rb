@@ -28,6 +28,8 @@ class Flat < ApplicationRecord
       flatmate.rent = nil
       flatmate.save
     end
+    return unless user_emails
+
     user_emails.each_with_index do |email, i|
       user = User.find_by(email: email) || User.invite!(email: email)
       user.flat = self

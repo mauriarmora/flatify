@@ -1,4 +1,6 @@
 import { Controller } from "stimulus";
+import Swal from 'sweetalert2'
+
 
 export default class extends Controller {
   static targets = ["submit", "name", "image", "flatmates"]
@@ -55,11 +57,12 @@ export default class extends Controller {
             <div class="small-avatar" style="background-image: url(${data.image_url})"></div>
               <h5>${data.first_name || "Flatifyer"}</h5>
             </div>
+            <p>€ ${rentInput.value}  </p>
           </div>
 
           <i class="fas fa-trash-alt delete-flatmate-link" data-action="click->flat#removeMate"></i>
+          <input  type="hidden" name="rent[]" value="${rentInput.value}" />
           <input type="hidden" name="flatmate_emails[]" value="${data.email}" />
-          <input type="hidden" name="rent[]" value="${rentInput.value}" />
         </div>`
         userContainer.insertAdjacentHTML("beforeend", htmlEl)
         rentInput.value = "";
@@ -70,9 +73,19 @@ export default class extends Controller {
   }
 
   removeMate(e) {
-    if (confirm('Are you sure?')) {
-      e.target.parentElement.remove()
-      this.updateButtonState()
-    }
+    Swal.fire({
+      title: 'Are you sure you want to remove this flatmate from the flat?',
+      text: "Once they are out, they are out.",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#04AF88',
+      cancelButtonColor: '#FF707A',
+      confirmButtonText: 'Yes, remove them!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        e.target.parentElement.remove()
+        this.updateButtonState()
+      }
+    })
   }
 }

@@ -38,6 +38,7 @@ class FlatsController < ApplicationController
   def update
     if @flat.update(flat_params)
       @flat.set_users_and_rent(params[:flatmate_emails], params[:rent])
+      params[:rent] ||= [0]
       @flat.admin.rent = @flat.rent - params[:rent].map(&:to_i).sum
       @flat.admin.save
       redirect_to dashboard_path

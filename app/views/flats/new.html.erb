@@ -1,5 +1,5 @@
 <%= render '/shared/navbar' %>
-<div class="container-flats container">
+<div class="container-flats container" data-controller="flat">
 
   <div class="big-avatar-flat" style="background-image: url(<%= current_user.photo_url %>)"></div>
 
@@ -17,7 +17,7 @@
         </div>
 
         <h3 class="mt-2">Add flatmates</h3>
-        <div data-controller="flat" class="addflatmates">
+        <div class="addflatmates">
           <input id="email-input" class="email-input" data-target="flat.email" type="text" placeholder="Flatmate email">
           <input id="rent-input" class="rent-input" data-target="flat.rent" type="text" placeholder="Rent">
           <div data-action="click->flat#fetchMate" class="add-flat-mate">Add</div>
