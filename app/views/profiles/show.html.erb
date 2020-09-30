@@ -26,7 +26,7 @@
           <% end %>
         </div>
 
-        <h3 class="mt-4">Your month expenses</h3>
+        <h3 class="mt-4">Your month expenses </h3>
 
         <div class="expenses">
           <% @monthly_expenses.reverse.each do |expense| %>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="card-price">
                   <h3 id="
-                  -bold mb-0">- <%= format_cost(expense.amount) %>€ </h3>
+                  -bold mb-0">- <%= format_cost(expense.amount / expense.users.count).round(2) %>€  </h3>
                 </div>
               </div>
             <% end %>
