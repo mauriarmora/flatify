@@ -56,7 +56,7 @@ class FlatsController < ApplicationController
     if user && user.photo.attached?
       user_hash["image_url"] = "https://res.cloudinary.com/dinkluxtp/image/upload/#{user.photo.key}.png"
     else
-      user_hash["image_url"] = "https://res.cloudinary.com/dinkluxtp/image/upload/v1600952449/default_avatar_lx6rcs.png"
+      user_hash["image_url"] = User::DEFAULT_AVATAR
     end
 
     skip_authorization
