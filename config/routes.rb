@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'flats#show'
+  root to: 'pages#home'
 
+  get '/dashboard', to: 'flats#show'
   resources :flats, except: [:index, :show] do
     resources :expenses, except: [:index]
   end

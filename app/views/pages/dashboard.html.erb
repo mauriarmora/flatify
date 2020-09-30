@@ -29,7 +29,7 @@
 
       <div class="expenses-header">
         <h2>Expenses (<%=format_cost(@flat.month_total_expenses(@month))%>€)</h2>
-        <%= simple_form_for(:date, url: dashboard_path, method: :get) do |f| %>
+        <%= simple_form_for(:date, url: root_path, method: :get) do |f| %>
           <%= f.input :date, selected: @month ,collection: Expense::MONTHS, label: false, input_html: { class: 'month-filter', onchange: "this.form.submit()" } %>
         <% end %>
       </div>
@@ -64,4 +64,3 @@
       <%= link_to 'Create an expense', "/flats/#{current_user.flat.id}/expenses/new", class:'primarybtn btn-fixed' %>
     </div>
   </div>
-
