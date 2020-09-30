@@ -16,6 +16,10 @@
   }
 }
 
+.expenses {
+  padding-bottom: 0;
+}
+
 .creator-avatar {
   width: 40px;
   height: 40px;
@@ -31,12 +35,7 @@
   font-weight: bolder;
 }
 
-.information-exp-body {
-  position: relative;
-  .expenses {
-    padding-bottom: 10px;
-  }
-}
+.information-exp-body { position: relative; }
 
 .exp-date {
   text-align: center;

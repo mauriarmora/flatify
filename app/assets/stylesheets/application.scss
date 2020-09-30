@@ -10,6 +10,12 @@
 
 * { text-decoration: none; }
 
+.container {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  padding-bottom: 40px !important;
+}
+
 h1 {
   font-family: $headers;
   font-size: 31.25px;

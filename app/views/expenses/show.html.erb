@@ -1,7 +1,7 @@
 <%= render '/shared/navbar' %>
 <div class="category-exp-<%= @expense.category.downcase %>">
   <div class="total-amount-exp">
-    <h1>€ <%= format_cost(@expense.amount.round(2)) %></h1>
+    <h1><%= format_cost(@expense.amount.round(2)) %>€</h1>
   </div>
 </div>
 
@@ -23,9 +23,9 @@
       <div class="user-amount-<%= @expense.category.downcase %> p-3">
         <h2 class="mb-0">You have to pay</h2>
         <% if @expense.users.include?(current_user) %>
-            <h2 class="mb-0">€ <%= format_cost(@user_amount.round(2)) %></h2>
+            <h2 class="mb-0"> <%= format_cost(@user_amount.round(2)) %>€</h2>
           <% else %>
-            <h2 class="mb-0">€ 0</h2>
+            <h2 class="mb-0">0€</h2>
           <% end %>
       </div>
 

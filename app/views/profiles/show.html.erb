@@ -36,7 +36,7 @@
                 <p> <%= expense.created_at.strftime("%m/%d/%Y") %> </p>
               </div>
               <div class="card-price">
-                <h3 id="expense-card-bold mb-0">€ <%= format_cost(expense.amount) %> </h3>
+                <h3 id="expense-card-bold mb-0"><%= format_cost(expense.amount) %>€ </h3>
               </div>
             </div>
           <% end %>
