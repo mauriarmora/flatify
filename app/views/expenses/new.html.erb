@@ -33,18 +33,20 @@
       <div class="flatmates-choices">
         <h3>Share with</h3>
 
-        <div class="d-flex justify-content-between">
+      <div class="new-mate-card position-relative">
+        <div class="mate-card-complete user-container">
           <% @flat.users.each do |user| %>
             <input type="checkbox" class="hidden" value="<%= user.id %>" name="user_expense[user][]" id="user_<%= user.id %>">
             <label for="user_<%= user.id %>">
-                <div  class="expense-avatar" style="background-image: url(<%= user.photo_url %>)" alt=""></div>
-              <div class="flatmate-name">
-                <%= user.first_name %>
+              <div class="add-mate-card">
+                <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)" alt=""></div>
+                <h5> <%= user.first_name %> </h5>
               </div>
             </label>
           <% end %>
         </div>
       </div>
+
       <div class="error">
         <%= f.full_error(:flatmates) %>
       </div>
