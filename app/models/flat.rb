@@ -3,6 +3,7 @@ class Flat < ApplicationRecord
   belongs_to :admin, class_name: 'User', foreign_key: 'user_id'
   has_many :expenses, dependent: :destroy
   after_create :set_admin_as_flatmate
+  has_one_attached :photo
 
   validates :name, presence: true
 

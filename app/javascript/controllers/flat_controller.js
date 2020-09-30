@@ -44,16 +44,17 @@ export default class extends Controller {
     const userContainer = document.querySelector("#user-container")
 
     fetch(`/fetch_mate?email=${emailInput.value}`)
-      .then(response => response.json())
-      .then((data) => {
-        emailInput.value = "";
-        const htmlEl = `<div class="new-mate-card position-relative">
-          <div class="mate-card-complete">
-            <div class="add-mate-card">
-              <img src="${data.image_url}" width="50">
+    .then(response => response.json())
+    .then((data) => {
+      emailInput.value = "";
+      console.log(data)
+      const htmlEl = `
+      <div class="new-mate-card position-relative">
+        <div class="mate-card-complete">
+          <div class="add-mate-card">
+            <div class="small-avatar" style="background-image: url(${data.image_url})"></div>
               <h5>${data.first_name || "Flatifyer"}</h5>
             </div>
-            <p>€${rentInput.value}</p>
           </div>
 
           <i class="fas fa-trash-alt delete-flatmate-link" data-action="click->flat#removeMate"></i>

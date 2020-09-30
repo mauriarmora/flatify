@@ -10,11 +10,13 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  DEFAULT_AVATAR = 'https://res.cloudinary.com/dinkluxtp/image/upload/v1601458419/default-avatar-profile-trendy-style-social-media-user-icon-187599373_hkike6.jpg'
+
   def photo_url
     if photo.attached?
       photo.service_url
     else
-      'https://res.cloudinary.com/dinkluxtp/image/upload/v1600952449/default_avatar_lx6rcs.png'
+      User::DEFAULT_AVATAR
     end
   end
 

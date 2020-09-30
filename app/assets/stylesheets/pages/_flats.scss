@@ -52,8 +52,11 @@ body#flats.flats_new {
   background-color: #E6F6F2;
   border-radius: 20px;
   width: 100%;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 18px;
+  padding-bottom: 10px;
+  &.active {
+    border: 5px solid #04AF88;
+  }
   img {
     border-radius: 20px;
     display: block;
@@ -192,10 +195,6 @@ body.flats_edit {
   color: $maincolor;
 }
 
-.wrapper-new-flat {
-  position: relative;
-  top: 0;
-}
 
 #photo-preview {
   height: 150px;
