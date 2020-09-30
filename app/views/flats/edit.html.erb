@@ -4,23 +4,23 @@
   <%= simple_form_for(@flat) do |f| %>
 
 
-    <div class="wrapper-flats">
+    <div class="wrapper-flats" data-controller="flat">
       <div class="text-center preview-banner">
         <h1 class="name-header mb-4"><%= @flat.name %> </h1>
         <%= image_tag "", width: 375, class: "hidden", id: "photo-preview" %>
       </div>
       <div class="upload-button-float">
-        <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-images"></i>'.html_safe %>
+        <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input', data: { action: 'change->flat#updateButtonState', target: 'flat.image' }  }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-images"></i>'.html_safe %>
       </div>
-      <div class="container" data-controller="flat">
+      <div class="container">
         <div class="update-flat-form">
           <h3>Update flat name </h3>
           <%= f.error_notification %>
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
           <div class="flat-properties">
-            <%= f.input :name, placeholder: 'Introduce a flat name', label: false, input_html: { class: "flat-name-input"} %>
+            <%= f.input :name, placeholder: 'Introduce a flat name', label: false, input_html: { class: "flat-name-input", data: { action: 'keyup->flat#updateButtonState', target: 'flat.name' }} %>
           </div>
-          <div id="user-container" class="user-container">
+          <div id="user-container" class="user-container" data-target="flat.flatmates">
             <% @flat.users.each do |user| %>
               <div class="new-mate-card position-relative">
                 <div class="mate-card-complete">
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="fixed-btn">
-        <%= f.submit 'Update flat', class:'primarybtn' %>
+        <%= f.submit 'Update flat', class: 'disabledbtn', disabled: true, data: { target: 'flat.submit' } %>
       </div>
    </div>
 

@@ -1,14 +1,6 @@
 body#profiles {
-  background-color: white;
+  background-color: #04AF88;
 }
-
-.expense-card {
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-  border-radius: 10px;
-  padding: 10px;
-}
-
-.expense-content { display: flex; }
 
 .expense-info {
   margin: 4px 0px 4px 0px;
@@ -41,14 +33,6 @@ body#profiles {
   margin: 4px;
 }
 
-// .expense-category-rent {
-//   display: flex;
-//   flex-direction: column;
-//   border-left: 6px solid #118ab2;
-//   border-radius: 4px;
-//   margin: 4px;
-// }
-
 .expense-category-pets {
   display: flex;
   flex-direction: column;
@@ -66,8 +50,6 @@ body#profiles {
 .circle-shopping { color: #00ABE7; }
 
 .circle-pets { color: #FF707A; }
-
-// .circle-rent { color: #118ab2; }
 
 .circle-utilities{ color: #E9CD72; }
 

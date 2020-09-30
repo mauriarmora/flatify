@@ -11,8 +11,7 @@
     </div>
   </div>
   <div class="balance-card">
-    <div class="others-balance">
-    </div>
+    <div class="others-balance"></div>
     <div class="user-balance">
 <!--       <div class="user-image">
         <div class="medium-avatar" style="background-image: url(<%= current_user.photo_url %>)"></div>
@@ -24,8 +23,8 @@
   </div>
 </div>
 
-  <div class="wrapper-dashboard pt-3">
-    <div class="container">
+<div class="wrapper-dashboard pb-5 pt-3">
+  <div class="container">
 
       <div class="expenses-header">
         <h2>Expenses (<%=format_cost(@flat.month_total_expenses(@month))%>€)</h2>
@@ -34,34 +33,35 @@
         <% end %>
       </div>
 
-      <div class="expenses">
-        <% @monthly_expenses.reverse.each do |expense| %>
-          <%= link_to flat_expense_path(current_user.flat, expense) do  %>
-            <div class="card-expense">
-              <div class="small-avatar avatar-expense-card" style="background-image: url(<%= expense.creator.photo_url %>)"></div>
-              <div class="color-separator expense-category-<%= expense.category.downcase %>"></div>
-              <div class="expense-info">
-                <h5 class="expense-category mb-0"> <%= expense.category %> </h5>
-                <p> <%= expense.created_at.strftime("%m/%d/%Y") %> </p>
-              </div>
-              <div class="card-price">
-                <% if expense.users.include?(current_user) %>
-                  <h4 class="amount-to-pay mb-0">- <%= format_cost(expense.amount / expense.users.count).round(2) %>€ </h4>
-                  <h5 class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </h5>
-                <% else %>
-                  <h4 class="expense-total-amount-big mb-0">+ <%= format_cost(expense.amount)%>€ </h4>
-                  <h5 class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </h5>
-
-                <% end %>
-              </div>
+    <div class="expenses">
+      <% @monthly_expenses.reverse.each do |expense| %>
+        <%= link_to flat_expense_path(current_user.flat, expense) do  %>
+          <div class="card-expense">
+            <div class="small-avatar avatar-expense-card" style="background-image: url(<%= expense.creator.photo_url %>)"></div>
+            <div class="color-separator expense-category-<%= expense.category.downcase %>"></div>
+            <div class="expense-info">
+              <h5 class="expense-category mb-0"> <%= expense.category %> </h5>
+              <p> <%= expense.created_at.strftime("%m/%d/%Y") %> </p>
             </div>
-          <% end %>
-        <% end %>
-      </div>
 
+            <div class="card-price">
+              <% if expense.users.include?(current_user) %>
+                <h4 class="amount-to-pay mb-0">- <%= format_cost(expense.amount / expense.users.count).round(2) %>€ </h4>
+                <h5 class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </h5>
+              <% else %>
+                <h4 class="expense-total-amount-big mb-0">+ <%= format_cost(expense.amount)%>€ </h4>
+                <h5 class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </h5>
+              <% end %>
+            </div>
+
+          </div>
+        <% end %>
+      <% end %>
     </div>
-    <div class="fixed-btn">
-      <%= link_to 'Create an expense', "/flats/#{current_user.flat.id}/expenses/new", class:'primarybtn btn-fixed' %>
-    </div>
+
   </div>
+  <div class="fixed-btn">
+    <%= link_to 'Create an expense', "/flats/#{current_user.flat.id}/expenses/new", class:'primarybtn btn-fixed' %>
+  </div>
+</div>
 
