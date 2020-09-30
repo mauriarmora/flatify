@@ -1,8 +1,8 @@
 <%= render '/shared/navbar' %>
 <div class="category-exp-<%= @expense.category.downcase %>">
-  <div class="total-amount-exp">
+  <div class="total-amount-exp d-flex flex-column align-items-center">
     <h1><%= format_cost(@expense.amount.round(2)) %>€</h1>
-    <h3 class="exp-cat mb-3"> <%= @expense.category %> </h3>
+    <h3 class="exp-cat mr-2 mb-3"> <%= @expense.category %> </h3>
   </div>
 </div>
 
