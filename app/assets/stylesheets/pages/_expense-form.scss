@@ -1,12 +1,10 @@
 .form-post {
   background: white;
   margin-top: 6px;
-  padding: 20px;
+  padding-top: 20px;
   border-radius: 5px;
   h1 {
     text-align: center;
-    font-weight: bold;
-    font-size: 25px;
     color: #666666;
     margin-bottom: 50px;
     margin-top: 0px;
@@ -25,6 +23,7 @@
   justify-content: space-evenly;
   grid-gap: 16px;
   font-weight: bolder;
+  margin-bottom: 20px;
 }
 
 .category-choice {
@@ -35,6 +34,7 @@
   opacity: .8;
   flex: 0 0 30%;
   text-align: center;
+  margin-bottom: 0;
   &.active {
     color: white !important;
     opacity: 1;
@@ -51,6 +51,7 @@ margin-top: 10px;
 
 .wide-input-dates {
   width: 160px !important;
+  border-radius: 10px;
 }
 
 .expense-button {
@@ -63,6 +64,7 @@ margin-top: 10px;
 .label-fonts {
   font-style: headers;
   font-weight: bolder;
+
 }
 
 
@@ -73,10 +75,11 @@ margin-top: 10px;
   font-size: 50px;
   border: 1px solid white;
   text-align: center;
+  margin-top: 10px
 }
 
 #expense_description {
-  height: 150px;
+  height: 80px;
   border-radius: 10px;
 }
 
@@ -105,7 +108,6 @@ margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 16px;
   border-radius: 15px;
 }
 
@@ -123,7 +125,6 @@ margin-top: 10px;
 
 .flatmate-name {
   text-align: center;
-  margin-bottom: 22px;
 }
 
 .add-photo {
@@ -144,9 +145,12 @@ margin-top: 10px;
   color: #dd394c;
 }
 
-
 .invalid-feedback {
   font-style: headers !important;
   font-size: 16px !important;
 }
 
+.form-group {
+  label { padding-top: 8px !important; }
+  margin-top: 0;
+}
