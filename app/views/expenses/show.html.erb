@@ -12,7 +12,7 @@
       <div class="creator-avatar" style="background-image: url(<%= @creator.photo_url %>)"></div>
       <div class="creator-info">
         <h3><span style="font-weight: 300;">Created by </span> <%= @expense.creator.first_name %></h3>
-        <p style="margin: 0;"><strong>From:</strong> <%= @expense.created_at.strftime("%d %B %Y") %></p>
+        <p style="margin: 0;"><strong><i class="fas fa-clock"></i></strong> <%= @expense.created_at.strftime("%d %B %Y") %></p>
       </div>
     </div>
     <div class="information-exp-body">
@@ -77,8 +77,8 @@
           <div class="comment-box mt-3">
             <% if !@expense.comments.blank? %>
               <h3 class="mt-4">Comments 📝</h3>
-            <% else %>
-            <% @comments.each do |comment| %>
+
+              <% @comments.each do |comment| %>
                 <div class="comment-card" id="<%=comment.id%>-review">
 
                   <div class="comment-info">
