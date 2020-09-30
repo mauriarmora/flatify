@@ -14,7 +14,7 @@ export default class extends Controller {
       const htmlEl = `<div class="new-mate-card position-relative">
         <div class="mate-card-complete">
           <div class="add-mate-card">
-            <img src="${data.image_url}" width="50">
+            <div class="small-avatar" style="background-image: url(${data.image_url})"></div>
             <h5>${data.first_name || "Flatifyer"}</h5>
           </div>
           <p>€${rentInput.value}</p>
