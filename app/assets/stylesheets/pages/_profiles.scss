@@ -1,5 +1,19 @@
-body#profiles {
-  background-color: #04AF88;
+// body#profiles {
+//   background-color: #04AF88;
+// }
+
+#banner-profile {
+  background: #04AF88;
+  height: 31vh;
+  background-size: cover;
+  background-position: center center;
+}
+
+.wrapper-profile {
+  background: white;
+  border-radius: 20px 20px 0px 0px;
+  margin-top: -20px;
+  padding-top: 88px;
 }
 
 .expense-info {

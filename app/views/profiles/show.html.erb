@@ -1,11 +1,11 @@
 <%= render 'shared/navbar' %>
 
-<div class="container d-flex justify-content-center" id="banner">
+<div class="container d-flex justify-content-center" id="banner-profile">
   <div class="big-avatar-profile" style="background-image: url(<%= current_user.photo_url %>)"></div>
 </div>
 
   <div class="new-flat-page">
-    <div class="wrapper-dashboard pt-5">
+    <div class="wrapper-profile">
       <div class="container">
         <h1 class="name-header mb-4"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
         <h3>Last 4 months expenses</h3>
