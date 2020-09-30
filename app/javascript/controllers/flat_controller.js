@@ -11,7 +11,8 @@ export default class extends Controller {
     .then((data) => {
       emailInput.value = "";
       console.log(data)
-      const htmlEl = `<div class="new-mate-card position-relative">
+      const htmlEl = `
+      <div class="new-mate-card position-relative">
         <div class="mate-card-complete">
           <div class="add-mate-card">
             <div class="small-avatar" style="background-image: url(${data.image_url})"></div>
