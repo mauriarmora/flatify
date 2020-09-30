@@ -23,6 +23,7 @@
   justify-content: space-evenly;
   grid-gap: 16px;
   font-weight: bolder;
+  margin-bottom: 20px;
 }
 
 .category-choice {
@@ -33,6 +34,7 @@
   opacity: .8;
   flex: 0 0 30%;
   text-align: center;
+  margin-bottom: 0;
   &.active {
     color: white !important;
     opacity: 1;
@@ -62,6 +64,7 @@ margin-top: 10px;
 .label-fonts {
   font-style: headers;
   font-weight: bolder;
+
 }
 
 
@@ -145,4 +148,9 @@ margin-top: 10px;
 .invalid-feedback {
   font-style: headers !important;
   font-size: 16px !important;
+}
+
+.form-group {
+  label { padding-top: 8px !important; }
+  margin-top: 0;
 }

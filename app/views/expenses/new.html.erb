@@ -22,7 +22,7 @@
       <div class="error">
         <%= f.full_error(:category) %>
       </div>
-      <%= f.input :amount, label: false, label_html: { class: "label-fonts" }, input_html: { class: "details-box" }, placeholder: "€0.00" %>
+      <%= f.input :amount, label: false, label_html: { class: "label-fonts" }, input_html: { class: "details-box" }, placeholder: "0.00€" %>
       <%= f.input :description, label: false, as: :text, placeholder: "E.g. Bought more beers for the fridge." %>
 
       <div class="d-flex justify-content-between">
@@ -50,7 +50,7 @@
         <%= f.full_error(:flatmates) %>
       </div>
 
-      <div class="add-photo mt-4 mb-3">
+      <div class="add-photo mt-3 mb-3">
         <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-cloud-upload-alt fa-2x"></i><h3 class="ml-2 mt-2 flatmate-name">Upload photo</h3>'.html_safe %>
       </div>
       <div class="display-photo-middle">
