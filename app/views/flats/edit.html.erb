@@ -1,35 +1,36 @@
 <%= render '/shared/navbar' %>
 
-<main>
+
+<div data-controller="flat">
   <%= simple_form_for(@flat) do |f| %>
-
-
-    <div class="wrapper-flats">
-      <div class="text-center preview-banner">
+      <div
+        class="text-center preview-banner"
+        id="banner"
+        style="height: 35vh; z-index: -1; <%= "background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(#{@flat.photo.service_url})" if @flat.photo.attached? %>"
+      >
         <h1 class="name-header mb-4"><%= @flat.name %> </h1>
-        <%= image_tag "", width: 375, class: "hidden", id: "photo-preview" %>
       </div>
+      <div class="container wrapper-dashboard">
       <div class="upload-button-float">
-        <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-images"></i>'.html_safe %>
+        <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input', data: { action: 'change->flat#updateButtonState', target: 'flat.image' }  }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-images"></i>'.html_safe %>
       </div>
-      <div class="container" data-controller="flat">
         <div class="update-flat-form">
           <h3>Update flat name </h3>
           <%= f.error_notification %>
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
           <div class="flat-properties">
-            <%= f.input :name, placeholder: 'Introduce a flat name', label: false, input_html: { class: "flat-name-input"} %>
+            <%= f.input :name, placeholder: 'Introduce a flat name', label: false, input_html: { class: "flat-name-input", data: { action: 'keyup->flat#updateButtonState', target: 'flat.name' }} %>
           </div>
-          <div id="user-container" class="user-container">
+          <div id="user-container" class="user-container" data-target="flat.flatmates">
             <% @flat.users.each do |user| %>
               <div class="new-mate-card position-relative">
                 <div class="mate-card-complete">
                   <div class="add-mate-card">
-                    <img src="<%= user.photo_url %>" width="50">
+                    <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
 
                     <h5><%= user.first_name || "Flatifyer" %></h5>
                   </div>
-                  <p>€ <%= user.rent %>  </p>
+                  <p>€ <%= user.rent.to_i %>  </p>
                 </div>
                 <% if user != @flat.admin %>
                   <input type="hidden" name="flatmate_emails[]" value="<%= user.email %>" />
@@ -48,9 +49,8 @@
         </div>
       </div>
       <div class="fixed-btn">
-        <%= f.submit 'Update flat', class:'primarybtn' %>
+        <%= f.submit 'Update flat', class: 'disabledbtn', disabled: true, data: { target: 'flat.submit' } %>
       </div>
-   </div>
 
   <% end %>
-</main>
+</div>

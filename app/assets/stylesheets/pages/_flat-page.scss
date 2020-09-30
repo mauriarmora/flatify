@@ -1,9 +1,23 @@
-body#flats {
-  background: white;
+#banner {
+  background: #04AF88;
+  height: 45vh;
+  background-size: cover;
+  background-position: center center;
+}
+
+h5 {
+  font-family: 'Hind', sans-serif;
 }
 
 #homepage-title {
   font-weight: 500;
+  color: white;
+}
+
+.wrapper-dashboard {
+  background: white;
+  border-radius: 20px 20px 0px 0px;
+  margin-top: -20px;
 }
 
 .balance-card {
@@ -11,6 +25,7 @@ body#flats {
   border-radius: 20px;
   padding: 15px 5%;
   margin-top: 20px;
+  background: rgba(255,255,255,0.9);
 }
 
 .user-balance {
@@ -47,7 +62,6 @@ body#flats {
 }
 
 .expenses {
-  padding-bottom: 90px;
   background-color: white;
   margin: 0;
 }

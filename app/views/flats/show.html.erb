@@ -1,17 +1,17 @@
 <%= render 'shared/navbar' %>
 
-<div class="container mt-4">
-  <div class="flat-info d-flex">
-    <h1 id="homepage-title"><%= @flat.name.capitalize %></h1>
+
+<div class="container pt-4" id="banner" style="<%= "background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(#{@flat.photo.service_url})" if @flat.photo.attached? %>">
+  <div class="flat-info">
+    <h1 id="homepage-title" class="text-center"><%= @flat.name.capitalize %></h1>
     <div class="flatmates-container ml-1">
       <% @flat.users.each do |user| %>
-        <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
+        <div class="small-avatar ml-2" style="background-image: url(<%= user.photo_url %>)"></div>
       <% end %>
     </div>
   </div>
   <div class="balance-card">
-    <div class="others-balance">
-    </div>
+    <div class="others-balance"></div>
     <div class="user-balance">
 <!--       <div class="user-image">
         <div class="medium-avatar" style="background-image: url(<%= current_user.photo_url %>)"></div>
@@ -19,42 +19,48 @@
       <h5 class="text-center mb-0">Your balance in <strong><%= @month %></strong></h5>
       <h1 class="text-center mb-0 user-balance-title">-<%= format_cost(current_user.month_total_expenses(@month) + current_user.rent)%>€</h1>
     </div>
-
   </div>
+</div>
 
-  <div class="expenses-header">
-    <h2>Expenses (<%=format_cost(@flat.month_total_expenses(@month))%>€)</h2>
-    <%= simple_form_for(:date, url: root_path, method: :get) do |f| %>
-      <%= f.input :date, selected: @month ,collection: Expense::MONTHS, label: false, input_html: { class: 'month-filter', onchange: "this.form.submit()" } %>
-    <% end %>
-  </div>
+<div class="wrapper-dashboard pb-5 pt-3">
+  <div class="container">
 
-  <div class="expenses">
-    <% @monthly_expenses.reverse.each do |expense| %>
-      <%= link_to flat_expense_path(current_user.flat, expense) do  %>
-        <div class="card-expense">
-          <div class="small-avatar avatar-expense-card" style="background-image: url(<%= expense.creator.photo_url %>)"></div>
-          <div class="color-separator expense-category-<%= expense.category.downcase %>"></div>
-          <div class="expense-info">
-            <h5 class="expense-category mb-0"> <%= expense.category %> </h5>
-            <p> <%= expense.created_at.strftime("%m/%d/%Y") %> </p>
+      <div class="expenses-header">
+        <h2>Expenses (<%=format_cost(@flat.month_total_expenses(@month))%>€)</h2>
+        <%= simple_form_for(:date, url: dashboard_path, method: :get) do |f| %>
+          <%= f.input :date, selected: @month ,collection: Expense::MONTHS, label: false, input_html: { class: 'month-filter', onchange: "this.form.submit()" } %>
+        <% end %>
+      </div>
+
+    <div class="expenses">
+      <% @monthly_expenses.reverse.each do |expense| %>
+        <%= link_to flat_expense_path(current_user.flat, expense) do  %>
+          <div class="card-expense">
+            <div class="small-avatar avatar-expense-card" style="background-image: url(<%= expense.creator.photo_url %>)"></div>
+            <div class="color-separator expense-category-<%= expense.category.downcase %>"></div>
+            <div class="expense-info">
+              <h5 class="expense-category mb-0"> <%= expense.category %> </h5>
+              <p> <%= expense.created_at.strftime("%m/%d/%Y") %> </p>
+            </div>
+
+            <div class="card-price">
+              <% if expense.users.include?(current_user) %>
+                <h4 class="amount-to-pay mb-0">- <%= format_cost(expense.amount / expense.users.count).round(2) %>€ </h4>
+                <h5 class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </h5>
+              <% else %>
+                <h4 class="expense-total-amount-big mb-0">+ <%= format_cost(expense.amount)%>€ </h4>
+                <h5 class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </h5>
+              <% end %>
+            </div>
+
           </div>
-          <div class="card-price">
-            <% if expense.users.include?(current_user) %>
-              <h5 class="amount-to-pay mb-0">- <%= format_cost(expense.amount / expense.users.count).round(2) %>€ </h5>
-              <p class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </p>
-            <% else %>
-              <h5 class="expense-total-amount-big mb-0">+ <%= format_cost(expense.amount)%>€ </h5>
-              <p class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </p>
-
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
 
+  </div>
+  <div class="fixed-btn">
+    <%= link_to 'Create an expense', "/flats/#{current_user.flat.id}/expenses/new", class:'primarybtn btn-fixed' %>
+  </div>
 </div>
-<div class="fixed-btn">
-  <%= link_to 'Create an expense', "/flats/#{current_user.flat.id}/expenses/new", class:'primarybtn btn-fixed' %>
-</div>
+

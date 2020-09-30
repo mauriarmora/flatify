@@ -27,7 +27,7 @@ class FlatsController < ApplicationController
       @flat.set_users_and_rent(params[:flatmate_emails], params[:rent])
       @flat.admin.rent = @flat.rent - params[:rent].map(&:to_i).sum
       @flat.admin.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -38,9 +38,10 @@ class FlatsController < ApplicationController
   def update
     if @flat.update(flat_params)
       @flat.set_users_and_rent(params[:flatmate_emails], params[:rent])
+      params[:rent] ||= [0]
       @flat.admin.rent = @flat.rent - params[:rent].map(&:to_i).sum
       @flat.admin.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :edit
     end
@@ -56,7 +57,7 @@ class FlatsController < ApplicationController
     if user && user.photo.attached?
       user_hash["image_url"] = "https://res.cloudinary.com/dinkluxtp/image/upload/#{user.photo.key}.png"
     else
-      user_hash["image_url"] = "https://res.cloudinary.com/dinkluxtp/image/upload/v1600952449/default_avatar_lx6rcs.png"
+      user_hash["image_url"] = User::DEFAULT_AVATAR
     end
 
     skip_authorization
@@ -66,7 +67,7 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:name, :rent)
+    params.require(:flat).permit(:name, :rent, :photo)
   end
 
   def set_flat

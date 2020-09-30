@@ -1,0 +1,42 @@
+<%= render 'shared/navbar' %>
+
+<div class="banner-summary container">
+  <h1 class="total-summary">Total: <%= format_cost(current_user.month_total_expenses(@month) + current_user.rent)%>€</h1>
+  <div class="container-iban">
+    <h3 id="txt-iban">ES34 0000 0000 0000 0000 0000 0000</h3>
+  </div>
+</div>
+
+<div class="container-expenses-summary container">
+
+  <div class="summary-page">
+    <div class="expenses mt-4">
+      <h3>Monthly summary</h3>
+      <% @monthly_expenses.reverse.each do |expense| %>
+        <%= link_to flat_expense_path(current_user.flat, expense) do  %>
+          <div class="card-expense">
+            <div class="small-avatar avatar-expense-card" style="background-image: url(<%= expense.creator.photo_url %>)"></div>
+            <div class="color-separator expense-category-<%= expense.category.downcase %>"></div>
+            <div class="expense-info">
+              <h5 class="expense-category mb-0"> <%= expense.category %> </h5>
+              <p> <%= expense.created_at.strftime("%m/%d/%Y") %> </p>
+            </div>
+
+            <div class="card-price">
+              <% if expense.users.include?(current_user) %>
+                <h4 class="amount-to-pay mb-0">- <%= format_cost(expense.amount / expense.users.count).round(2) %>€ </h4>
+                <h5 class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </h5>
+              <% else %>
+                <h4 class="expense-total-amount-big mb-0">+ <%= format_cost(expense.amount)%>€ </h4>
+                <h5 class="expense-total-amount mb-0"> <%= format_cost(expense.amount) %> € </h5>
+              <% end %>
+            </div>
+
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+

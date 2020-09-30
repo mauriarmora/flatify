@@ -3,6 +3,7 @@ class Flat < ApplicationRecord
   belongs_to :admin, class_name: 'User', foreign_key: 'user_id'
   has_many :expenses, dependent: :destroy
   after_create :set_admin_as_flatmate
+  has_one_attached :photo
 
   validates :name, presence: true
 
@@ -27,6 +28,8 @@ class Flat < ApplicationRecord
       flatmate.rent = nil
       flatmate.save
     end
+    return unless user_emails
+
     user_emails.each_with_index do |email, i|
       user = User.find_by(email: email) || User.invite!(email: email)
       user.flat = self

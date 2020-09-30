@@ -10,7 +10,6 @@
 .card-price {
   .expense-total-amount {
     color: grey;
-    font-weight: bold;
   }
   .expense-total-amount-big {
     font-weight: bold;
@@ -35,7 +34,6 @@
   color: grey;
  }
  .expense-category {
-  font-weight: bold;
   color: black;
  }
 }
@@ -51,6 +49,7 @@
   h3 {
     font-weight: 500;
     margin: 0;
+    color: #bf1a1a;
   }
   p {
     margin: 0;

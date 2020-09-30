@@ -14,7 +14,7 @@ class ExpensesController < ApplicationController
     @expense.flat = @flat
 
 
-    if @expense.save && params[:user_expense]
+    if params[:user_expense] && @expense.save
       user_ids = params[:user_expense][:user]
       user_ids.each do |id|
         user = @flat.users.find(id)
