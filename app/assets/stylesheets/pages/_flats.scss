@@ -1,3 +1,23 @@
+body#flats.flats_new {
+  background-color: #04AF88 !important;
+}
+.container-flats {
+  background-color: white;
+  margin-top: 7rem !important;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.big-avatar-flat {
+  width: 25vh;
+  height: 25vh;
+  border-radius: 30%;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  top: -100px;
+}
+
 .addflatmates {
   display: flex;
   flex-direction: row;
@@ -27,7 +47,7 @@
 }
 
 .add-mate-card {
-  background-color: #E5E5E5;
+  background-color: #E6F6F2;
   border-radius: 20px;
   width: 100%;
   padding-top: 8px;
@@ -128,8 +148,17 @@ body.flats_edit {
 }
 
 .new-flat-page {
-  padding-top: 15px;
-  height: 73vh;
+  height: 63vh;
+  top: -96px;
+  position: relative;
+  h3 {
+    color: #575757;
+    font-weight: bolder;
+  }
+  h1 {
+    color: #575757;
+    font-weight: bolder;
+  }
 }
 
 .flat-name-input {
@@ -164,6 +193,10 @@ body.flats_edit {
   font-size: 16px;
   color: $maincolor;
 }
+
+.wrapper-new-flat {
+  position: relative;
+  top: 0;
 
 #photo-preview {
   height: 150px;
