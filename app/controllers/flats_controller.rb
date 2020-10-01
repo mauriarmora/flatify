@@ -7,6 +7,7 @@ class FlatsController < ApplicationController
       @month = params[:date] ? params[:date][:date] : Date.today.strftime('%B')
       authorize @flat
       @monthly_expenses = @flat.expenses.where(payment_month: @month)
+      @total_expenses = @flat.month_total_expenses(@month) + @flat.rent
     else
       skip_authorization
       redirect_to new_flat_path
@@ -67,7 +68,7 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:name, :rent, :photo)
+    params.require(:flat).permit(:name, :rent, :photo, :iban)
   end
 
   def set_flat

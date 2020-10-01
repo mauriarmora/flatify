@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="header-flex">
-    <%= link_to '<i class="fas fa-arrow-left back-arrow"></i>'.html_safe, '/'  %>
+    <%= link_to '<i class="fas fa-arrow-left back-arrow"></i>'.html_safe, dashboard_path  %>
     <h1 id="homepage-title">New expense</h1>
   </div>
 
@@ -38,9 +38,9 @@
           <% @flat.users.each do |user| %>
             <input type="checkbox" class="hidden" value="<%= user.id %>" name="user_expense[user][]" id="user_<%= user.id %>">
             <label for="user_<%= user.id %>">
-              <div class="add-mate-card">
-                <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)" alt=""></div>
-                <h5> <%= user.first_name %> </h5>
+              <div class="add-mate-card new-expense-user">
+                <div class="medium-avatar" style="background-image: url(<%= user.photo_url %>)" alt=""></div>
+                <p> <%= user.first_name %> </p>
               </div>
             </label>
           <% end %>

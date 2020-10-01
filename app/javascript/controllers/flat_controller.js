@@ -1,6 +1,4 @@
 import { Controller } from "stimulus";
-import Swal from 'sweetalert2'
-
 
 export default class extends Controller {
   static targets = ["submit", "name", "image", "flatmates"]
@@ -57,8 +55,8 @@ export default class extends Controller {
       <div class="new-mate-card position-relative">
         <div class="mate-card-complete">
           <div class="add-mate-card">
-            <div class="small-avatar" style="background-image: url(${data.image_url})"></div>
-              <h5>${data.first_name || "Flatifyer"}</h5>
+            <div class="medium-avatar" style="background-image: url(${data.image_url})"></div>
+              <p>${data.first_name || "Flatifyer"}</p>
             </div>
             <p>€ ${rentInput.value}  </p>
           </div>

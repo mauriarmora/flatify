@@ -8,6 +8,20 @@
   display: inline-block !important;
   border: none !important;
   width: 90%;
+  text-transform: uppercase;
+}
+
+.primarybtn-home {
+  padding: 15px !important;
+  background: #04AF88 !important;
+  border-radius: 40px !important;
+  color: white !important;
+  letter-spacing: 1px;
+  font-weight: 500 !important;
+  display: inline-block !important;
+  border: none !important;
+  width: 90%;
+  text-transform: uppercase;
 }
 
 .disabledbtn {
@@ -32,55 +46,16 @@
   border: none !important;
 }
 
-.secondarybtn-utilities {
+.secondarybtn-category-ex {
   text-align: center;
-  border: 2px solid #E9CD72 !important;
+  background: #04AF88 !important;
   border-radius: 40px !important;
   letter-spacing: 1px !important;
   font-weight: 500 !important;
   display: inline-block !important;
   width: 100%;
   .category-color-button {
-    color: #E9CD72 !important;
-  }
-}
-
-.secondarybtn-pets {
-  text-align: center;
-  border: 2px solid #FF707A !important;
-  border-radius: 40px !important;
-  letter-spacing: 1px !important;
-  font-weight: 500 !important;
-  display: inline-block !important;
-  width: 100%;
-  .category-color-button {
-    color: #FF707A !important;
-  }
-}
-
-.secondarybtn-shopping {
-  text-align: center;
-  border: 2px solid #00ABE7!important;
-  border-radius: 40px !important;
-  letter-spacing: 1px !important;
-  font-weight: 500 !important;
-  display: inline-block !important;
-  width: 100%;
-  .category-color-button {
-    color: #00ABE7 !important;
-  }
-}
-
-.secondarybtn-others {
-  text-align: center;
-  border: 2px solid #D39CD3 !important;
-  border-radius: 40px !important;
-  letter-spacing: 1px !important;
-  font-weight: 500 !important;
-  display: inline-block !important;
-  width: 100%;
-  .category-color-button {
-    color: #D39CD3 !important;
+    color: white !important;
   }
 }
 

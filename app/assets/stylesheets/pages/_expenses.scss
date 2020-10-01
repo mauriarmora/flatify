@@ -1,40 +1,43 @@
 
-.creator-card {
-  display: flex;
-  width: 50%;
-  align-items: center;
-  border-radius: 40px;
-  box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  padding: 10px 5%;
-  margin-top: -75px;
-  margin-bottom: 10px;
-  background: white;
-  justify-content: space-around;
-  p {
-    margin-bottom: 0;
-  }
+.nav-item {
+  font-family: ubuntu;
+  font-weight: bold;
+  color: #575757;
 }
 
+.expenses-show {
+  padding-bottom: 0;
+  background-color: white;
+  margin: 0;
+}
 .creator-avatar {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 30%;
   background-size: cover;
   background-position: center center;
+  margin-right: 8px;
+}
+
+.creator-card {
+
+  h3 {
+    margin-bottom: 0px;
+    margin-top: 4px;
+  }
 }
 
 .total-amount-exp h1 {
-  font-size: 50px;
-  margin-top: 8px;
+  font-size: 90px;
   margin: 0 auto;
   font-weight: bolder;
+  color: white;
 }
 
-.information-exp-body { position: relative; }
-
-.exp-date {
-  text-align: center;
+.container-sh-ex {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  padding-top: 30px;
 }
 
 .name-user-exp {
@@ -42,14 +45,21 @@
 }
 
 .exp-cat {
-  background: #AFAFAF;
-  border: 2px solid #AFAFAF;
+  background: transparent;
+  border: 2px solid white;
   color: white !important;
-  padding: 4px;
+  padding: 8px 12px;
+  border-radius: 40px;
+  width: fit-content;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 .desc-exp {
   font-size: 20px;
+  background: darken(#f8f9fa, 3%);
+  padding: 10px 15px;
+  border-radius: 10px;
 }
 
 .backbutn {
@@ -58,7 +68,7 @@
   width: 11%;
   border-radius: 20px;
   position: absolute;
-  top: -160px;
+  top: -184px;
   left: 8px;
 }
 
@@ -74,7 +84,6 @@
   padding: 10px 5%;
   margin-bottom: 12px;
   font-weight: bolder;
-  position: relative;
   p {
     margin-left: 10px;
     margin-top: 9px;
@@ -82,116 +91,94 @@
   .small-avatar {
     margin: 0px;
   }
-  .us-nam {
-    position: absolute;
-    right: 10px;
-  }
 }
-
-.exp-imag {
-  width: 100%;
-  border-radius: 20px;
-  margin-bottom: 12px;
-}
-
-// .category-exp-rent {
-//   background-color: #118ab2;
-//   padding-bottom: 100px;
-//   text-align: center;
-//   padding-top: 12px;
-//   color: white;
-//   margin-top: -9px;
-// }
 
 .category-exp-shopping {
   background-color: #00ABE7;
-  padding-bottom: 100px;
+  padding-bottom: 60px;
   text-align: center;
-  padding-top: 12px;
+  padding-top: 22px;
   color: white;
   margin-top: -9px;
 }
 
 .category-exp-pets {
   background-color: #FF707A;
-  padding-bottom: 100px;
+  padding-bottom: 60px;
   text-align: center;
-  padding-top: 12px;
+  padding-top: 22px;
   color: white;
   margin-top: -9px;
 }
 
 .category-exp-utilities {
   background-color: #E9CD72;
-  padding-bottom: 100px;
+  padding-bottom: 60px;
   text-align: center;
-  padding-top: 12px;
+  padding-top: 22px;
   color: white;
   margin-top: -9px;
 }
 
 .category-exp-others {
   background-color: #D39CD3;
-  padding-bottom: 100px;
+  padding-bottom: 60px;
   text-align: center;
-  padding-top: 12px;
+  padding-top: 22px;
   color: white;
   margin-top: -9px;
 }
-
-// .user-amount-rent {
-//   background: #118ab2;
-//   border-radius: 10px;
-//   margin-top: 30px;
-//   margin-bottom: 10px;
-//   padding: 8px;
-//   display: flex;
-//   justify-content: space-between;
-//   color: white;
-// }
 
 .user-amount-shopping {
   color: #00ABE7;
   border: 2px solid #00ABE7;
   border-radius: 10px;
-  margin-top: 46px;
-  margin-bottom: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
+  margin: 40px 0;
+  h2 {
+    font-size: 20px !important;
+  }
 }
 
 .user-amount-pets {
   color: #FF707A;
   border: 2px solid #FF707A;
   border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
+  margin: 40px 0;
+  h2 {
+    font-size: 20px !important;
+  }
 }
 
 .user-amount-utilities {
   color: #E9CD72;
   border: 2px solid #E9CD72;
   border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
+  margin: 40px 0;
+  h2 {
+    font-size: 20px !important;
+  }
 }
 
 .user-amount-others {
   border: 2px solid #D39CD3;
   color: #D39CD3;
   border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
+  margin: 40px 0;
+  h2 {
+    font-size: 20px !important;
+  }
 }
 
 .wrapper-exp {
@@ -248,4 +235,84 @@
   background: darken(#f8f9fa, 3%);
   padding: 10px 15px;
   border-radius: 10px;
+}
+
+.creator-info p {
+  color: #AFAFAF;
+}
+
+
+#myImg {
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
 }

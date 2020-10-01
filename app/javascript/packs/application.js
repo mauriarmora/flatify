@@ -9,6 +9,12 @@ require("@rails/activestorage").start()
 require("channels")
 require("chartkick")
 require("chart.js")
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
+
+
+
+window.Swal = Swal;
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -30,6 +36,7 @@ import "bootstrap";
 import { initCheckboxes } from '../functions/init_checkboxes';
 import { initAvatarCheckboxes } from '../functions/init_avatar_checkboxes';
 import { previewImageOnFileSelect } from '../functions/photo_preview';
+import { initModalImg } from '../functions/init_img_modal';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -37,6 +44,7 @@ document.addEventListener('turbolinks:load', () => {
   initCheckboxes();
   initAvatarCheckboxes();
   previewImageOnFileSelect();
+  initModalImg();
 });
 
 import "controllers"

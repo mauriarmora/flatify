@@ -2,6 +2,7 @@
   <%= link_to dashboard_path do %>
     <strong><p class="mb-0 text-white">Flatify</p></strong>
   <% end %>
+  <% if user_signed_in? %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars navbar-icon text-white"></i>
     </button>
@@ -31,5 +32,6 @@
         <% end %>
       </li>
     </ul>
+    <% end %>
   </div>
 </nav>

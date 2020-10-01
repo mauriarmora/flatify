@@ -1,8 +1,4 @@
-.menu-navbar {
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.navbar {
   background: #04AF88 !important;
   i { font-size: 18px; }
   p {
@@ -11,6 +7,61 @@
     color: white;
   }
 }
+
+// NAVBAR-CATEGORIES
+
+.navbar-shopping {
+  background: #00ABE7 !important;
+  i { font-size: 18px; }
+  p {
+    margin: 0;
+    font-weight: 600;
+    color: white;
+  }
+}
+
+.navbar-utilities {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #E9CD72 !important;
+  i { font-size: 18px; }
+  p {
+    margin: 0;
+    font-weight: 600;
+    color: white;
+  }
+}
+
+.menu-navbar-pets {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #FF707A !important;
+  i { font-size: 18px; }
+  p {
+    margin: 0;
+    font-weight: 600;
+    color: white;
+  }
+}
+
+.menu-navbar-others {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #D39CD3 !important;
+  i { font-size: 18px; }
+  p {
+    margin: 0;
+    font-weight: 600;
+    color: white;
+  }
+}
+
 
 //Sidenav
 
