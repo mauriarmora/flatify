@@ -9,7 +9,7 @@
         <div class="user-balance">
           <h5 class="text-center mb-0">Your balance in <strong><%= @month %></strong></h5>
           <h1 class="text-center mb-0 user-balance-title">-<%= format_cost(current_user.month_total_expenses(@month) + current_user.rent)%>€</h1>
-          <h5>of a total: <%= format_cost(@total_expenses) %>€</h5>
+          <h5>Total of the flat: <strong> <%= format_cost(@total_expenses) %>€</strong></h5>
         </div>
       </div>
     </div>
@@ -27,12 +27,12 @@
 <div class="wrapper-dashboard pb-5 pt-3">
   <div class="container">
 
-      <div class="expenses-header">
-        <h2>Expenses (<%=format_cost(@flat.month_total_expenses(@month))%>€)</h2>
-        <%= simple_form_for(:date, url: dashboard_path, method: :get) do |f| %>
-          <%= f.input :date, selected: @month ,collection: Expense::MONTHS, label: false, input_html: { class: 'month-filter', onchange: "this.form.submit()" } %>
-        <% end %>
-      </div>
+    <div class="expenses-header">
+      <h2>Month expenses</h2>
+      <%= simple_form_for(:date, url: dashboard_path, method: :get) do |f| %>
+        <%= f.input :date, selected: @month ,collection: Expense::MONTHS, label: false, input_html: { class: 'month-filter', onchange: "this.form.submit()" } %>
+      <% end %>
+    </div>
 
     <div class="expenses">
       <% @monthly_expenses.reverse.each do |expense| %>
