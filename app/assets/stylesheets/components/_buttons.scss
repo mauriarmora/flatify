@@ -28,7 +28,7 @@
   padding: 15px !important;
   background: darken(#FAFAFA, 10%) !important;
   border-radius: 40px !important;
-  color: black !important;
+  color: white !important;
   letter-spacing: 1px;
   font-weight: 500 !important;
   display: inline-block !important;
@@ -62,8 +62,9 @@
 .fixed-btn {
   text-align: center;
   position: fixed;
-  bottom: 20px;
+  bottom: 0px;
   width: 100%;
+  padding-bottom: 20px;
 }
 
 .width-btns-devise {

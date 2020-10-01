@@ -31,6 +31,7 @@
   font-size: 90px;
   margin: 0 auto;
   font-weight: bolder;
+  color: white;
 }
 
 .container-sh-ex {
@@ -67,8 +68,8 @@
   width: 11%;
   border-radius: 20px;
   position: absolute;
-  top: -184px;
-  left: 8px;
+  top: -174px;
+  left: 19px;
 }
 
 .information-exp-body {
@@ -188,7 +189,7 @@
   position: relative;
   h3 {
     font-weight: bolder;
-    color: #575757;
+    color: #343a40;
     border-radius: 20px;
     width: fit-content;
   }
@@ -216,6 +217,7 @@
   margin-top: 4px;
   p {
     font-size: 20px;
+    margin-bottom: 10px !important;
   }
 }
 
@@ -240,11 +242,23 @@
   color: #AFAFAF;
 }
 
+.fa-search-plus {
+  position: relative;
+  top: 35px;
+  left: 320px;
+  font-size: 22px;
+  border: 1px;
+  color: white;
+  z-index: 1;
+}
 
 #myImg {
   border-radius: 20px;
   cursor: pointer;
   transition: 0.3s;
+  filter: brightness(50%);
+  height: 100px;
+  object-fit: cover;
 }
 
 #myImg:hover {opacity: 0.7;}

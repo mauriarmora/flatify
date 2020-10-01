@@ -1,0 +1,14 @@
+<div class="comment-card">
+
+  <div class="comment-cont">
+    <p class="m-0"><%= @comment.content %></p>
+  </div>
+  <div class="comment-info">
+    <div class="small-avatar" style="background-image: url(<%= @comment.user.photo_url %>)"></div>
+    <div class="comment-user-data">
+      <p><strong><%= @comment.user.first_name %></strong></p>
+      <p class="date-string"><%= @comment.created_at.strftime("%d %B %Y") %></p>
+    </div>
+  </div>
+
+</div>

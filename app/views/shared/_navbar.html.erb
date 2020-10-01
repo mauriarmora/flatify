@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light text-center" style="background-color: #04AF88 !important">
+<nav class='navbar navbar-expand-lg navbar-light bg-light text-center <%="navbar-#{@expense&.category&.downcase}"%>'>
   <%= link_to dashboard_path do %>
       <%= image_tag "flatify-logo-white.png", alt: "alttext", class: "logo" %>
   <% end %>

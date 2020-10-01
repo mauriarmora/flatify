@@ -1,4 +1,3 @@
-<!-- <div class="menu-navbar-<%= @expense.category.downcase%>"> -->
   <%= render '/shared/navbar' %>
 
 <div class="category-exp-<%= @expense.category.downcase %>">
@@ -61,13 +60,18 @@
                   <h3 class="name-user-exp"> <%= user.first_name %> </h3>
                 </div>
                 <div class="card-price">
-                  <h2 id="expense-card-bold">€ <%= format_cost(@user_amount.round(2)) %> </h2>
+                  <h2 id="expense-card-bold"> <%= format_cost(@user_amount.round(2)) %> €</h2>
                 </div>
               </div>
              <% end %>
           </div>
           <% if @expense.photo.attached? %>
-            <img id="myImg" src="<%= @expense.photo.service_url %>" style="width:100%">
+            <div>
+              <div></div>
+              <i class="fas fa-search-plus"></i>
+              <img id="myImg" src="<%= @expense.photo.service_url %>" style="width:100%">
+
+            </div>
 
             <div id="myModal" class="modal">
               <span class="close">&times;</span>
@@ -84,10 +88,9 @@
 
           <div class="comment-box mt-3">
             <% if !@expense.comments.blank? %>
-              <h3 class="mt-4">Comments 📝</h3>
 
               <% @comments.each do |comment| %>
-                <div class="comment-card" id="<%=comment.id%>-review">
+                <div class="comment-card">
 
                   <div class="comment-cont">
                     <p class="m-0"><%= comment.content %></p>
@@ -106,12 +109,11 @@
           </div>
           <h3>Leave a comment 📝</h3>
 
-            <%= simple_form_for([ @expense, @comment ]) do |f| %>
+            <%= simple_form_for([ @expense, @comment ], remote: true) do |f| %>
               <%= f.input :content, as: :text, placeholder: 'Type a comment', label: false, input_html: { class: "comment-cont-input"} %>
               <div class="secondarybtn-category-ex">
                 <%= f.button :submit, 'Post comment', class: "category-color-button" %>
               </div>
-
             <% end %>
         </div>
       </div>

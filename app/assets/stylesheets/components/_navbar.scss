@@ -21,10 +21,6 @@
 }
 
 .navbar-utilities {
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background: #E9CD72 !important;
   i { font-size: 18px; }
   p {
@@ -34,11 +30,7 @@
   }
 }
 
-.menu-navbar-pets {
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.navbar-pets {
   background: #FF707A !important;
   i { font-size: 18px; }
   p {
@@ -48,11 +40,7 @@
   }
 }
 
-.menu-navbar-others {
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.navbar-others {
   background: #D39CD3 !important;
   i { font-size: 18px; }
   p {
@@ -81,6 +69,7 @@
 .dashboard-link {
   color: white !important;
 }
+
 .logo {
   height: 20px;
   margin-top: 2px;
