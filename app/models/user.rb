@@ -39,13 +39,15 @@ class User < ApplicationRecord
   end
 
   def compute_admin_rent
-    admin = self.flat.admin
-    total_rent = self.flat.rent
+    if self.flat
+      admin = self.flat.admin
+      total_rent = self.flat.rent
 
-    flatmates = self.flat.users - [admin]
+      flatmates = self.flat.users - [admin]
 
-    spare_rent = total_rent - (flatmates.map{|f| f.rent}).sum
+      spare_rent = total_rent - (flatmates.map{|f| f.rent}).sum
 
-    admin.update rent: spare_rent
+      admin.update rent: spare_rent
+    end
   end
 end
