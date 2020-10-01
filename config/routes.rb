@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   end
 
   get '/profile', to: 'profiles#show'
-  get '/summary', to: 'profiles#summary'
 
   get '/fetch_mate', to: 'flats#fetch_mate'
 end

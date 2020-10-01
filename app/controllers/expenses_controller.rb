@@ -1,5 +1,4 @@
 class ExpensesController < ApplicationController
-
   def new
     @expense = Expense.new
     @flat = Flat.find(params[:flat_id])
@@ -12,7 +11,6 @@ class ExpensesController < ApplicationController
     @expense.creator = current_user
     @flat = Flat.find(params[:flat_id])
     @expense.flat = @flat
-
 
     if params[:user_expense] && @expense.save
       user_ids = params[:user_expense][:user]
@@ -37,9 +35,7 @@ class ExpensesController < ApplicationController
     @comment = Comment.new
     @comments = Comment.where(expense_id: @expense)
 
-
     skip_authorization
-
   end
 
   private
