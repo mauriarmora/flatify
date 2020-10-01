@@ -7,8 +7,11 @@ class CommentsController < ApplicationController
     @comment.expense = @expense
     @comment.user = current_user
     skip_authorization
-    @comment.save
-    redirect_to flat_expense_path(@flat, @expense, anchor: "#{@comment.id}-review")
+    respond_to do |format|
+      if @comment.save
+        format.js   { }
+      end
+    end
   end
 
   private

@@ -217,6 +217,7 @@
   margin-top: 4px;
   p {
     font-size: 20px;
+    margin-bottom: 10px !important;
   }
 }
 
@@ -241,11 +242,23 @@
   color: #AFAFAF;
 }
 
+.fa-search-plus {
+  position: relative;
+  top: 35px;
+  left: 290px;
+  font-size: 22px;
+  border: 1px;
+  color: white;
+  z-index: 2;
+}
 
 #myImg {
   border-radius: 20px;
   cursor: pointer;
   transition: 0.3s;
+  filter: brightness(50%);
+  height: 100px;
+  object-fit: cover;
 }
 
 #myImg:hover {opacity: 0.7;}
