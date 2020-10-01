@@ -38,9 +38,9 @@
           <% @flat.users.each do |user| %>
             <input type="checkbox" class="hidden" value="<%= user.id %>" name="user_expense[user][]" id="user_<%= user.id %>">
             <label for="user_<%= user.id %>">
-              <div class="add-mate-card">
-                <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)" alt=""></div>
-                <h5> <%= user.first_name %> </h5>
+              <div class="add-mate-card new-expense-user">
+                <div class="medium-avatar" style="background-image: url(<%= user.photo_url %>)" alt=""></div>
+                <p> <%= user.first_name %> </p>
               </div>
             </label>
           <% end %>
