@@ -69,3 +69,30 @@
 .dashboard-link {
   color: white !important;
 }
+
+.logo {
+  height: 20px;
+  margin-top: 2px;
+}
+// @media (max-width: 992px) {
+//     .navbar-collapse {
+//         position: absolute;
+//         top: 54px;
+//         right: 100%;
+//         padding-left: 15px;
+//         padding-right: 15px;
+//         padding-bottom: 15px;
+//         width: 100%;
+//         transition: all 0.3s ease;
+//         display: block;
+//     }
+//     .navbar-collapse.collapsing {
+//         height: auto !important;
+//         margin-right: 50%;
+//         transition: all 0.3s ease;
+//         display: block;
+//     }
+//     .navbar-collapse.show {
+//         right: 0;
+//     }
+// }

@@ -1,20 +1,25 @@
 <%= render 'shared/navbar' %>
 
 
-<div class="container pt-4" id="banner" style="<%= "background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(#{@flat.photo.service_url})" if @flat.photo.attached? %>">
-  <div class="flat-info">
-    <h1 id="homepage-title" class="text-center"><%= @flat.name.capitalize %></h1>
-    <div class="flatmates-container ml-1">
-      <% @flat.users.each do |user| %>
-        <div class="small-avatar ml-2" style="background-image: url(<%= user.photo_url %>)"></div>
-      <% end %>
+<div class="container px-4" id="banner" style="<%= "background-image: linear-gradient(to bottom, rgba(76,76,76,0) 0%, rgba(89,89,89,0) 12%, rgba(102,102,102,0) 25%, rgba(89,89,89,0) 31%, rgba(71,71,71,0.09) 39%, rgba(44,44,44,0.22) 50%, rgba(0,0,0,0.23) 51%, rgba(17,17,17,0.34) 60%, rgba(43,43,43,0.53) 76%, rgba(28,28,28,0.7) 91%, rgba(19,19,19,0.81) 100%), url(#{@flat.photo.service_url})" if @flat.photo.attached? %>">
+  <div class="flex-banner">
+    <div class="d-flex flex-grow-1 align-items-center">
+      <div class="balance-card">
+        <div class="others-balance"></div>
+        <div class="user-balance">
+          <h5 class="text-center mb-0">Your balance in <strong><%= @month %></strong></h5>
+          <h1 class="text-center mb-0 user-balance-title">-<%= format_cost(current_user.month_total_expenses(@month) + current_user.rent)%>€</h1>
+          <h5>of a total: <%= format_cost(@total_expenses) %>€</h5>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="balance-card">
-    <div class="others-balance"></div>
-    <div class="user-balance">
-      <h5 class="text-center mb-0">Your balance in <strong><%= @month %></strong></h5>
-      <h1 class="text-center mb-0 user-balance-title">-<%= format_cost(current_user.month_total_expenses(@month) + current_user.rent)%>€</h1>
+    <div class="flat-info">
+      <h2 id="homepage-title" class="text-center"><%= @flat.name.capitalize %></h2>
+      <div class="flatmates-container ml-1">
+        <% @flat.users.each do |user| %>
+          <div class="small-avatar ml-2" style="background-image: url(<%= user.photo_url %>)"></div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

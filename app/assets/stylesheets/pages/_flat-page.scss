@@ -1,8 +1,9 @@
 #banner {
   background: #04AF88;
-  height: 46vh;
+  height:45vh;
   background-size: cover;
   background-position: center center;
+  padding-top: 0;
 }
 
 h5 {
@@ -25,8 +26,8 @@ h5 {
   box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   padding: 15px 5%;
-  margin-top: 20px;
   background: rgba(255,255,255,0.9);
+  flex-grow: 1;
 }
 
 .user-balance {
@@ -34,6 +35,7 @@ h5 {
     font-size: 50px;
     font-weight: bold;
   }
+  h5 { text-align: center; }
   #checkout-btn {
     color: #04AF88;
   }
@@ -78,4 +80,18 @@ h5 {
   color: #343a40;
   h2, p { margin: 0; }
   select { border-radius: 10px !important;}
+}
+
+.flat-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  h2 { margin: 0; }
+}
+
+.flex-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
