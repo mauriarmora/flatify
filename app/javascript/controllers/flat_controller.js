@@ -42,6 +42,9 @@ export default class extends Controller {
     const emailInput = document.querySelector("#email-input")
     const rentInput = document.querySelector("#rent-input")
     const userContainer = document.querySelector("#user-container")
+    if (rentInput.value == ""|| emailInput.value == "") {
+      return
+    }
 
     fetch(`/fetch_mate?email=${emailInput.value}`)
     .then(response => response.json())
