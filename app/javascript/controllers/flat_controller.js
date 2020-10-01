@@ -77,6 +77,7 @@ export default class extends Controller {
     Swal.fire({
       title: 'Are you sure you want to remove this flatmate from the flat?',
       text: "Once they are out, they are out.",
+      icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#04AF88',
       cancelButtonColor: '#FF707A',
