@@ -1,6 +1,6 @@
 <%= render '/shared/navbar' %>
 
-<div class="container">
+<div class="container" data-controller="expense">
   <div class="header-flex">
     <%= link_to '<i class="fas fa-arrow-left back-arrow"></i>'.html_safe, dashboard_path  %>
     <h1 id="homepage-title">New expense</h1>
@@ -21,7 +21,8 @@
       <div class="error">
         <%= f.full_error(:category) %>
       </div>
-      <%= f.input :amount, label: false, label_html: { class: "label-fonts" }, input_html: { class: "details-box" }, placeholder: "0.00€" %>
+      <%= f.input :amount, label: false, label_html: { class: "label-fonts" }, input_html: { class: "details-box", data: { target: 'expense.amount', action: "keydown->expense#changeInputColor" } }, placeholder: "0.00€" %>
+
       <%= f.input :description, label: false, as: :text, placeholder: "E.g. Bought more beers for the fridge." %>
 
       <div class="d-flex justify-content-between">
