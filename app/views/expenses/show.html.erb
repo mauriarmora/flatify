@@ -1,4 +1,4 @@
-  <%= render '/shared/navbar' %>
+<%= render '/shared/navbar' %>
 
 <div class="category-exp-<%= @expense.category.downcase %>">
   <div class="total-amount-exp d-flex flex-column align-items-center">
@@ -13,7 +13,7 @@
       <div class="creator-avatar" style="background-image: url(<%= @creator.photo_url %>)"></div>
       <div class="creator-info">
         <h3><span style="font-weight: 300;">Created by </span> <%= @expense.creator.first_name %></h3>
-        <p style="margin: 0;"><strong><i class="far fa-calendar-alt"></i></strong> <%= @expense.created_at.strftime("%d %B %Y") %></p>
+        <p><strong><i class="far fa-calendar-alt"></i></strong> <%= @expense.created_at.strftime("%d %B %Y") %></p>
       </div>
     </div>
     <div class="information-exp-body">
@@ -53,14 +53,14 @@
 
           <div class="expenses-show">
             <% @expense.users.each do |user| %>
-              <div class="card-expense">
+              <div class="card-user-payment">
                 <div class="small-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
                 <div class="color-separator expense-category-<%= @expense.category.downcase %>"></div>
-                <div class="expense-info">
+                <div class="expense-info d-flex align-items-center">
                   <h3 class="name-user-exp"> <%= user.first_name %> </h3>
                 </div>
                 <div class="card-price">
-                  <h2 id="expense-card-bold"> <%= format_cost(@user_amount.round(2)) %> €</h2>
+                  <h3 id="expense-card-bold"> <%= format_cost(@user_amount.round(2)) %> €</h3>
                 </div>
               </div>
              <% end %>
