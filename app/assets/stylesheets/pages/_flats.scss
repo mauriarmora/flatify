@@ -183,6 +183,9 @@ body.flats_edit {
 
 .update-flat-form {
   background-color: white;
+  h3 {
+    font-weight: bold;
+  }
 }
 
 
@@ -213,6 +216,8 @@ body.flats_edit {
     position: absolute;
     margin-top: 50px;
     width: 100%;
+    color: white;
+    font-weight: bold;
   }
 }
 
