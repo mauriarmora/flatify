@@ -21,7 +21,7 @@
       <div class="error">
         <%= f.full_error(:category) %>
       </div>
-      <%= f.input :amount, label: false, label_html: { class: "label-fonts" }, input_html: { class: "details-box", data: { target: 'expense.amount', action: "keydown->expense#changeInputColor" } }, placeholder: "0.00€" %>
+      <%= f.input :amount, label: false, label_html: { class: "label-fonts" }, input_html: { class: "details-box", data: { target: 'expense.amount', action: "keyup->expense#changeInputColor" } }, placeholder: "0.00€" %>
 
       <%= f.input :description, label: false, as: :text, placeholder: "E.g. Bought more beers for the fridge." %>
 
@@ -37,9 +37,9 @@
       <div class="new-mate-card position-relative">
         <div class="mate-card-complete user-container">
           <% @flat.users.each do |user| %>
-            <input type="checkbox" class="hidden" value="<%= user.id %>" name="user_expense[user][]" id="user_<%= user.id %>">
+            <input type="checkbox" checked class="hidden mate-input" value="<%= user.id %>" name="user_expense[user][]" id="user_<%= user.id %>">
             <label for="user_<%= user.id %>">
-              <div class="add-mate-card new-expense-user">
+              <div class="add-mate-card new-expense-user active" data-target="expense.user">
                 <div class="medium-avatar" style="background-image: url(<%= user.photo_url %>)" alt=""></div>
                 <p> <%= user.first_name %> </p>
               </div>
