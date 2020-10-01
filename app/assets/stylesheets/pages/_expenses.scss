@@ -20,10 +20,13 @@
 }
 
 .creator-card {
-
   h3 {
     margin-bottom: 0px;
     margin-top: 4px;
+  }
+  p {
+    margin: 0;
+    margin-top: 8px
   }
 }
 
@@ -42,6 +45,7 @@
 
 .name-user-exp {
   color: black !important;
+  margin: 0;
 }
 
 .exp-cat {
@@ -136,7 +140,7 @@
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  margin: 40px 0;
+  margin: 30px 0;
   h2 {
     font-size: 20px !important;
   }
@@ -188,10 +192,8 @@
   width: 100%;
   position: relative;
   h3 {
-    font-weight: bolder;
     color: #343a40;
     border-radius: 20px;
-    width: fit-content;
   }
 }
 
@@ -327,5 +329,18 @@
 @media only screen and (max-width: 700px){
   .modal-content {
     width: 100%;
+  }
+}
+
+.card-user-payment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 55px;
+  padding: 5px 0px;
+  .small-avatar { margin: 0; }
+  .color-separator {
+    height: 40px;
+    margin-top: 8px;
   }
 }

@@ -1,6 +1,6 @@
 <nav class='navbar navbar-expand-lg navbar-light bg-light text-center <%="navbar-#{@expense&.category&.downcase}"%>'>
   <%= link_to dashboard_path do %>
-      <%= image_tag "flatify-logo-white.png", alt: "alttext", class: "logo" %>
+      <%= cl_image_tag('https://res.cloudinary.com/dinkluxtp/image/upload/v1601551092/flatify-logo-white_jrqrgt.png', alt: "alttext", class: "logo") %>
   <% end %>
   <% if user_signed_in? %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
