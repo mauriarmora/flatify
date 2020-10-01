@@ -31,7 +31,7 @@ class Flat < ApplicationRecord
     return unless user_emails
 
     user_emails.each_with_index do |email, i|
-      user = User.find_by(email: email) || User.invite!(email: email, flat: self)
+      user = User.find_by(email: email) || User.create(email: email, flat: self, password: "password", password_confirmation: "password")
       user.flat = self
       user.rent = rents[i]
       user.save
