@@ -134,6 +134,10 @@ margin-top: 10px;
 .header-flex {
   display: flex;
   justify-content: left;
+
+  i {
+    margin-top: 18px;
+  }
 }
 
 .back-arrow {
