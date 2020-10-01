@@ -1,10 +1,20 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ['amount']
+  static targets = ['amount', 'user']
 
   connect() {
-    console.log(this.amountTarget)
+    this.initCheckboxes()
+  }
+
+  initCheckboxes() {
+    const AvatarCheckboxes = this.userTargets
+
+    AvatarCheckboxes.forEach((avatar) => {
+      avatar.addEventListener("click", (e) => {
+        avatar.classList.toggle("active")
+      })
+    })
   }
 
   changeInputColor() {

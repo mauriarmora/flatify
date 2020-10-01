@@ -34,7 +34,6 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initCheckboxes } from '../functions/init_checkboxes';
-import { initAvatarCheckboxes } from '../functions/init_avatar_checkboxes';
 import { previewImageOnFileSelect } from '../functions/photo_preview';
 import { initModalImg } from '../functions/init_img_modal';
 
@@ -42,7 +41,6 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initCheckboxes();
-  initAvatarCheckboxes();
   previewImageOnFileSelect();
   initModalImg();
 });
