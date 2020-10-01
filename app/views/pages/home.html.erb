@@ -10,7 +10,7 @@
 </div>
 
 <div class="container">
-  <div class="cards mt-5">
+  <div class="cards">
     <!--SHARE CARD -->
     <div class="share-card d-flex">
       <div class="card-content">
@@ -38,7 +38,9 @@
       <%= image_tag "friends.svg", alt: "alttext" %>
     </div>
   </div>
-  <%= link_to dashboard_path do %>
-    <p class="primarybtn text-center w-100 mb-0">Get started</p>
-  <% end %>
+  <div class="fixed-btn">
+    <%= link_to dashboard_path do %>
+      <p class="primarybtn text-center mb-0">Get started</p>
+    <% end %>
+  </div>
 </div> <!--- CONTAINER -->
