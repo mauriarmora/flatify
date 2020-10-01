@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
 
   after_create :compute_admin_rent
+  after_destroy :compute_admin_rent
 
   DEFAULT_AVATAR = 'https://res.cloudinary.com/dinkluxtp/image/upload/v1601458419/default-avatar-profile-trendy-style-social-media-user-icon-187599373_hkike6.jpg'
 
@@ -43,7 +44,7 @@ class User < ApplicationRecord
 
     flatmates = self.flat.users - [admin]
 
-    spare_rent = total_rent - flatmates.sum(:rent)
+    spare_rent = total_rent - (flatmates.map{|f| f.rent}).sum
 
     admin.update rent: spare_rent
   end
