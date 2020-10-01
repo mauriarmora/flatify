@@ -34,8 +34,6 @@ class FlatsController < ApplicationController
     end
   end
 
-  def edit; end
-
   def update
     if @flat.update(flat_params)
       @flat.set_users_and_rent(params[:flatmate_emails], params[:rent])
