@@ -1,48 +1,5 @@
-.value-proposition {
-  font-size: 70px;
-  font-weight: bold;
-}
-
-.pizza-img {
-  display: flex;
-  justify-content: center;
-  content-align: center;
-  position: relative;
-  width: 100vw;
-  overflow-x: hidden;
-  img {
-    width: 160%;
-    // overflow-right: hidden !important;
-  }
-}
-
-.description-value {
-  position: absolute;
-  color: white;
-  bottom: 10px;
-  left: 60px;
-  font-weight: normal;
-}
-
-// CARDS
-.share-card, .conciliate-card, .track-card {
-  margin-bottom: 40px;
-  .title {
-    font-weight: bold;
-  }
-}
-
-.conciliate-card, .share-card {
-  img {
-    width: 35%;
-  }
-}
-
-.track-card {
-  img {
-    width: 25%;
-    margin-left: -18px;
-  }
+.login-title {
+  margin-top: 67px;
 }
 
 // LOGIN FORM
