@@ -1,0 +1,8 @@
+console.log("<%= escape_javascript (render partial: 'comment', comment: @comment) %>")
+
+const commentBox = document.querySelector(".comment-box");
+const commentInput = document.querySelector(".comment-cont-input")
+
+commentBox.insertAdjacentHTML("beforeend", "<%= escape_javascript (render partial: 'comment', comment: @comment) %>");
+commentInput.value = "";
+
