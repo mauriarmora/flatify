@@ -29,7 +29,7 @@
         <h3 class="mt-4">Your month expenses </h3>
 
         <div class="expenses">
-          <% @monthly_expenses.reverse.each do |expense| %>
+          <% @monthly_expenses.where(creator:current_user).reverse.each do |expense| %>
             <%= link_to flat_expense_path(current_user.flat, expense) do  %>
               <div class="card-expense">
                 <div class="small-avatar avatar-expense-card" style="background-image: url(<%= expense.creator.photo_url %>)"></div>
