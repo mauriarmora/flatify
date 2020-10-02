@@ -8,13 +8,13 @@
     <div class="wrapper-profile">
       <div class="container">
         <h1 class="name-header mb-4"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
-        <h3>Last 4 months expenses</h3>
+        <h3>Last months' expenses</h3>
 
         <div class="chart mb-4">
           <% month_index = Expense::MONTHS.index(@month) %>
           <% data = UserExpense.joins(:expense).where("user_expenses.user_id = ?", @user.id).where("expenses.payment_month" => month_range_expenses(3)).where("expenses.payment_year" => [2020, 2021]).group('expenses.category').group("expenses.payment_month").sum("expenses.amount") %>
           <%#= data %>
-          <%= column_chart data, stacked: true, legend: false, colors: ['#E9CD72', '#D39CD3', '#FF707A', '#00ABE7'], height: '250px', messages: {empty: "No expenses"} %>
+          <%= column_chart data, stacked: true, legend: false, colors: ['#00ABE7', '#FF707A', '#E9CD72', '#D39CD3'], height: '250px', messages: {empty: "No expenses yet"} %>
         </div>
 
         <div class="categories d-flex mb-3 justify-content-around">
