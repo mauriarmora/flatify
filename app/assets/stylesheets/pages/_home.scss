@@ -22,6 +22,11 @@
 }
 
 // CARDS
+.cards {
+  margin-top: 80px;
+  margin-bottom: 102px;
+}
+
 .share-card, .conciliate-card, .track-card {
   margin-bottom: 40px;
   .title {
@@ -48,11 +53,6 @@
     width: 25%;
     margin-left: -18px;
   }
-}
-
-.cards {
-  margin-top: 80px;
-  margin-bottom: 102px;
 }
 
 .hero {
