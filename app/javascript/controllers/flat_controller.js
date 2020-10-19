@@ -75,13 +75,13 @@ export default class extends Controller {
 
   removeMate(e) {
     Swal.fire({
-      title: 'Are you sure you want to remove this flatmate from the flat?',
-      text: "Once they are out, they are out.",
+      title: 'Estás seguro que quieres eliminarlo?',
       icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#04AF88',
       cancelButtonColor: '#FF707A',
-      confirmButtonText: 'Yes, remove them!'
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
         e.target.parentElement.remove()

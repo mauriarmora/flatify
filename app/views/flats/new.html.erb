@@ -7,24 +7,24 @@
     <h1 class="name-header mb-4"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
 
     <div class="new-flat-form">
-      <h3>Create a new flat</h3>
+      <h3>Crea un nuevo piso</h3>
       <%= simple_form_for(@flat) do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <div class="flat-properties">
-          <%= f.input :name, placeholder: 'Introduce a flat name', label: false, input_html: { class: "flat-name-input"} %>
-          <%= f.input :rent, placeholder: 'Monthly rent', label: false, input_html: { class: "flat-rent-input"} %>
+          <%= f.input :name, placeholder: 'Nombre del piso', label: false, input_html: { class: "flat-name-input"} %>
+          <%= f.input :rent, placeholder: 'Alquiler total', label: false, input_html: { class: "flat-rent-input"} %>
         </div>
 
-        <h3 class="mt-2">Add flatmates</h3>
+        <h3 class="mt-2">Añade a tus compañeros</h3>
         <div class="addflatmates">
-          <input id="email-input" class="email-input" data-target="flat.email" type="text" placeholder="Flatmate email">
-          <input id="rent-input" class="rent-input" data-target="flat.rent" type="text" placeholder="Rent">
+          <input id="email-input" class="email-input" data-target="flat.email" type="text" placeholder="Email de tu compañero">
+          <input id="rent-input" class="rent-input" data-target="flat.rent" type="text" placeholder="Su alquiler">
           <div data-action="click->flat#fetchMate" class="add-flat-mate"><i class="fas fa-plus"></i></div>
         </div>
         <div id="user-container" class="user-container"></div>
         <div class="fixed-btn">
-          <%= f.submit 'Start sharing', class:'primarybtn' %>
+          <%= f.submit 'EMPIEZA A COMPARTIR', class:'primarybtn' %>
         </div>
       <% end %>
     </div>
