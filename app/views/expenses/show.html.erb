@@ -12,8 +12,8 @@
     <div class="creator-card d-flex align-items-center">
       <div class="creator-avatar" style="background-image: url(<%= @creator.photo_url %>)"></div>
       <div class="creator-info">
-        <h3><span style="font-weight: 300;">Created by </span> <%= @expense.creator.first_name %></h3>
-        <p><strong><i class="far fa-calendar-alt"></i></strong> <%= @expense.created_at.strftime("%d %B %Y") %></p>
+        <h3><span style="font-weight: 300;">Creado por </span> <%= @expense.creator.first_name %></h3>
+        <p><strong><i class="far fa-calendar-alt"></i></strong> <%= "#{@expense.created_at.strftime('%d')} #{month_to_spanish} #{@expense.created_at.strftime('%Y')}" %></p>
       </div>
     </div>
     <div class="information-exp-body">
@@ -25,7 +25,7 @@
       </div>
 
       <div class="user-amount-<%= @expense.category.downcase %> p-3">
-        <h2 class="mb-0">You have to pay</h2>
+        <h2 class="mb-0">Te toca pagar: </h2>
         <% if @expense.users.include?(current_user) %>
             <h2 class="mb-0"> <%= format_cost(@user_amount.round(2)) %>€</h2>
           <% else %>
@@ -37,10 +37,10 @@
 
       <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="Details" aria-selected="true">Details</a>
+          <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="Details" aria-selected="true">Detalles</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="Comments" aria-selected="false">Comments</a>
+          <a class="nav-link" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="Comments" aria-selected="false">Comentarios</a>
         </li>
       </ul>
 
@@ -105,12 +105,12 @@
               <% end %>
             <% end %>
           </div>
-          <h3>Leave a comment 📝</h3>
+          <h3>Deja un comentario</h3>
 
             <%= simple_form_for([ @expense, @comment ], remote: true) do |f| %>
-              <%= f.input :content, as: :text, placeholder: 'Type a comment', label: false, input_html: { class: "comment-cont-input"} %>
+              <%= f.input :content, as: :text, placeholder: 'Ej. No necesitábamos jabón', label: false, input_html: { class: "comment-cont-input"} %>
               <div class="secondarybtn-category-ex">
-                <%= f.button :submit, 'Post comment', class: "category-color-button" %>
+                <%= f.button :submit, 'Publica el comentario', class: "category-color-button" %>
               </div>
             <% end %>
         </div>
