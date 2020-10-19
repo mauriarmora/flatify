@@ -13,7 +13,7 @@
                     input_html: { autocomplete: "email", class: 'input' }, label_html: { class: 'label' } %>
         <%= f.input :password,
                     required: false,
-                    placeholder: 'password',
+                    placeholder: 'contraseña',
                     label: false,
                     input_html: { autocomplete: "current-password" } %>
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>

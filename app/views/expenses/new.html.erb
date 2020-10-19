@@ -47,7 +47,7 @@
         </div>
 
         <div class="display-photo-middle">
-          <%= image_tag "", width: 300, class: "hidden", id: "photo-expense-preview" %>
+          <%= image_tag "", class: "hidden", id: "photo-expense-preview" %>
         </div>
         <div class="add-photo mt-3 mb-3">
           <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-cloud-upload-alt fa-2x"></i><h3 class="ml-2 mt-2 flatmate-name">Subir imagen</h3>'.html_safe %>
