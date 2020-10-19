@@ -4,7 +4,7 @@ class FlatsController < ApplicationController
   def show
     if current_user.flat
       @flat = current_user.flat
-      @month = params[:date] ? params[:date][:date] : Date.today.strftime('%B')
+      @month = params[:date] ? params[:date][:date] : Expense::MONTHS[Date.today.month - 1]
       authorize @flat
       @monthly_expenses = @flat.expenses.where(payment_month: @month)
 
@@ -27,7 +27,6 @@ class FlatsController < ApplicationController
 
     if @flat.save
       @flat.set_users_and_rent(params[:flatmate_emails], params[:rent])
-      # byebug
       @flat.admin.rent = @flat.users.count == 1 ? @flat.rent : @flat.rent - params[:rent].map(&:to_i).sum
       @flat.admin.save
       redirect_to dashboard_path
