@@ -7,9 +7,9 @@
       <div class="balance-card">
         <div class="others-balance"></div>
         <div class="user-balance">
-          <h5 class="text-center mb-0">Tu saldo de <strong><%= @month %></strong></h5>
+          <h5 class="text-center mb-0">Your balance on <strong><%= @month %></strong></h5>
           <h1 class="text-center mb-0 user-balance-title">-<%= format_cost(current_user.month_total_expenses(@month) + current_user.rent)%>€</h1>
-          <h5>Total del piso: <strong> <%= format_cost(@total_expenses) %>€</strong></h5>
+          <h5>Total of the flat: <strong> <%= format_cost(@total_expenses) %>€</strong></h5>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
   <div class="container">
 
     <div class="expenses-header">
-      <h2>Gastos mensuales</h2>
+      <h2>Monthly expenses</h2>
       <%= simple_form_for(:date, url: dashboard_path, method: :get) do |f| %>
         <%= f.input :date, selected: @month ,collection: Expense::MONTHS, label: false, input_html: { class: 'month-filter', onchange: "this.form.submit()" } %>
       <% end %>
@@ -36,7 +36,7 @@
 
     <div class="expenses">
       <% if @monthly_expenses.empty? %>
-          <p class="text-center text-secondary">Aún no tienes gastos</p>
+          <p class="text-center text-secondary">No expenses yet</p>
       <% else %>
         <% @monthly_expenses.reverse.each do |expense| %>
           <%= link_to flat_expense_path(current_user.flat, expense) do  %>
@@ -65,7 +65,7 @@
 
   </div>
   <div class="fixed-btn">
-    <%= link_to 'Nuevo gasto', "/flats/#{current_user.flat.id}/expenses/new", class:'primarybtn btn-fixed' %>
+    <%= link_to 'Create expense', "/flats/#{current_user.flat.id}/expenses/new", class:'primarybtn btn-fixed' %>
   </div>
 </div>
 

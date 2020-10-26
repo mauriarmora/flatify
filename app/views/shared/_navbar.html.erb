@@ -11,24 +11,24 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <%= link_to dashboard_path do %>
-          <h3 class="nav-link mb-0 dashboard-link">Principal<span class="sr-only">(current)</span></h3>
+          <h3 class="nav-link mb-0 dashboard-link">Dashboard<span class="sr-only">(current)</span></h3>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to profile_path do %>
-          <h3 class="nav-link mb-0 dashboard-link">Mi perfil</h3>
+          <h3 class="nav-link mb-0 dashboard-link">My profile</h3>
         <% end %>
       </li>
       <% if current_user && current_user.flat && policy(current_user.flat).edit? %>
         <li class="nav-item">
           <%= link_to edit_flat_path(current_user.flat) do %>
-            <h3 class="nav-link mb-0 dashboard-link">Editar piso</h3>
+            <h3 class="nav-link mb-0 dashboard-link">Edit flat</h3>
           <% end %>
         </li>
       <% end %>
       <li class="nav-item">
         <%= link_to destroy_user_session_path, method: :delete do %>
-          <h3 class="nav-link" tabindex="-1" aria-disabled="true">Cerrar sesión</h3>
+          <h3 class="nav-link" tabindex="-1" aria-disabled="true">Sign out</h3>
         <% end %>
       </li>
     </ul>

@@ -21,7 +21,7 @@
         <%= f.full_error(:category) %>
       </div>
       <%= f.input :amount, label: false, label_html: { class: "label-fonts" }, input_html: { class: "details-box", data: { target: 'expense.amount', action: "keyup->expense#changeInputColor" } }, placeholder: "0.00€" %>
-      <%= f.input :description, label: false, as: :text, placeholder: "Ej. Jabón, sal..." %>
+      <%= f.input :description, label: false, as: :text, placeholder: "e.g. Salt, cat food..." %>
       <div class="d-flex justify-content-between">
         <%= f.input :payment_month,  collection: Expense::MONTHS, selected: Date.today.strftime("%B"),label: false, input_html: { class: "wide-input-dates" }, include_blank: false %>
         <%= f.input :payment_year, label: false, collection: (Date.today.year - 1..Date.today.year + 1), selected: Date.today.year, include_blank: false, input_html: {class: "wide-input-dates" }  %>
@@ -50,7 +50,7 @@
           <%= image_tag "", class: "hidden", id: "photo-expense-preview" %>
         </div>
         <div class="add-photo mt-3 mb-3">
-          <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-cloud-upload-alt fa-2x"></i><h3 class="ml-2 mt-2 flatmate-name">Subir imagen</h3>'.html_safe %>
+          <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo' }, label: '<i class="fas fa-cloud-upload-alt fa-2x"></i><h3 class="ml-2 mt-2 flatmate-name">Upload photo</h3>'.html_safe %>
         </div>
 
         <div class="expense-button">

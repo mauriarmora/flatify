@@ -4,55 +4,55 @@
   <div class="big-avatar-profile" style="background-image: url(<%= current_user.photo_url %>)"></div>
 </div>
 
-  <div class="new-flat-page">
-    <div class="wrapper-profile">
-      <div class="container">
-        <h1 class="name-header mb-4"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
-        <h3>Últimos meses</h3>
+<div class="new-flat-page">
+  <div class="wrapper-profile">
+    <div class="container">
+      <h1 class="name-header mb-4"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
+      <h3>Last months' expenses</h3>
 
-        <div class="chart mb-4">
-          <% month_index = Expense::MONTHS.index(@month) %>
-          <% data = UserExpense.joins(:expense).where("user_expenses.user_id = ?", @user.id).where("expenses.payment_month" => month_range_expenses(3)).where("expenses.payment_year" => [2020, 2021]).group('expenses.category').group("expenses.payment_month").sum("expenses.amount") %>
-          <%= column_chart data, stacked: true, legend: false, colors: ['#00ABE7', '#FF707A', '#E9CD72', '#D39CD3'], height: '250px', messages: {empty: "No expenses yet"} %>
+      <div class="chart mb-4">
+        <% month_index = Expense::MONTHS.index(@month) %>
+        <% data = UserExpense.joins(:expense).where("user_expenses.user_id = ?", @user.id).where("expenses.payment_month" => month_range_expenses(3)).where("expenses.payment_year" => [2020, 2021]).group('expenses.category').group("expenses.payment_month").sum("expenses.amount") %>
+        <%= column_chart data, stacked: true, legend: false, colors: ['#00ABE7', '#FF707A', '#E9CD72', '#D39CD3'], height: '250px', messages: {empty: "No expenses yet"} %>
+      </div>
+
+      <div class="categories d-flex mb-3 justify-content-around">
+        <% @categories.each do |category| %>
+        <div class="category d-flex align-items-center py-4">
+          <i class="fas fa-circle circle-<%= category.downcase %> mr-1"></i>
+          <p class="m-0"><%= category %></p>
         </div>
+        <% end %>
+      </div>
 
-        <div class="categories d-flex mb-3 justify-content-around">
-          <% @categories.each do |category| %>
-            <div class="category d-flex align-items-center py-4">
-              <i class="fas fa-circle circle-<%= category.downcase %> mr-1"></i>
-              <p class="m-0"><%= category %></p>
-            </div>
-          <% end %>
-        </div>
+      <h3 class="mt-4">Your monthly expenses</h3>
 
-        <h3 class="mt-4">Tus gastos de este mes</h3>
+      <div class="expenses">
+        <% @monthly_expenses.reverse.each do |expense| %>
+        <%= link_to flat_expense_path(current_user.flat, expense) do  %>
+        <div class="card-expense">
+          <div class="small-avatar avatar-expense-card" style="background-image: url(<%= expense.creator.photo_url %>)"></div>
+          <div class="color-separator expense-category-<%= expense.category.downcase %>"></div>
+          <div class="expense-info">
+            <h5 class="expense-category mb-0"> <%= expense.category %> </h5>
+            <p> <%= expense.created_at.strftime("%m/%d/%Y") %> </p>
+          </div>
 
-        <div class="expenses">
-          <% @monthly_expenses.reverse.each do |expense| %>
-            <%= link_to flat_expense_path(current_user.flat, expense) do  %>
-              <div class="card-expense">
-                <div class="small-avatar avatar-expense-card" style="background-image: url(<%= user_expense.expense.creator.photo_url %>)"></div>
-                <div class="color-separator expense-category-<%= user_expense.expense.category.downcase %>"></div>
-                <div class="expense-info">
-                  <h5 class="expense-category mb-0"> <%= user_expense.expense.category %> </h5>
-                  <p> <%= user_expense.expense.created_at.strftime("%m/%d/%Y") %> </p>
-                </div>
-
-                <div class="card-price">
-                  <% if user_expense.expense.users.include?(current_user) %>
-                    <h4 class="amount-to-pay mb-0">- <%= format_cost(user_expense.expense.amount / user_expense.expense.users.count).round(2) %>€ </h4>
-                  <% else %>
-                    <h4 class="expense-total-amount-big mb-0">+ <%= format_cost(user_expense.expense.amount)%>€ </h4>
-                  <% end %>
-                </div>
-
-              </div>
+          <div class="card-price">
+            <% if expense.users.include?(current_user) %>
+            <h4 class="amount-to-pay mb-0">- <%= format_cost(expense.amount / expense.users.count).round(2) %>€ </h4>
+            <% else %>
+            <h4 class="expense-total-amount-big mb-0">+ <%= format_cost(expense.amount)%>€ </h4>
             <% end %>
-          <% end %>
-        </div>
+          </div>
 
+        </div>
+        <% end %>
+        <% end %>
       </div>
 
     </div>
+
   </div>
+</div>
 

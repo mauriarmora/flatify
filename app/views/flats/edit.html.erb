@@ -3,60 +3,57 @@
 
 <div class="flat-form-wrapper" data-controller="flat">
   <%= simple_form_for(@flat) do |f| %>
-      <div
-        class="text-center preview-banner"
-        id="banner"
-        style="height: 25vh; z-index: -1; <%= "background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(#{@flat.photo.service_url})" if @flat.photo.attached? %>"
-      >
-        <h1 class="name-header mb-4"><%= @flat.name %> </h1>
-        <div class="upload-button-float">
-          <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input', data: { action: 'change->flat#updateButtonState', target: 'flat.image' }  }, label: '<i class="fas fa-images"></i>'.html_safe %>
+    <div class="text-center preview-banner" id="banner"
+    style="height: 25vh; z-index: -1; <%= "background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(#{@flat.photo.service_url})" if @flat.photo.attached? %>">
+    <h1 class="name-header mb-4"><%= @flat.name %> </h1>
+    <div class="upload-button-float">
+      <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input', data: { action: 'change->flat#updateButtonState', target: 'flat.image' }  }, label: '<i class="fas fa-images"></i>'.html_safe %>
+    </div>
+</div>
+  <div class="container wrapper-dashboard p-4">
+    <div class="update-flat-form mb-5">
+      <h3>Change the name of the flat</h3>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="flat-properties">
+        <%= f.input :name, placeholder: 'Introduce a flat name', label: false, wrapper_html: { class: 'w-100' }, input_html: { class: "flat-edit-input w-100", data: { action: 'keyup->flat#updateButtonState', target: 'flat.name' }} %>
+      </div>
+
+      <h3>Add or delete flat mates</h3>
+      <div class="addflatmates">
+        <input id="email-input" class="email-input" data-target="flat.email" type="text" placeholder="Email">
+        <input id="rent-input" class="rent-input" data-target="flat.rent" type="text" placeholder="Rent">
+        <div data-action="click->flat#fetchMate" class="add-flat-mate">
+          <i class="fas fa-plus"></i>
         </div>
       </div>
-      <div class="container wrapper-dashboard p-4">
-        <div class="update-flat-form mb-5">
-          <h3>Cambia el nombre del piso</h3>
-          <%= f.error_notification %>
-          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-          <div class="flat-properties">
-            <%= f.input :name, placeholder: 'Introduce a flat name', label: false, wrapper_html: { class: 'w-100' }, input_html: { class: "flat-edit-input w-100", data: { action: 'keyup->flat#updateButtonState', target: 'flat.name' }} %>
-          </div>
 
-          <h3>Añade o elimina compañeros del piso</h3>
-          <div class="addflatmates">
-            <input id="email-input" class="email-input" data-target="flat.email" type="text" placeholder="Email">
-            <input id="rent-input" class="rent-input" data-target="flat.rent" type="text" placeholder="Alquiler">
-            <div data-action="click->flat#fetchMate" class="add-flat-mate">
-              <i class="fas fa-plus"></i>
+      <hr class="my-4">
+
+      <div id="user-container" class="user-container" data-target="flat.flatmates">
+        <% @flat.users.each do |user| %>
+        <div class="new-mate-card position-relative">
+          <div class="mate-card-complete">
+            <div class="add-mate-card">
+              <div class="medium-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
+
+              <p><%= user.first_name || "Flatifyer" %></p>
             </div>
+            <p><%= user.rent.to_i %> € </p>
           </div>
-
-          <hr class="my-4">
-
-          <div id="user-container" class="user-container" data-target="flat.flatmates">
-            <% @flat.users.each do |user| %>
-              <div class="new-mate-card position-relative">
-                <div class="mate-card-complete">
-                  <div class="add-mate-card">
-                    <div class="medium-avatar" style="background-image: url(<%= user.photo_url %>)"></div>
-
-                    <p><%= user.first_name || "Flatifyer" %></p>
-                  </div>
-                  <p><%= user.rent.to_i %> € </p>
-                </div>
-                <% if user != @flat.admin %>
-                  <input type="hidden" name="flatmate_emails[]" value="<%= user.email %>" />
-                  <input type="hidden" name="rent[]" value="<%= user.rent %>" />
-                  <i class="fas fa-trash-alt delete-flatmate-link" data-action="click->flat#removeMate"></i>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
+          <% if user != @flat.admin %>
+          <input type="hidden" name="flatmate_emails[]" value="<%= user.email %>" />
+          <input type="hidden" name="rent[]" value="<%= user.rent %>" />
+          <i class="fas fa-trash-alt delete-flatmate-link" data-action="click->flat#removeMate"></i>
+          <% end %>
         </div>
+        <% end %>
       </div>
-      <div class="fixed-btn">
-        <%= f.submit 'GUARDAR CAMBIOS', class: 'disabledbtn', disabled: true, data: { target: 'flat.submit' } %>
-      </div>
+    </div>
+  </div>
+  <div class="fixed-btn">
+    <%= f.submit 'SAVE CHANGES', class: 'disabledbtn', disabled: true, data: { target: 'flat.submit' } %>
+  </div>
 
-  <% end %>
+<% end %>
 </div>
