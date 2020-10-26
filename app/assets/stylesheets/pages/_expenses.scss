@@ -31,8 +31,9 @@
 }
 
 .total-amount-exp h1 {
-  font-size: 90px;
+  font-size: 60px;
   margin: 0 auto;
+  margin-top: 20px;
   font-weight: bolder;
   color: white;
 }
@@ -97,7 +98,7 @@
   }
 }
 
-.category-exp-shopping {
+.category-exp-compras {
   background-color: #00ABE7;
   padding-bottom: 60px;
   text-align: center;
@@ -106,7 +107,7 @@
   margin-top: -9px;
 }
 
-.category-exp-pets {
+.category-exp-mascotas {
   background-color: #FF707A;
   padding-bottom: 60px;
   text-align: center;
@@ -115,7 +116,7 @@
   margin-top: -9px;
 }
 
-.category-exp-utilities {
+.category-exp-servicios {
   background-color: #E9CD72;
   padding-bottom: 60px;
   text-align: center;
@@ -124,7 +125,7 @@
   margin-top: -9px;
 }
 
-.category-exp-others {
+.category-exp-otros {
   background-color: #D39CD3;
   padding-bottom: 60px;
   text-align: center;
@@ -133,53 +134,53 @@
   margin-top: -9px;
 }
 
-.user-amount-shopping {
+.user-amount-compras {
   color: #00ABE7;
   border: 2px solid #00ABE7;
   border-radius: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  margin: 30px 0;
+  margin: 20px 0;
   h2 {
     font-size: 20px !important;
   }
 }
 
-.user-amount-pets {
+.user-amount-mascotas {
   color: #FF707A;
   border: 2px solid #FF707A;
   border-radius: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  margin: 40px 0;
+  margin: 20px 0;
   h2 {
     font-size: 20px !important;
   }
 }
 
-.user-amount-utilities {
+.user-amount-servicios {
   color: #E9CD72;
   border: 2px solid #E9CD72;
   border-radius: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  margin: 40px 0;
+  margin: 20px 0;
   h2 {
     font-size: 20px !important;
   }
 }
 
-.user-amount-others {
+.user-amount-otros {
   border: 2px solid #D39CD3;
   color: #D39CD3;
   border-radius: 10px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  margin: 40px 0;
+  margin: 20px 0;
   h2 {
     font-size: 20px !important;
   }

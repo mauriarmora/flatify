@@ -15,17 +15,17 @@
       </div>
       <div class="container wrapper-dashboard p-4">
         <div class="update-flat-form mb-5">
-          <h3>Update flat name </h3>
+          <h3>Cambia el nombre del piso</h3>
           <%= f.error_notification %>
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
           <div class="flat-properties">
             <%= f.input :name, placeholder: 'Introduce a flat name', label: false, wrapper_html: { class: 'w-100' }, input_html: { class: "flat-edit-input w-100", data: { action: 'keyup->flat#updateButtonState', target: 'flat.name' }} %>
           </div>
 
-          <h3>Add new flatmate</h3>
+          <h3>Añade o elimina compañeros del piso</h3>
           <div class="addflatmates">
-            <input id="email-input" class="email-input" data-target="flat.email" type="text" placeholder="Flatmate email">
-            <input id="rent-input" class="rent-input" data-target="flat.rent" type="text" placeholder="Rent">
+            <input id="email-input" class="email-input" data-target="flat.email" type="text" placeholder="Email">
+            <input id="rent-input" class="rent-input" data-target="flat.rent" type="text" placeholder="Alquiler">
             <div data-action="click->flat#fetchMate" class="add-flat-mate">
               <i class="fas fa-plus"></i>
             </div>
@@ -42,7 +42,7 @@
 
                     <p><%= user.first_name || "Flatifyer" %></p>
                   </div>
-                  <p>€ <%= user.rent.to_i %>  </p>
+                  <p><%= user.rent.to_i %> € </p>
                 </div>
                 <% if user != @flat.admin %>
                   <input type="hidden" name="flatmate_emails[]" value="<%= user.email %>" />
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="fixed-btn">
-        <%= f.submit 'Update flat', class: 'disabledbtn', disabled: true, data: { target: 'flat.submit' } %>
+        <%= f.submit 'GUARDAR CAMBIOS', class: 'disabledbtn', disabled: true, data: { target: 'flat.submit' } %>
       </div>
 
   <% end %>

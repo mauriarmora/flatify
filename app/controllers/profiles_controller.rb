@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
     @categories = Expense::CATEGORIES
     @months = Expense::MONTHS
 
-    @month = params[:date] ? params[:date][:date] : Date.today.strftime('%B')
+    @month = Expense::MONTHS[Date.today.strftime('%m').to_i - 1]
     @user_expenses = UserExpense.joins(:expense)
 
     if params[:date]

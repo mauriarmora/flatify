@@ -9,9 +9,7 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :invitable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
+  devise :invitable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   DEFAULT_AVATAR = 'https://res.cloudinary.com/dinkluxtp/image/upload/v1601458419/default-avatar-profile-trendy-style-social-media-user-icon-187599373_hkike6.jpg'
 

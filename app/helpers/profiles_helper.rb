@@ -1,6 +1,6 @@
 module ProfilesHelper
   def month_range_expenses(n)
-    month_index =  Expense::MONTHS.index(Date.today.strftime('%B'))
+    month_index =  Expense::MONTHS.index(Expense::MONTHS[Date.today.month - 1])
     if month_index < n
       months_range = []
       months_range << Expense::MONTHS[0 .. month_index]
