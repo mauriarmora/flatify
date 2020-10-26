@@ -9,8 +9,8 @@ class ProfilesController < ApplicationController
     @user_expenses = UserExpense.joins(:expense)
 
     if params[:date]
-      @user_expenses = @user_expenses.where("user_expenses.user_id = ? and expenses.payment_month = ?", @user.id, @month)
     end
+    @user_expenses = @user_expenses.where("user_expenses.user_id = ? and expenses.payment_month = ?", @user.id, @month)
 
     @monthly_expenses = current_user.filter_by_expense_month(@month)
   end
