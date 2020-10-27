@@ -6,9 +6,9 @@ class Expense < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :photo
 
-  CATEGORIES = %w(Compras Mascotas Servicios Otros)
-  MONTHS = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto",
-      "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+  CATEGORIES = %w(Shopping Pets Utilities Others)
+  MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
+      "September", "October", "November", "December"]
 
   validates :description, length: { maximum: 400 }
   validates :category, inclusion: { in: CATEGORIES }
