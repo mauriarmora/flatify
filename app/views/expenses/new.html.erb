@@ -35,7 +35,7 @@
               <label for="user_<%= user.id %>">
                 <div class="add-mate-card new-expense-user active" data-target="expense.user">
                   <div class="medium-avatar" style="background-image: url(<%= user.photo_url %>)" alt=""></div>
-                  <p> <%= user.first_name %> </p>
+                  <p> <%= user.first_name || 'Nameless' %> </p>
                 </div>
               </label>
             <% end %>

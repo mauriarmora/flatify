@@ -6,9 +6,9 @@ class Expense < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :photo
 
-  CATEGORIES = %w(Shopping Pets Utilities Others)
-  MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
-      "September", "October", "November", "December"]
+  CATEGORIES = %w(Shopping Pets Utilities Others).freeze
+  MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+            'September', 'October', 'November', 'December'].freeze
 
   validates :description, length: { maximum: 400 }
   validates :category, inclusion: { in: CATEGORIES }
