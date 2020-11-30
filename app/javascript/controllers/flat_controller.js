@@ -50,13 +50,12 @@ export default class extends Controller {
     .then(response => response.json())
     .then((data) => {
       emailInput.value = "";
-      console.log(data)
       const htmlEl = `
       <div class="new-mate-card position-relative">
         <div class="mate-card-complete">
           <div class="add-mate-card">
             <div class="medium-avatar" style="background-image: url(${data.image_url})"></div>
-              <p>${data.first_name || "Flatifyer"}</p>
+              <p>${data.first_name || "New user"}</p>
             </div>
             <p>€ ${rentInput.value}  </p>
           </div>

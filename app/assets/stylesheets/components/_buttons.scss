@@ -59,6 +59,20 @@
   }
 }
 
+.deletebtn {
+  padding: 10px 15px !important;
+  background: #FF707A !important;
+  border-radius: 10px !important;
+  color: white !important;
+  letter-spacing: 1px;
+  font-weight: 500 !important;
+  display: inline-block !important;
+  border: none !important;
+  text-transform: uppercase;
+  width: 131px;
+  margin: 0 auto !important;
+}
+
 .fixed-btn {
   text-align: center;
   position: fixed;

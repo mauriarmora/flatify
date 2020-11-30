@@ -48,7 +48,10 @@ class FlatsController < ApplicationController
   end
 
   def destroy
-    @flat.destroy
+    delete_flat = Flat.find(params[:id])
+    delete_flat.destroy
+
+    redirect_to '/'
   end
 
   def fetch_mate
